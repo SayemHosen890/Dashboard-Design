@@ -7,6 +7,19 @@ import { RiAuctionLine } from "react-icons/ri";
 import { MdOutlineArrowForwardIos } from "react-icons/md";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaUserShield } from "react-icons/fa6";
+import CategoryRoundedIcon from '@mui/icons-material/CategoryRounded';
+import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
+import { TbCodeVariablePlus } from "react-icons/tb";
+import { MdOutlineMessage } from "react-icons/md";
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import HistoryToggleOffIcon from '@mui/icons-material/HistoryToggleOff';
+import BarChartIcon from '@mui/icons-material/BarChart';
+import { MdSupport } from "react-icons/md";
+import SettingsIcon from '@mui/icons-material/Settings';
+import { CgProfile } from "react-icons/cg";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
@@ -20,10 +33,10 @@ const Sidebar = () => {
 
     return (
         <div>
-            <div className='bg-black mt-100 h-screen'>
+            <div className='bg-white mt-100 h-screen'>
                 <ul className='flex flex-col gap-4 p-6 mt-5'>
-                    <li>
-                        <Button className='flex items-center gap-x-2 text-white hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
+                    <li className=''>
+                        <Button className='flex items-center gap-x-2 hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
                             <span><LuLayoutDashboard /></span>
                             Dashboard
                         </Button>
@@ -48,55 +61,55 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><TrendingUpRoundedIcon /></span>
                             Transaction
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><CategoryRoundedIcon/></span>
                             Category Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><TbCodeVariablePlus /></span>
                             Variable Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><MdOutlineMessage /></span>
                             Review Conversation
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><AccountBalanceIcon /></span>
                             Bank Transfer
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><PersonAddAltIcon /></span>
                             Make Admin
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><ListAltIcon /></span>
                             Supervision Dashboard
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><HistoryToggleOffIcon /></span>
                             Activity Log
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><BarChartIcon /></span>
                             Audit Dashboard
                         </Button>
                     </li>
@@ -106,7 +119,7 @@ const Sidebar = () => {
                                 className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSupport(!openSupport)}
                             >
-                                <span><LuLayoutDashboard /></span>
+                                <span><MdSupport /></span>
                                 Support
                             </Button>
                             <span
@@ -131,7 +144,7 @@ const Sidebar = () => {
                                 className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSettings(!openSettings)}
                             >
-                                <span><LuLayoutDashboard /></span>
+                                <span><SettingsIcon /></span>
                                 Settings
                             </Button>
                             <span
@@ -153,13 +166,13 @@ const Sidebar = () => {
                     {/* ...rest of your menu... */}
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><CgProfile /></span>
                             Profile
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LuLayoutDashboard /></span>
+                            <span><LogoutIcon /></span>
                             Log Out
                         </Button>
                     </li>
