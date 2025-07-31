@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import { Link } from "react-router";
 import Button from '@mui/material/Button';
 import { LuLayoutDashboard } from "react-icons/lu";
 import { RiAuctionLine } from "react-icons/ri";
@@ -25,6 +26,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
+
 const Sidebar = () => {
     const [openSupport, setOpenSupport] = useState(false);
     const [openSettings, setOpenSettings] = useState(false);
@@ -32,84 +34,88 @@ const Sidebar = () => {
 
 
     return (
-        <div>
-            <div className='bg-white mt-100 h-screen'>
-                <ul className='flex flex-col gap-4 p-6 mt-5'>
-                    <li className=''>
-                        <Button className='flex items-center gap-x-2 hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
-                            <span><LuLayoutDashboard /></span>
-                            Dashboard
-                        </Button>
+        <div >
+            <div className='bg-white h-stretch'>
+                <ul className='flex flex-col gap-4 p-6'>
+                    <li>
+                        <Link to='/dashboard'>
+                            <Button className='flex items-center gap-x-2 hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
+                                <span className='text-xl'><LuLayoutDashboard /></span>
+                                Dashboard
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
-                            <span><RiAuctionLine /></span>
-                            Auction Management
-                        </Button>
+                        <Link to="/auction">
+                            <Button className='flex items-center gap-x-2 text-white hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
+                                <span className='text-xl'><RiAuctionLine /></span>
+                                Auction Management
+                            </Button>
+                        </Link>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><FaRegUserCircle /></span>
+                            <span className='text-xl'><FaRegUserCircle /></span>
                             User Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><FaUserShield /></span>
+                            <span className='text-xl'><FaUserShield /></span>
                             Partner Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><TrendingUpRoundedIcon /></span>
+                            <span className='text-xl'><TrendingUpRoundedIcon /></span>
                             Transaction
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><CategoryRoundedIcon/></span>
+                            <span className='text-xl'><CategoryRoundedIcon /></span>
                             Category Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><TbCodeVariablePlus /></span>
+                            <span className='text-xl'><TbCodeVariablePlus /></span>
                             Variable Management
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><MdOutlineMessage /></span>
+                            <span className='text-xl'><MdOutlineMessage /></span>
                             Review Conversation
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><AccountBalanceIcon /></span>
+                            <span className='text-xl'><AccountBalanceIcon /></span>
                             Bank Transfer
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><PersonAddAltIcon /></span>
+                            <span className='text-xl'><PersonAddAltIcon /></span>
                             Make Admin
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><ListAltIcon /></span>
+                            <span className='text-xl'><ListAltIcon /></span>
                             Supervision Dashboard
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><HistoryToggleOffIcon /></span>
+                            <span className='text-xl'><HistoryToggleOffIcon /></span>
                             Activity Log
                         </Button>
                     </li>
                     <li>
                         <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><BarChartIcon /></span>
+                            <span className='text-xl'><BarChartIcon /></span>
                             Audit Dashboard
                         </Button>
                     </li>
@@ -119,21 +125,21 @@ const Sidebar = () => {
                                 className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSupport(!openSupport)}
                             >
-                                <span><MdSupport /></span>
+                                <span className='text-xl'><MdSupport /></span>
                                 Support
                             </Button>
                             <span
-                                className='cursor-pointer px-2 text-white'
+                                className='cursor-pointer px-2 text-white text-xl'
                                 onClick={() => setOpenSupport(!openSupport)}
                             >
-                                <MdOutlineArrowForwardIos className={`transition-transform duration-200 ${openSupport ? 'rotate-90' : ''}`} />
+                                <MdOutlineArrowForwardIos className={`transition-transform duration-200 ${openSupport ? 'rotate-90' : 'text-black'}`} />
                             </span>
                         </div>
                         {openSupport && (
                             <div className="submenuwrapper flex justify-center ml-0 mt-2">
                                 <ul className="flex flex-col gap-2 items-center">
-                                    <li className="text-white hover:text-gray-400 cursor-pointer">File Claim</li>
-                                    <li className="text-white hover:text-gray-400 cursor-pointer">Ticket</li>
+                                    <li className="text-gray hover:text-gray-400 cursor-pointer">File Claim</li>
+                                    <li className="text-gray hover:text-gray-400 cursor-pointer">Ticket</li>
                                 </ul>
                             </div>
                         )}
@@ -144,21 +150,21 @@ const Sidebar = () => {
                                 className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSettings(!openSettings)}
                             >
-                                <span><SettingsIcon /></span>
+                                <span className='text-xl'><SettingsIcon /></span>
                                 Settings
                             </Button>
                             <span
-                                className='cursor-pointer px-2 text-white'
+                                className='cursor-pointer px-2 text-white text-xl'
                                 onClick={() => setOpenSettings(!openSettings)}
                             >
-                                <MdOutlineArrowForwardIos className={`transition-transform duration-200 ${openSettings ? 'rotate-90' : ''}`} />
+                                <MdOutlineArrowForwardIos className={`transition-transform duration-200 ${openSettings ? 'rotate-90' : 'text-black'}`} />
                             </span>
                         </div>
                         {openSettings && (
                             <div className="submenuwrapper flex justify-center ml-0 mt-2">
                                 <ul className="flex flex-col gap-2 items-center">
-                                    <li className="text-white hover:text-gray-400 cursor-pointer">Terms & Conditions</li>
-                                    <li className="text-white hover:text-gray-400 cursor-pointer">Privacy Policy</li>
+                                    <li className="text-gray hover:text-gray-400 cursor-pointer">Terms & Conditions</li>
+                                    <li className="text-gray hover:text-gray-400 cursor-pointer">Privacy Policy</li>
                                 </ul>
                             </div>
                         )}
@@ -170,12 +176,14 @@ const Sidebar = () => {
                             Profile
                         </Button>
                     </li>
-                    <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span><LogoutIcon /></span>
-                            Log Out
-                        </Button>
-                    </li>
+                    <div className='mt-10'>
+                        <li>
+                            <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full' style={{ marginTop: 20 }}>
+                                <span><LogoutIcon /></span>
+                                Log Out
+                            </Button>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div >

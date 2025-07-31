@@ -1,13 +1,14 @@
 import React from 'react'
+// import "./Header.css"
 import logo from "../../../assets/logo.png"
 import logo1 from "../../../assets/logo1.png"
 import { FaRegBell } from "react-icons/fa";
 
 const Header = () => {
     return (
-        <div className='flex justify-between items-center px-10 py-3 bg-white'>
-            <div className='ml-6'>
-                <img className='h-20 w-60 p-20 bg-white mr-10' src={logo} alt="" />
+        <div className='flex justify-between items-center bg-white header'>
+            <div>
+                <img className='h-20 w-60 bg-white' src={logo} alt="" />
             </div>
             <div className='flex items-center gap-x-6 mr-10'>
                 <div>
