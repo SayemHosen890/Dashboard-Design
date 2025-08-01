@@ -1,5 +1,6 @@
 import React from 'react'
 import { BarChart, Bar, Rectangle, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { IoIosArrowDown } from "react-icons/io";
 
 
 export const Barchart = () => {
@@ -49,6 +50,17 @@ export const Barchart = () => {
     ];
     return (
         <>
+            <div className='flex w-[750px] justify-between !py-5'>
+                <div>
+                    <h2 className='font-bold text-xl'>User & Partner Growth</h2>
+                </div>
+                <div className='flex items-center'>
+                    <button className='border flex items-center justify-between gap-2 px-6 py-3 w-20'>
+                        <span> 2024</span>
+                        <IoIosArrowDown />
+                    </button>
+                </div>
+            </div>
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     width={500}
@@ -66,8 +78,8 @@ export const Barchart = () => {
                     <YAxis />
                     {/* <Tooltip /> */}
                     {/* <Legend /> */}
-                    <Bar dataKey="pv" fill="#8884d8"  />
-                    <Bar dataKey="uv" fill="#82ca9d"  />
+                    <Bar dataKey="pv" fill="#8884d8" />
+                    <Bar dataKey="uv" fill="#82ca9d" />
                 </BarChart>
             </ResponsiveContainer>
         </>

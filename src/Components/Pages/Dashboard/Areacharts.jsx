@@ -1,5 +1,6 @@
 import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { IoIosArrowDown } from "react-icons/io";
 
 
 
@@ -50,12 +51,15 @@ const Areacharts = () => {
     ];
     return (
         <>
-            <div className='flex jusify-between items-center' style={{ display:'flex', justifyContent:'space-between', alignItems:'center'}}>
+            <div className='flex w-[750px] justify-between !py-5'>
                 <div>
-                    <h2>Hello</h2>
+                    <h2 className='font-bold text-xl'>Income Overview</h2>
                 </div>
-                <div>
-                    <input type="button" value="2024" className='border w-20' />
+                <div className='flex items-center'>
+                    <button className='border flex items-center justify-between gap-2 px-6 py-3 w-20'>
+                        <span> 2024</span>
+                        <IoIosArrowDown />
+                    </button>
                 </div>
             </div>
             <ResponsiveContainer width="100%" height="100%">

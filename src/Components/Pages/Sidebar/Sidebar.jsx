@@ -32,14 +32,21 @@ const Sidebar = () => {
     const [openSettings, setOpenSettings] = useState(false);
 
 
+    // const navitems = [{
+    //     id: 1,
+    //     icon: <LuLayoutDashboard />,
+    //     name: 'dashboard',
+    //     path: '/dashboard',
+    // }]
+
 
     return (
         <div >
-            <div className='bg-white h-stretch'>
-                <ul className='flex flex-col gap-4 p-6'>
+            <div className='!bg-white h-screen'>
+                <ul className='flex flex-col gap-4 p-6 !bg-white'>
                     <li>
                         <Link to='/dashboard'>
-                            <Button className='flex items-center gap-x-2 hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
+                            <Button className='flex !justify-start gap-x-2 hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
                                 <span className='text-xl'><LuLayoutDashboard /></span>
                                 Dashboard
                             </Button>
@@ -47,82 +54,94 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/auction">
-                            <Button className='flex items-center gap-x-2 text-white hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
+                            <Button className='flex  !justify-start gap-x-2 text-white hover:bg-gray-800 w-full px-3 py-2 rounded transition'>
                                 <span className='text-xl'><RiAuctionLine /></span>
                                 Auction Management
                             </Button>
                         </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span className='text-xl'><FaRegUserCircle /></span>
-                            User Management
-                        </Button>
+                        <Link to="/userManage">
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                                <span className='text-xl'><FaRegUserCircle /></span>
+                                User Management
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span className='text-xl'><FaUserShield /></span>
-                            Partner Management
-                        </Button>
+                        <Link to="/partnerManage">
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                                <span className='text-xl'><FaUserShield /></span>
+                                Partner Management
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span className='text-xl'><TrendingUpRoundedIcon /></span>
-                            Transaction
-                        </Button>
+                        <Link to="/transaction">
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                                <span className='text-xl'><TrendingUpRoundedIcon /></span>
+                                Transaction
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span className='text-xl'><CategoryRoundedIcon /></span>
-                            Category Management
-                        </Button>
+                        <Link to="/firstCategory">
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                                <span className='text-xl'><CategoryRoundedIcon /></span>
+                                Category Management
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
-                            <span className='text-xl'><TbCodeVariablePlus /></span>
-                            Variable Management
-                        </Button>
+                        <Link to="/variable">
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                                <span className='text-xl'><TbCodeVariablePlus /></span>
+                                Variable Management
+                            </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Link to="/conversation">
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><MdOutlineMessage /></span>
                             Review Conversation
                         </Button>
+                        </Link>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><AccountBalanceIcon /></span>
                             Bank Transfer
                         </Button>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><PersonAddAltIcon /></span>
                             Make Admin
                         </Button>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><ListAltIcon /></span>
                             Supervision Dashboard
                         </Button>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><HistoryToggleOffIcon /></span>
                             Activity Log
                         </Button>
                     </li>
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span className='text-xl'><BarChartIcon /></span>
                             Audit Dashboard
                         </Button>
                     </li>
                     <li>
-                        <div className='flex items-center justify-between w-full'>
+                        <div className='flex  !justify-start justify-between w-full'>
                             <Button
-                                className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
+                                className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSupport(!openSupport)}
                             >
                                 <span className='text-xl'><MdSupport /></span>
@@ -136,7 +155,7 @@ const Sidebar = () => {
                             </span>
                         </div>
                         {openSupport && (
-                            <div className="submenuwrapper flex justify-center ml-0 mt-2">
+                            <div className="flex  !justify-start ml-0 mt-2">
                                 <ul className="flex flex-col gap-2 items-center">
                                     <li className="text-gray hover:text-gray-400 cursor-pointer">File Claim</li>
                                     <li className="text-gray hover:text-gray-400 cursor-pointer">Ticket</li>
@@ -145,9 +164,9 @@ const Sidebar = () => {
                         )}
                     </li>
                     <li>
-                        <div className='flex items-center justify-between w-full'>
+                        <div className='flex  !justify-start justify-between w-full'>
                             <Button
-                                className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'
+                                className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'
                                 onClick={() => setOpenSettings(!openSettings)}
                             >
                                 <span className='text-xl'><SettingsIcon /></span>
@@ -161,7 +180,7 @@ const Sidebar = () => {
                             </span>
                         </div>
                         {openSettings && (
-                            <div className="submenuwrapper flex justify-center ml-0 mt-2">
+                            <div className=" flex !justify-start ml-0 mt-2">
                                 <ul className="flex flex-col gap-2 items-center">
                                     <li className="text-gray hover:text-gray-400 cursor-pointer">Terms & Conditions</li>
                                     <li className="text-gray hover:text-gray-400 cursor-pointer">Privacy Policy</li>
@@ -171,14 +190,14 @@ const Sidebar = () => {
                     </li>
                     {/* ...rest of your menu... */}
                     <li>
-                        <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
+                        <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full'>
                             <span><CgProfile /></span>
                             Profile
                         </Button>
                     </li>
                     <div className='mt-10'>
                         <li>
-                            <Button className='flex items-center gap-x-2 text-white-700 hover:bg-gray-300 w-full' style={{ marginTop: 20 }}>
+                            <Button className='flex  !justify-start gap-x-2 text-white-700 hover:bg-gray-300 w-full' style={{ marginTop: 20 }}>
                                 <span><LogoutIcon /></span>
                                 Log Out
                             </Button>
