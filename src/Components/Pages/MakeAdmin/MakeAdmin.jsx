@@ -1,138 +1,89 @@
 import React from "react";
-import { FaCommentDots, FaEye } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const data = [
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Kathryn Murp",
+    userImg: "https://randomuser.me/api/portraits/women/1.jpg",
+    email: "bockely@att.com",
+    contactNumber: "(201) 555-0124",
+    hasAccessTo: "User Management",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Devon Lane",
+    userImg: "https://randomuser.me/api/portraits/men/2.jpg",
+    email: "csilvers@rizon.com",
+    contactNumber: "(219) 555-0114",
+    hasAccessTo: "Auction Management",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Foysal Rahman",
+    userImg: "https://randomuser.me/api/portraits/men/3.jpg",
+    email: "qamaho@mail.com",
+    contactNumber: "(316) 555-0116",
+    hasAccessTo: "Partner Management",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Hari Danang",
+    userImg: "https://randomuser.me/api/portraits/men/4.jpg",
+    email: "xterris@gmail.com",
+    contactNumber: "(201) 555-0124",
+    hasAccessTo: "Variable Management",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Floyd Miles",
+    userImg: "https://randomuser.me/api/portraits/men/5.jpg",
+    email: "floyd@example.com",
+    contactNumber: "(219) 555-0114",
+    hasAccessTo: "Review Conversation",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Eleanor Pena",
+    userImg: "https://randomuser.me/api/portraits/women/6.jpg",
+    email: "eleanor@example.com",
+    contactNumber: "(316) 555-0116",
+    hasAccessTo: "Bank Transfer",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Sarah Johnson",
+    userImg: "https://randomuser.me/api/portraits/women/7.jpg",
+    email: "sarah@example.com",
+    contactNumber: "(201) 555-0124",
+    hasAccessTo: "Transaction",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Michael Chen",
+    userImg: "https://randomuser.me/api/portraits/men/8.jpg",
+    email: "michael@example.com",
+    contactNumber: "(219) 555-0114",
+    hasAccessTo: "Support",
   },
   {
     id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    name: "Emily Davis",
+    userImg: "https://randomuser.me/api/portraits/women/9.jpg",
+    email: "emily@example.com",
+    contactNumber: "(316) 555-0116",
+    hasAccessTo: "Category Management",
   },
-  {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
-  },
-  // Add more sample rows here...
 ];
 
-const UserManage = () => {
+const MakeAdmin = () => {
   return (
     <div>
       <div
         style={{
           padding: "24px",
           backgroundColor: "#f9fafb",
-          height: "100vh",
+          minHeight: "100vh",
           fontFamily: "sans-serif",
         }}
       >
@@ -158,22 +109,50 @@ const UserManage = () => {
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
             >
-              User Management
+              Make Admin
             </h1>
           </div>
-          <div>
+          <div style={{ position: "relative" }}>
             <input
               type="text"
               placeholder="Search here..."
               style={{
                 border: "1px solid #d1d5db",
-                padding: "8px 16px",
+                padding: "8px 16px 8px 40px",
                 borderRadius: "6px",
                 width: "256px",
                 outline: "none",
               }}
             />
+            <div
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#6b7280",
+              }}
+            >
+              🔍
+            </div>
           </div>
+        </div>
+
+        <div style={{ marginBottom: "24px" }}>
+          <button
+            style={{
+              backgroundColor: "#000000",
+              color: "white",
+              padding: "12px 24px",
+              borderRadius: "8px",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: "500",
+            }}
+          >
+            + Make Admin
+          </button>
         </div>
 
         <div
@@ -203,7 +182,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  User's Name
+                  Admin Name
                 </th>
                 <th
                   style={{
@@ -230,7 +209,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Location
+                  Has Access to
                 </th>
                 <th
                   style={{
@@ -240,33 +219,6 @@ const UserManage = () => {
                   }}
                 >
                   Action
-                </th>
-                <th
-                  style={{
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    fontWeight: "500",
-                  }}
-                >
-                  View Details
-                </th>
-                <th
-                  style={{
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    fontWeight: "500",
-                  }}
-                >
-                  Notice
-                </th>
-                <th
-                  style={{
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    fontWeight: "500",
-                  }}
-                >
-                  Chat
                 </th>
               </tr>
             </thead>
@@ -288,53 +240,55 @@ const UserManage = () => {
                         style={{
                           width: "40px",
                           height: "40px",
-                          borderRadius: "50%",
+                          borderRadius: "4px",
                           objectFit: "cover",
                         }}
                       />
-                      <span style={{ fontWeight: "500" }}>{item.user}</span>
+                      <span style={{ fontWeight: "500" }}>{item.name}</span>
                     </div>
                   </td>
                   <td style={{ padding: "16px" }}>{item.email}</td>
                   <td style={{ padding: "16px" }}>{item.contactNumber}</td>
-                  <td style={{ padding: "16px" }}>{item.location}</td>
                   <td style={{ padding: "16px" }}>
-                    <button
-                      style={{
-                        border: "1px solid #f87171",
-                        color: "#dc2626",
-                        padding: "8px 16px",
-                        borderRadius: "9999px",
-                        fontSize: "14px",
-                        fontWeight: "500",
-                        cursor: "pointer",
-                      }}
-                    >
-                      Refund
-                    </button>
+                    <span style={{ color: "#374151" }}>{item.hasAccessTo}</span>
                   </td>
                   <td style={{ padding: "16px" }}>
-                    <button
-                      style={{
-                        backgroundColor: "#3b82f6",
-                        color: "white",
-                        padding: "8px",
-                        borderRadius: "50%",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <FaEye size={16} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaEye size={20} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaCommentDots size={20} />
-                    </button>
+                    <div style={{ display: "flex", gap: "8px" }}>
+                      <button
+                        style={{
+                          backgroundColor: "#3b82f6",
+                          color: "white",
+                          padding: "8px",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          border: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "32px",
+                          height: "32px",
+                        }}
+                      >
+                        <FaEdit size={14} />
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "#ef4444",
+                          color: "white",
+                          padding: "8px",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          border: "none",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "32px",
+                          height: "32px",
+                        }}
+                      >
+                        <FaTrash size={14} />
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))}
@@ -345,11 +299,12 @@ const UserManage = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
             marginTop: "24px",
             fontSize: "14px",
             color: "#6b7280",
+            gap: "16px",
           }}
         >
           <span>Showing 1-11 out of 1239</span>
@@ -360,6 +315,9 @@ const UserManage = () => {
                 border: "1px solid #d1d5db",
                 borderRadius: "4px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#6b7280",
+                fontSize: "14px",
               }}
             >
               Previous
@@ -376,6 +334,8 @@ const UserManage = () => {
                 borderRadius: "4px",
                 fontSize: "14px",
                 fontWeight: "500",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               1
@@ -391,9 +351,28 @@ const UserManage = () => {
                 borderRadius: "4px",
                 fontSize: "14px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
               }}
             >
               2
+            </button>
+            <button
+              style={{
+                width: "32px",
+                height: "32px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid #d1d5db",
+                borderRadius: "4px",
+                fontSize: "14px",
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
+              }}
+            >
+              3
             </button>
             <span>...</span>
             <button
@@ -407,6 +386,8 @@ const UserManage = () => {
                 borderRadius: "4px",
                 fontSize: "14px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
               }}
             >
               100
@@ -417,6 +398,9 @@ const UserManage = () => {
                 border: "1px solid #d1d5db",
                 borderRadius: "4px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#6b7280",
+                fontSize: "14px",
               }}
             >
               Next
@@ -428,4 +412,4 @@ const UserManage = () => {
   );
 };
 
-export default UserManage;
+export default MakeAdmin;

@@ -1,138 +1,140 @@
 import React from "react";
-import { FaCommentDots, FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 const data = [
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 1,
+    name: "Kathryn Murphy",
+    role: "Partner",
+    userImg: "https://randomuser.me/api/portraits/women/1.jpg",
+    requestAmount: "$24.00",
+    totalBalance: "$24.00",
+    accountNo: "435634636",
+    status: "Pending",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 2,
+    name: "Devon Lane",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/men/2.jpg",
+    requestAmount: "$20.00",
+    totalBalance: "$20.00",
+    accountNo: "534534535",
+    status: "Completed",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 3,
+    name: "Foysal Rahman",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/men/3.jpg",
+    requestAmount: "$45.00",
+    totalBalance: "$45.00",
+    accountNo: "453453425",
+    status: "Pending",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 4,
+    name: "Hari Danang",
+    role: "Partner",
+    userImg: "https://randomuser.me/api/portraits/men/4.jpg",
+    requestAmount: "$35.00",
+    totalBalance: "$35.00",
+    accountNo: "546745656",
+    status: "Completed",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 5,
+    name: "Sarah Johnson",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/women/5.jpg",
+    requestAmount: "$30.00",
+    totalBalance: "$30.00",
+    accountNo: "123456789",
+    status: "Pending",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 6,
+    name: "Michael Chen",
+    role: "Partner",
+    userImg: "https://randomuser.me/api/portraits/men/6.jpg",
+    requestAmount: "$50.00",
+    totalBalance: "$50.00",
+    accountNo: "987654321",
+    status: "Completed",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 7,
+    name: "Emily Davis",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/women/7.jpg",
+    requestAmount: "$28.00",
+    totalBalance: "$28.00",
+    accountNo: "456789123",
+    status: "Pending",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 8,
+    name: "David Wilson",
+    role: "Partner",
+    userImg: "https://randomuser.me/api/portraits/men/8.jpg",
+    requestAmount: "$42.00",
+    totalBalance: "$42.00",
+    accountNo: "789123456",
+    status: "Completed",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 9,
+    name: "Lisa Brown",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/women/9.jpg",
+    requestAmount: "$38.00",
+    totalBalance: "$38.00",
+    accountNo: "321654987",
+    status: "Pending",
   },
   {
-    id: "#1233",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    email: "whatever@gmail.com",
-    contactNumber: "(201) 555-4445",
-    location: "Aurora, OR 97600",
-    action: "Action",
-    viewDetails: "Completed",
-    notice: "notice",
-    chat: "chat",
+    id: 10,
+    name: "Robert Taylor",
+    role: "Partner",
+    userImg: "https://randomuser.me/api/portraits/men/10.jpg",
+    requestAmount: "$55.00",
+    totalBalance: "$55.00",
+    accountNo: "654987321",
+    status: "Completed",
   },
-  // Add more sample rows here...
+  {
+    id: 11,
+    name: "Jennifer Lee",
+    role: "User",
+    userImg: "https://randomuser.me/api/portraits/women/11.jpg",
+    requestAmount: "$33.00",
+    totalBalance: "$33.00",
+    accountNo: "147258369",
+    status: "Pending",
+  },
 ];
 
-const UserManage = () => {
+const statusColor = {
+  Pending: {
+    color: "#2563eb",
+    backgroundColor: "#eff6ff",
+    borderColor: "#2563eb",
+  },
+  Completed: {
+    color: "#059669",
+    backgroundColor: "#ecfdf5",
+    borderColor: "#059669",
+  },
+};
+
+const BankTransfer = () => {
   return (
     <div>
       <div
         style={{
           padding: "24px",
           backgroundColor: "#f9fafb",
-          height: "100vh",
+          minHeight: "100vh",
           fontFamily: "sans-serif",
         }}
       >
@@ -158,21 +160,32 @@ const UserManage = () => {
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
             >
-              User Management
+              Bank Transfer
             </h1>
           </div>
-          <div>
+          <div style={{ position: "relative" }}>
             <input
               type="text"
               placeholder="Search here..."
               style={{
                 border: "1px solid #d1d5db",
-                padding: "8px 16px",
+                padding: "8px 16px 8px 40px",
                 borderRadius: "6px",
                 width: "256px",
                 outline: "none",
               }}
             />
+            <div
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#6b7280",
+              }}
+            >
+              🔍
+            </div>
           </div>
         </div>
 
@@ -194,7 +207,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  SL no.
+                  Name
                 </th>
                 <th
                   style={{
@@ -203,7 +216,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  User's Name
+                  Role
                 </th>
                 <th
                   style={{
@@ -212,7 +225,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Email
+                  Request Amount
                 </th>
                 <th
                   style={{
@@ -221,7 +234,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Contact Number
+                  Total Balance
                 </th>
                 <th
                   style={{
@@ -230,7 +243,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Location
+                  Account No.
                 </th>
                 <th
                   style={{
@@ -239,7 +252,7 @@ const UserManage = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Action
+                  Status
                 </th>
                 <th
                   style={{
@@ -250,30 +263,11 @@ const UserManage = () => {
                 >
                   View Details
                 </th>
-                <th
-                  style={{
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    fontWeight: "500",
-                  }}
-                >
-                  Notice
-                </th>
-                <th
-                  style={{
-                    padding: "12px 16px",
-                    textAlign: "left",
-                    fontWeight: "500",
-                  }}
-                >
-                  Chat
-                </th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, i) => (
                 <tr key={i} style={{ borderBottom: "1px solid #f3f4f6" }}>
-                  <td style={{ padding: "16px" }}>{item.id}</td>
                   <td style={{ padding: "16px" }}>
                     <div
                       style={{
@@ -288,30 +282,43 @@ const UserManage = () => {
                         style={{
                           width: "40px",
                           height: "40px",
-                          borderRadius: "50%",
+                          borderRadius: "4px",
                           objectFit: "cover",
                         }}
                       />
-                      <span style={{ fontWeight: "500" }}>{item.user}</span>
+                      <span style={{ fontWeight: "500" }}>{item.name}</span>
                     </div>
                   </td>
-                  <td style={{ padding: "16px" }}>{item.email}</td>
-                  <td style={{ padding: "16px" }}>{item.contactNumber}</td>
-                  <td style={{ padding: "16px" }}>{item.location}</td>
                   <td style={{ padding: "16px" }}>
-                    <button
+                    <span style={{ color: "#374151" }}>{item.role}</span>
+                  </td>
+                  <td style={{ padding: "16px", fontWeight: "500" }}>
+                    {item.requestAmount}
+                  </td>
+                  <td style={{ padding: "16px", fontWeight: "500" }}>
+                    {item.totalBalance}
+                  </td>
+                  <td style={{ padding: "16px" }}>{item.accountNo}</td>
+                  <td style={{ padding: "16px" }}>
+                    <span
                       style={{
-                        border: "1px solid #f87171",
-                        color: "#dc2626",
-                        padding: "8px 16px",
+                        border: `1px solid ${
+                          statusColor[item.status].borderColor
+                        }`,
+                        padding: "6px 12px",
                         borderRadius: "9999px",
-                        fontSize: "14px",
+                        fontSize: "12px",
                         fontWeight: "500",
-                        cursor: "pointer",
+                        color: statusColor[item.status].color,
+                        backgroundColor:
+                          statusColor[item.status].backgroundColor,
+                        display: "inline-block",
+                        minWidth: "80px",
+                        textAlign: "center",
                       }}
                     >
-                      Refund
-                    </button>
+                      {item.status}
+                    </span>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button
@@ -321,19 +328,13 @@ const UserManage = () => {
                         padding: "8px",
                         borderRadius: "50%",
                         cursor: "pointer",
+                        border: "none",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
                       <FaEye size={16} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaEye size={20} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaCommentDots size={20} />
                     </button>
                   </td>
                 </tr>
@@ -353,73 +354,100 @@ const UserManage = () => {
           }}
         >
           <span>Showing 1-11 out of 1239</span>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
             <button
               style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
+                padding: "4px 8px",
+                border: "none",
+                background: "none",
                 cursor: "pointer",
+                color: "#6b7280",
+                fontSize: "14px",
               }}
             >
-              Previous
+              &lt; Previous
             </button>
             <button
               style={{
-                width: "32px",
-                height: "32px",
+                width: "28px",
+                height: "28px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "#3b82f6",
                 color: "white",
                 borderRadius: "4px",
-                fontSize: "14px",
+                fontSize: "12px",
                 fontWeight: "500",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               1
             </button>
             <button
               style={{
-                width: "32px",
-                height: "32px",
+                width: "28px",
+                height: "28px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 border: "1px solid #d1d5db",
                 borderRadius: "4px",
-                fontSize: "14px",
+                fontSize: "12px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
               }}
             >
               2
             </button>
-            <span>...</span>
             <button
               style={{
-                width: "32px",
-                height: "32px",
+                width: "28px",
+                height: "28px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 border: "1px solid #d1d5db",
                 borderRadius: "4px",
-                fontSize: "14px",
+                fontSize: "12px",
                 cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
+              }}
+            >
+              3
+            </button>
+            <span style={{ margin: "0 4px" }}>...</span>
+            <button
+              style={{
+                width: "28px",
+                height: "28px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: "1px solid #d1d5db",
+                borderRadius: "4px",
+                fontSize: "12px",
+                cursor: "pointer",
+                backgroundColor: "white",
+                color: "#374151",
               }}
             >
               100
             </button>
             <button
               style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
+                padding: "4px 8px",
+                border: "none",
+                background: "none",
                 cursor: "pointer",
+                color: "#6b7280",
+                fontSize: "14px",
               }}
             >
-              Next
+              Next &gt;
             </button>
           </div>
         </div>
@@ -428,4 +456,4 @@ const UserManage = () => {
   );
 };
 
-export default UserManage;
+export default BankTransfer;
