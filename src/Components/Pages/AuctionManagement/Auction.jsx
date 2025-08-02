@@ -478,9 +478,8 @@ const Auction = () => {
                   <td style={{ padding: "16px" }}>
                     <span
                       style={{
-                        border: `1px solid ${
-                          statusColor[item.status].borderColor
-                        }`,
+                        border: `1px solid ${statusColor[item.status].borderColor
+                          }`,
                         padding: "8px 16px",
                         borderRadius: "9999px",
                         fontSize: "14px",

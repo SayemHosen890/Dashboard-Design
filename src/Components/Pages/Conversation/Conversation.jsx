@@ -64,191 +64,212 @@ const conversation = [
 
 const Conversation = () => {
   return (
-    <div className="flex h-screen p-5 gap-5 bg-gray-100">
-      {/* Left Sidebar */}
-      <div className="w-1/3 bg-gray-200 rounded-xl shadow overflow-y-auto scrollbar-hide">
-        <ul className="space-y-2 ml-4">
-          <span className="ml-5 text-gray-700 p-5 text-xl font-bold">Conversation Between</span>
-          <hr className="border border-gray-400 mx-4 mb-2" />
-
-          {conversations.map((conv, i) => (
-            <div key={i}>
-              <li className="cursor-pointer flex items-center !px-5 !py-5 gap-4 rounded-lg">
-                <div className="flex -space-x-2">
-                  <img
-                    src={conv.image1}
-                    alt="avatar1"
-                    className="w-12 h-12 rounded-full object-cover border-2 border-white"
-                  />
-                  <img
-                    src={conv.image2}
-                    alt="avatar2"
-                    className="w-12 h-12 rounded-full object-cover border-2 border-white"
-                  />
-                </div>
-                <span className="text-base font-medium ml-2">{conv.name}</span>
-              </li>
-              <hr className="border-t border-gray-400 mx-4" />
-            </div>
-          ))}
-        </ul>
-      </div>
-
-      {/* Right Chat Conversation */}
-      <div className="w-3/4 bg-white rounded-xl shadow p-6 flex flex-col justify-between overflow-y-auto scrollbar-hide">
+    <>
+      <div className="flex h-screen p-5 gap-5 bg-gray-100">
         <div>
-          <h2 className="text-xl font-semibold text-gray-700 mb-5">Conversation Overview</h2>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "16px 24px",
+              backgroundColor: "#f9fafb",
+              borderBottom: "1px solid #e5e7eb",
+              borderRadius: "8px",
+              marginBottom: "16px",
+            }}
+          >
+            {/* Back button and title */}
 
-          <div className="space-y-6">
-            {/* Message 1 - Alice */}
-            <div className="flex items-start gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
-                  Hey Bob, have you finished reviewing the presentation slides? The meeting is just
-                  around the corner, and I want to make sure we’re aligned.
-                </p>
-                <span className="text-xs text-gray-500">9:00 AM</span>
-              </div>
-            </div>
+            {/* Search input */}
+          </div>
+        </div>
+        {/* Left Sidebar */}
+        <div className="w-1/3 bg-gray-200 rounded-xl shadow overflow-y-auto scrollbar-hide">
+          <ul className="space-y-2 ml-4">
+            <span className="!ml-5 text-gray-700 !py-5 text-xl font-bold">Conversation Between</span>
+            <hr className="border border-gray-400 mx-4 mb-2" />
 
-            {/* Message 2 - Bob */}
-            <div className="flex items-start gap-4 justify-end">
-              <div className="text-right">
-                <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
-                  Hey Alice, yes I’ve gone through them and made a few minor tweaks. I’ll send them
-                  to you by noon so you can take a final look before the call.
-                </p>
-                <span className="text-xs text-gray-500">9:05 AM</span>
+            {conversations.map((conv, i) => (
+              <div key={i}>
+                <li className="cursor-pointer flex items-center !px-5 !py-5 gap-4 rounded-lg">
+                  <div className="flex -space-x-2">
+                    <img
+                      src={conv.image1}
+                      alt="avatar1"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                    />
+                    <img
+                      src={conv.image2}
+                      alt="avatar2"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                    />
+                  </div>
+                  <span className="text-base font-medium ml-2">{conv.name}</span>
+                </li>
+                <hr className="border-t border-gray-300 mx-4" />
               </div>
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-            </div>
+            ))}
+          </ul>
+        </div>
 
-            {/* Message 3 - Alice */}
-            <div className="flex items-start gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
-                  Perfect. Let me know if you want me to add anything extra. I’m planning to
-                  emphasize our quarterly achievements and upcoming initiatives.
-                </p>
-                <span className="text-xs text-gray-500">9:07 AM</span>
+        {/* Right Chat Conversation */}
+        <div className="w-3/4 bg-white rounded-xl shadow p-6 flex flex-col justify-between overflow-y-auto scrollbar-hide">
+          <div>
+            {/* <h2 className="text-xl font-semibold text-gray-700 mb-5">Conversation Overview</h2> */}
+            <span className="!ml-5 text-gray-700 !py-5 text-xl font-bold">Conversation Overview</span>
+            <hr className="border border-gray-400 mx-4 mb-2" />
+            <div className="space-y-6">
+              {/* Message 1 - Alice */}
+              <div className="flex items-start gap-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
+                    Hey Bob, have you finished reviewing the presentation slides? The meeting is just
+                    around the corner, and I want to make sure we’re aligned.
+                  </p>
+                  <span className="text-xs text-gray-500">9:00 AM</span>
+                </div>
               </div>
-            </div>
 
-            {/* Message 4 - Bob */}
-            <div className="flex items-start gap-4 justify-end">
-              <div className="text-right">
-                <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
-                  That sounds good! Just make sure to include the client feedback highlights too.
-                  Those were a big win last month.
-                </p>
-                <span className="text-xs text-gray-500">9:10 AM</span>
+              {/* Message 2 - Bob */}
+              <div className="flex items-start gap-4 justify-end">
+                <div className="text-right">
+                  <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
+                    Hey Alice, yes I’ve gone through them and made a few minor tweaks. I’ll send them
+                    to you by noon so you can take a final look before the call.
+                  </p>
+                  <span className="text-xs text-gray-500">9:05 AM</span>
+                </div>
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
               </div>
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-            </div>
 
-            {/* Message 5 - Alice */}
-            <div className="flex items-start gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
-                  Absolutely! I’ll slot that in under the “Client Success” section. Thanks for the
-                  reminder.
-                </p>
-                <span className="text-xs text-gray-500">9:12 AM</span>
+              {/* Message 3 - Alice */}
+              <div className="flex items-start gap-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
+                    Perfect. Let me know if you want me to add anything extra. I’m planning to
+                    emphasize our quarterly achievements and upcoming initiatives.
+                  </p>
+                  <span className="text-xs text-gray-500">9:07 AM</span>
+                </div>
               </div>
-            </div>
 
-            {/* Message 6 - Bob */}
-            <div className="flex items-start gap-4 justify-end">
-              <div className="text-right">
-                <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
-                  You're welcome! Looking forward to seeing the final version. Ping me if you need
-                  help later.
-                </p>
-                <span className="text-xs text-gray-500">9:15 AM</span>
+              {/* Message 4 - Bob */}
+              <div className="flex items-start gap-4 justify-end">
+                <div className="text-right">
+                  <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
+                    That sounds good! Just make sure to include the client feedback highlights too.
+                    Those were a big win last month.
+                  </p>
+                  <span className="text-xs text-gray-500">9:10 AM</span>
+                </div>
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
               </div>
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-            </div>
 
-            {/* Message 7 - Alice */}
-            <div className="flex items-start gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
-                  Will do! I’m also double-checking the sales forecast numbers, just to be accurate.
-                </p>
-                <span className="text-xs text-gray-500">9:18 AM</span>
+              {/* Message 5 - Alice */}
+              <div className="flex items-start gap-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
+                    Absolutely! I’ll slot that in under the “Client Success” section. Thanks for the
+                    reminder.
+                  </p>
+                  <span className="text-xs text-gray-500">9:12 AM</span>
+                </div>
               </div>
-            </div>
 
-            {/* Message 8 - Bob */}
-            <div className="flex items-start gap-4 justify-end">
-              <div className="text-right">
-                <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
-                  Great call. Let’s aim to wrap up all edits by 10:30, so we have buffer time.
-                </p>
-                <span className="text-xs text-gray-500">9:19 AM</span>
+              {/* Message 6 - Bob */}
+              <div className="flex items-start gap-4 justify-end">
+                <div className="text-right">
+                  <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
+                    You're welcome! Looking forward to seeing the final version. Ping me if you need
+                    help later.
+                  </p>
+                  <span className="text-xs text-gray-500">9:15 AM</span>
+                </div>
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
               </div>
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-            </div>
 
-            {/* Message 3 - Alice */}
-            <div className="flex items-start gap-4">
-              <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
-                  Let me know if you want me to add anything extra. I’m planning to
-                  emphasize our quarterly.
-                </p>
-                <span className="text-xs text-gray-500">9:07 AM</span>
+              {/* Message 7 - Alice */}
+              <div className="flex items-start gap-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
+                    Will do! I’m also double-checking the sales forecast numbers, just to be accurate.
+                  </p>
+                  <span className="text-xs text-gray-500">9:18 AM</span>
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-start gap-4 justify-end">
-              <div className="text-right">
-                <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
-                  That sounds good! Just make sur. to include the client feedback
-                </p>
-                <span className="text-xs text-gray-500">9:10 AM</span>
+              {/* Message 8 - Bob */}
+              <div className="flex items-start gap-4 justify-end">
+                <div className="text-right">
+                  <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
+                    Great call. Let’s aim to wrap up all edits by 10:30, so we have buffer time.
+                  </p>
+                  <span className="text-xs text-gray-500">9:19 AM</span>
+                </div>
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
               </div>
-              <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
-                className="w-10 h-10 rounded-full"
-              />
+
+              {/* Message 3 - Alice */}
+              <div className="flex items-start gap-4">
+                <img
+                  src="https://randomuser.me/api/portraits/women/44.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+                <div>
+                  <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
+                    Let me know if you want me to add anything extra. I’m planning to
+                    emphasize our quarterly.
+                  </p>
+                  <span className="text-xs text-gray-500">9:07 AM</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 justify-end">
+                <div className="text-right">
+                  <p className="bg-black text-white px-4 py-2 rounded-lg max-w-md">
+                    That sounds good! Just make sur. to include the client feedback
+                  </p>
+                  <span className="text-xs text-gray-500">9:10 AM</span>
+                </div>
+                <img
+                  src="https://randomuser.me/api/portraits/men/32.jpg"
+                  className="w-10 h-10 rounded-full"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

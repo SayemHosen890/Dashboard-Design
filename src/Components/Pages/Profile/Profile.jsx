@@ -28,7 +28,7 @@ const Profile = () => {
     <div
       style={{
         padding: "24px",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "",
         minHeight: "100vh",
       }}
     >
@@ -211,7 +211,7 @@ const Profile = () => {
                   onChange={(e) =>
                     handlePasswordChange("currentPassword", e.target.value)
                   }
-                  placeholder="Enter current password"
+                  placeholder="*********"
                   style={{
                     width: "100%",
                     padding: "12px 40px 12px 12px",
@@ -264,7 +264,7 @@ const Profile = () => {
                   onChange={(e) =>
                     handlePasswordChange("newPassword", e.target.value)
                   }
-                  placeholder="Enter new password"
+                  placeholder="*********"
                   style={{
                     width: "100%",
                     padding: "12px 40px 12px 12px",
@@ -317,7 +317,7 @@ const Profile = () => {
                   onChange={(e) =>
                     handlePasswordChange("confirmPassword", e.target.value)
                   }
-                  placeholder="Confirm new password"
+                  placeholder="*********"
                   style={{
                     width: "100%",
                     padding: "12px 40px 12px 12px",
@@ -351,36 +351,39 @@ const Profile = () => {
             </div>
 
             {/* Save Change Button */}
-            <button
-              onClick={handleSaveChange}
-              style={{
-                width: "100%",
-                padding: "12px 24px",
-                backgroundColor: "#111827",
-                color: "white",
-                border: "none",
-                borderRadius: "6px",
-                fontSize: "16px",
-                fontWeight: "500",
-                cursor: "pointer",
-                transition: "background-color 0.2s",
-              }}
-              onMouseOver={(e) => (e.target.style.backgroundColor = "#1f2937")}
-              onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
-            >
-              Save Change
-            </button>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                onClick={handleSaveChange}
+                style={{
+                  width: "150px",
+                  padding: "12px 24px",
+                  backgroundColor: "#111827",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "6px",
+                  alignItems: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#1f2937")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
+              >
+                Save Change
+              </button>
+            </div>
           </div>
         )}
 
-        {/* Edit Profile Section (Placeholder) */}
+        {/* Edit Profile Section (Form) */}
         {activeTab === "editProfile" && (
           <div
             style={{
               maxWidth: "400px",
               margin: "0 auto",
-              textAlign: "center",
-              padding: "40px 0",
             }}
           >
             <h3
@@ -388,16 +391,147 @@ const Profile = () => {
                 fontSize: "20px",
                 fontWeight: "600",
                 color: "#111827",
-                marginBottom: "16px",
+                marginBottom: "24px",
+                textAlign: "center",
               }}
             >
-              Edit Profile
+              Edit Your Profile
             </h3>
-            <p style={{ color: "#6b7280", fontSize: "14px" }}>
-              Edit profile functionality will be implemented here.
-            </p>
+
+            {/* Name Field */}
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                User Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter full name"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+
+            {/* Email Field */}
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email address"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+            {/* Email Field */}
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Contact No
+              </label>
+              <input
+                type="email"
+                placeholder="+880 123445566"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+
+            {/* Phone Field */}
+            <div style={{ marginBottom: "32px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                placeholder="79/A Joker Vila, Gotham City"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+
+            {/* Save Change Button */}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                style={{
+                  width: "170px",
+                  padding: "10px 10px",
+                  backgroundColor: "#111827",
+                  color: "white",
+                  border: "none",
+                  alignItems: 'center',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  borderRadius: "6px",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                }}
+                onMouseOver={(e) => (e.target.style.backgroundColor = "#1f2937")}
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
+              >
+                Save Profile
+              </button>
+            </div>
           </div>
         )}
+
       </div>
     </div>
   );

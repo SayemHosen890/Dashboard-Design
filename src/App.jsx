@@ -20,6 +20,11 @@ import Ticket from "./Components/Pages/Support/Ticket";
 import Transaction from "./Components/Pages/Transaction/Transaction";
 import UserManage from "./Components/Pages/UserManage/UserManage";
 import Variable from "./Components/Pages/VariableManage/Variable";
+import Setting from "./Components/Pages/Settings/Setting";
+import Condition from "./Components/Pages/Settings/Condition";
+import Privacy from "./Components/Pages/Settings/Privacy";
+import Contact from "./Components/Pages/Settings/Contact";
+import Logout from "./Components/Pages/Logout/Logout";
 
 const App = () => {
   return (
@@ -97,7 +102,13 @@ const App = () => {
               <Route path="file-claim" element={<FileClaim></FileClaim>} />
               <Route path="ticket" element={<Ticket></Ticket>} />
             </Route>
+            <Route path="/setting" element={<Setting></Setting>}>
+              <Route path="condition" element={<Condition></Condition>} />
+              <Route path="privacy" element={<Privacy></Privacy> }/>
+              <Route path="contactUs" element={<Contact></Contact> }/>
+            </Route>
             <Route path="/profile" element={<Profile></Profile>} />
+            <Route path="/logout" element={<Logout></Logout>} />
           </Routes>
         </div>
       </div>

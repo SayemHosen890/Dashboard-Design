@@ -16,7 +16,7 @@ const FileClaim = () => {
       complain: "No-show at scheduled...",
       complainAgainst: "Kathryn Murphy",
       complainAgainstImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
       status: "Pending",
     },
     {
@@ -38,7 +38,7 @@ const FileClaim = () => {
       date: "05/06/24",
       userName: "Foysal Rahman",
       userImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       complain: "Incomplete delivery...",
       complainAgainst: "Eleanor Pena",
       complainAgainstImage:
@@ -51,7 +51,7 @@ const FileClaim = () => {
       date: "04/06/24",
       userName: "Leslie Alexander",
       userImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       complain: "Damaged goods received...",
       complainAgainst: "Jacob Jones",
       complainAgainstImage:
@@ -68,7 +68,7 @@ const FileClaim = () => {
       complain: "Wrong item delivered...",
       complainAgainst: "Darlene Robertson",
       complainAgainstImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       status: "Resolved",
     },
   ];
@@ -79,6 +79,7 @@ const FileClaim = () => {
         return {
           backgroundColor: "#dbeafe",
           color: "#1d4ed8",
+          
         };
       case "Resolved":
         return {
@@ -138,10 +139,11 @@ const FileClaim = () => {
                 fontSize: "24px",
                 fontWeight: "600",
                 color: "#111827",
-                margin: 0,
+                // textAlign:'center'
+                margin: "0",
               }}
             >
-              File Claim
+              Support
             </h1>
           </div>
           <div style={{ position: "relative" }}>
@@ -173,7 +175,7 @@ const FileClaim = () => {
         </div>
 
         {/* File New Claim Button */}
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "flex-end",
@@ -197,7 +199,7 @@ const FileClaim = () => {
           >
             File New Claim
           </button>
-        </div>
+        </div> */}
 
         {/* Claims Table */}
         <div style={{ overflowX: "auto" }}>
@@ -437,7 +439,7 @@ const FileClaim = () => {
                       {claim.status}
                     </span>
                   </td>
-                  <td style={{ padding: "16px 0" }}>
+                  <td style={{ padding: "16px 2px" }}>
                     <button
                       style={{
                         width: "32px",
