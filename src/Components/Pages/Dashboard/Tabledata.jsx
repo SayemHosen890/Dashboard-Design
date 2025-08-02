@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router';
+
 
 const Tabledata = () => {
     const partners = [
@@ -40,7 +42,13 @@ const Tabledata = () => {
             <div className="bg-white rounded-xl p-10 shadow h-[260px]" style={{ paddingBottom: 15, marginTop:20}}>
                 <div className="flex justify-between items-center mb-4"style={{ padding: 10,marginLeft:20 }} >
                     <h3 className="text-lg font-semibold">Partner Registration/Update Request</h3>
-                    <a href="#" className="text-blue-500 text-sm font-medium"style={{marginRight:20 }}>View all</a>
+                    <Link to="updateRegister">
+                    <button className="text-blue-500 text-sm font-medium"style={{marginRight:20 }}>
+                        View all
+                    </button>
+                    {/* <h3 href="#" className="text-blue-500 text-sm font-medium"style={{marginRight:20 }}>View all</h3> */}
+                    </Link>
+                    
                 </div>
 
                 <div className="overflow-x-auto" style={{marginLeft:30}}>

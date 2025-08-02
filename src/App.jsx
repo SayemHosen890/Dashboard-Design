@@ -25,6 +25,10 @@ import Condition from "./Components/Pages/Settings/Condition";
 import Privacy from "./Components/Pages/Settings/Privacy";
 import Contact from "./Components/Pages/Settings/Contact";
 import Logout from "./Components/Pages/Logout/Logout";
+import Forget from "./Components/Pages/Logout/Forget";
+import CheckEmail from "./Components/Pages/Logout/CheckEmail";
+import Verify from "./Components/Pages/Logout/Verify";
+import UpdateRegister from "./Components/Pages/Dashboard/UpdateRegister";
 
 const App = () => {
   return (
@@ -36,7 +40,7 @@ const App = () => {
         </div>
         <div style={{ padding: "20px" }} className="w-[85%] bg-gray-200">
           <Routes>
-            <Route path="/" exact={true} element={<Dashboard></Dashboard>} />
+            {/* <Route path="/" exact={true} element={<Dashboard></Dashboard>} /> */}
             <Route
               path="/dashboard"
               exact={true}
@@ -52,6 +56,11 @@ const App = () => {
               path="/partnerManage"
               exact={true}
               element={<PartnerManage></PartnerManage>}
+            />
+            <Route
+              path="/dashboard/updateRegister"
+              exact={true}
+              element={<UpdateRegister></UpdateRegister>}
             />
             <Route
               path="/transaction"
@@ -108,7 +117,12 @@ const App = () => {
               <Route path="contactUs" element={<Contact></Contact> }/>
             </Route>
             <Route path="/profile" element={<Profile></Profile>} />
+            <Route path="/" element={<Logout></Logout>} />
             <Route path="/logout" element={<Logout></Logout>} />
+            <Route path="/forget" element={<Forget></Forget>} />
+            <Route path="/checkEmail" element={<CheckEmail></CheckEmail>} />
+            <Route path="/verify" element={<Verify></Verify>} />
+
           </Routes>
         </div>
       </div>
