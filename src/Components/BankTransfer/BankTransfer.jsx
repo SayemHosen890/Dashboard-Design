@@ -1,5 +1,7 @@
 import React from "react";
 import { FaEye } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
+import { IoSearch } from "react-icons/io5";
 
 const data = [
   {
@@ -102,16 +104,6 @@ const data = [
     accountNo: "654987321",
     status: "Completed",
   },
-  {
-    id: 11,
-    name: "Jennifer Lee",
-    role: "User",
-    userImg: "https://randomuser.me/api/portraits/women/11.jpg",
-    requestAmount: "$33.00",
-    totalBalance: "$33.00",
-    accountNo: "147258369",
-    status: "Pending",
-  },
 ];
 
 const statusColor = {
@@ -155,7 +147,7 @@ const BankTransfer = () => {
                 cursor: "pointer",
               }}
             >
-              ←
+               <FaArrowLeft/>
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
@@ -184,7 +176,7 @@ const BankTransfer = () => {
                 color: "#6b7280",
               }}
             >
-              🔍
+              <IoSearch className="text-xl"/>
             </div>
           </div>
         </div>
@@ -326,7 +318,7 @@ const BankTransfer = () => {
                         backgroundColor: "#3b82f6",
                         color: "white",
                         padding: "8px",
-                        borderRadius: "50%",
+                        borderRadius: "25%",
                         cursor: "pointer",
                         border: "none",
                         display: "flex",
@@ -334,123 +326,27 @@ const BankTransfer = () => {
                         justifyContent: "center",
                       }}
                     >
-                      <FaEye size={16} />
+                      <FaEye size={20} />
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "24px",
-            fontSize: "14px",
-            color: "#6b7280",
-          }}
-        >
+          <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
           <span>Showing 1-11 out of 1239</span>
-          <div style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-            <button
-              style={{
-                padding: "4px 8px",
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                color: "#6b7280",
-                fontSize: "14px",
-              }}
-            >
-              &lt; Previous
-            </button>
-            <button
-              style={{
-                width: "28px",
-                height: "28px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#3b82f6",
-                color: "white",
-                borderRadius: "4px",
-                fontSize: "12px",
-                fontWeight: "500",
-                border: "none",
-                cursor: "pointer",
-              }}
-            >
-              1
-            </button>
-            <button
-              style={{
-                width: "28px",
-                height: "28px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "12px",
-                cursor: "pointer",
-                backgroundColor: "white",
-                color: "#374151",
-              }}
-            >
-              2
-            </button>
-            <button
-              style={{
-                width: "28px",
-                height: "28px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "12px",
-                cursor: "pointer",
-                backgroundColor: "white",
-                color: "#374151",
-              }}
-            >
-              3
-            </button>
-            <span style={{ margin: "0 4px" }}>...</span>
-            <button
-              style={{
-                width: "28px",
-                height: "28px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "12px",
-                cursor: "pointer",
-                backgroundColor: "white",
-                color: "#374151",
-              }}
-            >
-              100
-            </button>
-            <button
-              style={{
-                padding: "4px 8px",
-                border: "none",
-                background: "none",
-                cursor: "pointer",
-                color: "#6b7280",
-                fontSize: "14px",
-              }}
-            >
-              Next &gt;
-            </button>
+          <div className="flex items-center gap-2">
+            <button className="px-2">Previous</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
+            <span>...</span>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="px-2">Next</button>
           </div>
         </div>
+        </div>
+
+        
       </div>
     </div>
   );

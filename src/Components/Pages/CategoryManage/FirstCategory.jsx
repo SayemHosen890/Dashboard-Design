@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
+import { MdModeEdit } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const data = [
   {
@@ -46,7 +48,7 @@ const data = [
 
 const FirstCategory = () => {
 
- const [active, setActive] = useState('');
+  const [active, setActive] = useState('');
 
   const buttons = [
     { id: 'goods', label: 'Goods' },
@@ -68,28 +70,27 @@ const FirstCategory = () => {
         </div>
 
         <div className="flex items-center justify-between mb-4 !p-3">
-      <div className="flex gap-4">
-        {buttons.map((btn) => (
-          <button
-            key={btn.id}
-            onClick={() => setActive(btn.id)}
-            className={`${
-              active === btn.id ? 'bg-black text-white' : 'border text-black'
-            } ${btn.label.length > 10 ? '!px-4' : '!px-16'} text-center rounded-full h-10`}
-          >
-            {btn.label}
-          </button>
-        ))}
-      </div>
-      <div>
-        <button
-          onClick={() => alert('Add New clicked')}
-          className="!px-16 bg-black text-white text-center rounded-full h-10"
-        >
-          Add New
-        </button>
-      </div>
-    </div>
+          <div className="flex gap-4">
+            {buttons.map((btn) => (
+              <button
+                key={btn.id}
+                onClick={() => setActive(btn.id)}
+                className={`${active === btn.id ? 'bg-black text-white' : 'border text-black'
+                  } ${btn.label.length > 10 ? '!px-4' : '!px-16'} text-center rounded-full h-10`}
+              >
+                {btn.label}
+              </button>
+            ))}
+          </div>
+          <div>
+            <button
+              onClick={() => alert('Add New clicked')}
+              className="!px-16 bg-black text-white text-center rounded-full h-10"
+            >
+              Add New
+            </button>
+          </div>
+        </div>
 
         <div
           className="overflow-auto !w-full bg-white rounded-lg shadow "
@@ -113,20 +114,47 @@ const FirstCategory = () => {
                   <td className="px-4">{item.id}</td>
                   <td className="px-4">{item.category}</td>
                   <td className="px-4 flex gap-2">
-                    <button className="bg-blue-500 text-white p-2 rounded-full transition">
-                      <FaEye size={30} />
-                    </button>
+                    <div className="flex gap-2">
+                      <div>
+                        <button
+                          style={{
+                            backgroundColor: "#007BFF",
+                            color: "white",
+                            padding: "8px",
+                            borderRadius: "25%",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <MdModeEdit size={20} />
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          style={{
+                            backgroundColor: "#FF5454",
+                            color: "white",
+                            padding: "8px",
+                            borderRadius: "25%",
+                            cursor: "pointer",
+                          }}
+                        >
+                          <RiDeleteBin6Line size={20} />
+                        </button>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          
+
         </div>
-        
+
       </div>
     </div>
   );
 };
 
 export default FirstCategory;
+
+
