@@ -1,5 +1,7 @@
 import React from "react";
+import { BsChatLeftText } from "react-icons/bs";
 import { FaCommentDots, FaEye } from "react-icons/fa";
+import { MdOutlineArticle } from "react-icons/md";
 
 const data = [
   {
@@ -341,21 +343,37 @@ const PartnerManage = () => {
                         backgroundColor: "#3b82f6",
                         color: "white",
                         padding: "8px",
-                        borderRadius: "50%",
+                        borderRadius: "25%",
                         cursor: "pointer",
                       }}
                     >
-                      <FaEye size={16} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
                       <FaEye size={20} />
                     </button>
                   </td>
                   <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaCommentDots size={20} />
+                    <button
+                      style={{
+                        backgroundColor: "#e96755ff",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <MdOutlineArticle size={20} className="" />
+                    </button>
+                  </td>
+                  <td style={{ padding: "16px" }}>
+                    <button
+                      style={{
+                        backgroundColor: "#F2AA00",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <BsChatLeftText size={20} className="" />
                     </button>
                   </td>
                 </tr>

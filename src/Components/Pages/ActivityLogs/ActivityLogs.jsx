@@ -17,11 +17,11 @@ const ActivityLogs = () => {
         name: "Leslie Alexander",
         email: "devonlane@gmail.com",
         image:
-          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       },
       actionType: "Editing",
       actionDescription: "User profile #123 was updated",
-      result: "Error",
+      result: "Success",
     },
     {
       timestamp: "12/06/24 at 2:12 PM (GMT+6)",
@@ -49,6 +49,58 @@ const ActivityLogs = () => {
       actionDescription: "Admin Samuel Roberts reass...",
       result: "Error",
     },
+    {
+      timestamp: "12/06/24 at 1:05 PM (GMT+6)",
+      id: "675675667",
+      admin: {
+        name: "Dianne Russell",
+        email: "dianne.russell@example.com",
+        image:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+      },
+      actionType: "Deletion",
+      actionDescription: "Admin Samuel Roberts reass...",
+      result: "Success",
+    },
+    {
+      timestamp: "12/06/24 at 1:05 PM (GMT+6)",
+      id: "675675667",
+      admin: {
+        name: "Dianne Russell",
+        email: "dianne.russell@example.com",
+        image:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+      },
+      actionType: "Deletion",
+      actionDescription: "Admin Samuel Roberts reass...",
+      result: "Error",
+    },
+    {
+      timestamp: "12/06/24 at 1:05 PM (GMT+6)",
+      id: "675675667",
+      admin: {
+        name: "Dianne Russell",
+        email: "dianne.russell@example.com",
+        image:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+      },
+      actionType: "Deletion",
+      actionDescription: "Admin Samuel Roberts reass...",
+      result: "Error",
+    },
+    {
+      timestamp: "12/06/24 at 1:05 PM (GMT+6)",
+      id: "675675667",
+      admin: {
+        name: "Dianne Russell",
+        email: "dianne.russell@example.com",
+        image:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
+      },
+      actionType: "Deletion",
+      actionDescription: "Admin Samuel Roberts reass...",
+      result: "Error",
+    },
   ];
 
   const getResultBadgeStyle = (result) => {
@@ -58,14 +110,16 @@ const ActivityLogs = () => {
         borderRadius: "20px",
         fontSize: "12px",
         fontWeight: "600",
+        // width: "150px",
         backgroundColor: "#10b981",
         color: "white",
         border: "none",
       };
     } else {
       return {
-        padding: "6px 16px",
+        padding: "6px 27px",
         borderRadius: "20px",
+        // width: "150px",
         fontSize: "12px",
         fontWeight: "600",
         backgroundColor: "#ef4444",
@@ -89,7 +143,7 @@ const ActivityLogs = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "32px",
+          marginBottom: "12px",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
@@ -154,8 +208,8 @@ const ActivityLogs = () => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          marginBottom: "32px",
-          padding: "20px",
+          marginBottom: "12px",
+          padding: "10px",
           backgroundColor: "white",
           borderRadius: "8px",
           boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
@@ -486,9 +540,9 @@ const ActivityLogs = () => {
                   <td style={{ padding: "20px 16px", textAlign: "center" }}>
                     <button
                       style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "50%",
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "25%",
                         backgroundColor: "#3b82f6",
                         color: "white",
                         border: "none",
@@ -499,137 +553,27 @@ const ActivityLogs = () => {
                         boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
                       }}
                     >
-                      <FaEye style={{ fontSize: "16px" }} />
+                      <FaEye style={{ fontSize: "20px" }} />
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          {/* Pagination */}
+    
+        <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
+          <span>Showing 1-11 out of 1239</span>
+          <div className="flex items-center gap-2">
+            <button className="px-2">Previous</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
+            <span>...</span>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="px-2">Next</button>
+          </div>
         </div>
-      </div>
 
-      {/* Pagination */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginTop: "32px",
-          fontSize: "14px",
-          color: "#6b7280",
-        }}
-      >
-        <span style={{ fontWeight: "500" }}>Showing 1-11 out of 1239</span>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <button
-            style={{
-              padding: "8px 16px",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              cursor: "pointer",
-              backgroundColor: "white",
-              color: "#6b7280",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Previous
-          </button>
-
-          <button
-            style={{
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#3b82f6",
-              color: "white",
-              borderRadius: "6px",
-              fontSize: "14px",
-              fontWeight: "600",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            1
-          </button>
-
-          <button
-            style={{
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              backgroundColor: "white",
-              color: "#374151",
-              fontWeight: "500",
-            }}
-          >
-            2
-          </button>
-
-          <button
-            style={{
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              backgroundColor: "white",
-              color: "#374151",
-              fontWeight: "500",
-            }}
-          >
-            3
-          </button>
-
-          <span style={{ margin: "0 8px" }}>...</span>
-
-          <button
-            style={{
-              width: "36px",
-              height: "36px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              fontSize: "14px",
-              cursor: "pointer",
-              backgroundColor: "white",
-              color: "#374151",
-              fontWeight: "500",
-            }}
-          >
-            100
-          </button>
-
-          <button
-            style={{
-              padding: "8px 16px",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              cursor: "pointer",
-              backgroundColor: "white",
-              color: "#6b7280",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Next
-          </button>
         </div>
       </div>
     </div>

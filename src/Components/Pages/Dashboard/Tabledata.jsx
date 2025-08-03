@@ -61,7 +61,7 @@ const Tabledata = () => {
                                 <th className="p-2">Contact Number</th>
                                 <th className="p-2">Address</th>
                                 <th className="p-2">Action</th>
-                                <th className="p-2">Verification</th>
+                                <th className="!mr-10">Verification</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,15 +76,15 @@ const Tabledata = () => {
                                     <td className="p-2">{partner.phone}</td>
                                     <td className="p-2">{partner.address}</td>
                                     <td className="p-10">
-                                        <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm" style={{height:40,width:40,alignItems:'center',marginTop:5}}>
+                                        <button className="bg-blue-600 text-white !ml-2 px-4 py-2 rounded text-sm" style={{height:30,width:30,alignItems:'center',marginTop:4}}>
                                             👁
                                         </button>
                                     </td>
-                                    <td className="p-2 flex gap-2">
-                                        <button className="border border-green-500 text-green-600 px-5 py-2 rounded-md -100 text-sm transition"style={{height:30,width:70}}>
+                                    <td className=" flex gap-2">
+                                        <button className="border border-green-500 text-green-600 px-3 py-2 rounded-full  text-sm transition"style={{height:30,width:70}}>
                                             Approve
                                         </button>
-                                        <button className="border border-red-500 text-red-600 px-3 py-2 rounded-md  text-sm transition"style={{height:30,width:70}}>
+                                        <button className="border border-red-500 text-red-600 px-3 py-2 rounded-full  text-sm transition"style={{height:30,width:70}}>
                                             Decline
                                         </button>
                                     </td>

@@ -1,5 +1,12 @@
 import React from "react";
 import { FaCommentDots, FaEye } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate } from "react-router";
+import Switch from '@mui/material/Switch';
+import { MdOutlineArticle } from "react-icons/md";
+import { BsChatLeftText } from "react-icons/bs";
+import Box from '@mui/material/Box';
+import Popper from '@mui/material/Popper';
 
 const data = [
   {
@@ -126,6 +133,20 @@ const data = [
 ];
 
 const UserManage = () => {
+
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined;
+
+  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -146,6 +167,7 @@ const UserManage = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -153,7 +175,7 @@ const UserManage = () => {
                 cursor: "pointer",
               }}
             >
-              ←
+              <FaArrowLeft />
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
@@ -301,39 +323,191 @@ const UserManage = () => {
                   <td style={{ padding: "16px" }}>
                     <button
                       style={{
-                        border: "1px solid #f87171",
-                        color: "#dc2626",
-                        padding: "8px 16px",
-                        borderRadius: "9999px",
+                        // border: "1px solid #f87171",
+                        // color: "#dc2626",
+                        // padding: "8px 16px",
+                        // borderRadius: "9999px",
                         fontSize: "14px",
-                        fontWeight: "500",
+                        // fontWeight: "500",
                         cursor: "pointer",
                       }}
                     >
-                      Refund
+                      <Switch {...label} defaultChecked />
+                    </button>
+                  </td>
+                  <td style={{ padding: "16px" }}>
+                    <div>
+                      <button aria-describedby={id} type="button" style={{
+                        backgroundColor: "#3b82f6",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }} onClick={handleClick}>
+                        <FaEye size={20} />
+                      </button>
+                      <Popper id={id} open={open} anchorEl={anchorEl}>
+                        <Box sx={{ borderRadius: '2px', }}>
+                          <div className=" mx-auto !p-8 bg-white shadow rounded-md !mr-140">
+                            {/* Profile Picture */}
+                            <div className="flex justify-center mb-4">
+                              <img
+                                src="https://randomuser.me/api/portraits/men/1.jpg"
+                                alt="Profile"
+                                className="w-15 h-15 rounded-full object-cover"
+                              />
+
+                            </div>
+                            <div className="text-center !my-4">
+                              <div>Robert Smith</div>
+                              <div>robertsmith34@gmail.com</div>
+                            </div>
+                            <div className="!px-5 !mt-5">
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Phone Number:</h3>
+                                </div>
+                                <div>
+                                  +3489 9999 9778
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Location:</h3>
+                                </div>
+                                <div>
+                                  1901 Thornridge Cir. Shiloh, Hawaii 81063
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Wallet Balance:</h3>
+                                </div>
+                                <div>
+                                  $354
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Bank Info</h3>
+                                </div>
+                                {/* <div>
+                                  +3489 9999 9778
+                                </div> */}
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Account Holder Name:</h3>
+                                </div>
+                                <div>
+                                  Dianne Russell
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Account Holder Type:</h3>
+                                </div>
+                                <div>
+                                  Personal
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Account Number:</h3>
+                                </div>
+                                <div>
+                                  6575675678676
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Routing Number:</h3>
+                                </div>
+                                <div>
+                                  5474574575467
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Phone Number:</h3>
+                                </div>
+                                <div>
+                                  (201) 555-0124
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Date of Birth:</h3>
+                                </div>
+                                <div>
+                                  23/06/99
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Business Name:</h3>
+                                </div>
+                                <div>
+                                  Governance structures,
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90 !py-2">
+                                <div>
+                                  <h3>Website:</h3>
+                                </div>
+                                <div>
+                                  https://www.vip.com/
+                                </div>
+                              </div>
+                              <div className="flex justify-between gap-90">
+                                <div>
+                                  <h3>City:</h3>
+                                </div>
+                                <div>
+                                  San Juan
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </Box>
+                      </Popper>
+                    </div>
+                    {/* <button
+                      style={{
+                        backgroundColor: "#3b82f6",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <FaEye size={20} />
+                    </button> */}
+                  </td>
+                  <td style={{ padding: "16px" }}>
+                    <button
+                      style={{
+                        backgroundColor: "#e96755ff",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <MdOutlineArticle size={20} className="" />
                     </button>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button
                       style={{
-                        backgroundColor: "#3b82f6",
+                        backgroundColor: "#F2AA00",
                         color: "white",
                         padding: "8px",
-                        borderRadius: "50%",
+                        borderRadius: "25%",
                         cursor: "pointer",
                       }}
                     >
-                      <FaEye size={16} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaEye size={20} />
-                    </button>
-                  </td>
-                  <td style={{ padding: "16px" }}>
-                    <button style={{ color: "#6b7280", cursor: "pointer" }}>
-                      <FaCommentDots size={20} />
+                      <BsChatLeftText size={20} className="" />
                     </button>
                   </td>
                 </tr>
@@ -345,7 +519,7 @@ const UserManage = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
             alignItems: "center",
             marginTop: "24px",
             fontSize: "14px",

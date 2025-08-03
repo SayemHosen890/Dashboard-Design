@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 
 const data = [
   {
     id: "#1233",
-    category: "Furniture",
+    category: "Perishable Foods",
+    action: "Action",
+  },
+  {
+    id: "#1233",
+    category: "Non-Perishable Foods",
     action: "Action",
   },
   {
@@ -14,37 +19,42 @@ const data = [
   },
   {
     id: "#1233",
-    category: "Furniture",
+    category: "Textile and Clothing Goods",
     action: "Action",
   },
   {
     id: "#1233",
-    category: "Furniture",
+    category: "Raw Materials",
     action: "Action",
   },
   {
     id: "#1233",
-    category: "Furniture",
+    category: "Construction Materials",
     action: "Action",
   },
   {
     id: "#1233",
-    category: "Furniture",
+    category: "Fragile Items",
     action: "Action",
   },
   {
     id: "#1233",
-    category: "Furniture",
-    action: "Action",
-  },
-  {
-    id: "#1233",
-    category: "Furniture",
+    category: "Animals",
     action: "Action",
   },
 ];
 
 const FirstCategory = () => {
+
+ const [active, setActive] = useState('');
+
+  const buttons = [
+    { id: 'goods', label: 'Goods' },
+    { id: 'waste', label: 'Waste' },
+    { id: 'recyclable', label: 'Recyclable Materials' },
+    { id: 'secondHand', label: 'Second-hand Items' },
+  ];
+
   return (
     <div>
       <div className="p-6 bg-gray-50 min-h-screen font-sans">
@@ -58,32 +68,34 @@ const FirstCategory = () => {
         </div>
 
         <div className="flex items-center justify-between mb-4 !p-3">
-          <div className="flex gap-4">
-            <button className="px-6 py-2 bg-black text-white w-20 rounded-full">
-              All
-            </button>
-            <button className="px-6 py-2 bg-black text-white w-20 rounded-full">
-              Move
-            </button>
-            <button className="px-6 py-2 bg-black text-white w-20 rounded-full">
-              Sell
-            </button>
-            <button className="px-6 py-2 bg-black text-white w-20 rounded-full">
-              Sell
-            </button>
-          </div>
-          <div>
-            <button className="px-6 py-2 bg-black text-white w-20 rounded-full">
-              Sell
-            </button>
-          </div>
-        </div>
+      <div className="flex gap-4">
+        {buttons.map((btn) => (
+          <button
+            key={btn.id}
+            onClick={() => setActive(btn.id)}
+            className={`${
+              active === btn.id ? 'bg-black text-white' : 'border text-black'
+            } ${btn.label.length > 10 ? '!px-4' : '!px-16'} text-center rounded-full h-10`}
+          >
+            {btn.label}
+          </button>
+        ))}
+      </div>
+      <div>
+        <button
+          onClick={() => alert('Add New clicked')}
+          className="!px-16 bg-black text-white text-center rounded-full h-10"
+        >
+          Add New
+        </button>
+      </div>
+    </div>
 
         <div
-          className="overflow-auto !w-full bg-white rounded-lg shadow !ml-4"
+          className="overflow-auto !w-full bg-white rounded-lg shadow "
           style={{ padding: "20px" }}
         >
-          <table className="!w-full text-sm">
+          <table className="!w-full text-lg">
             <thead className="text-gray-700">
               <tr className="flex justify-between">
                 <th className="px-4 py-3 text-left">SL no.</th>
@@ -95,7 +107,7 @@ const FirstCategory = () => {
               {data.map((item, i) => (
                 <tr
                   key={i}
-                  className="flex justify-between items-center"
+                  className="flex justify-between items-center text-lg"
                   style={{ padding: "12px 0" }}
                 >
                   <td className="px-4">{item.id}</td>
@@ -109,25 +121,9 @@ const FirstCategory = () => {
               ))}
             </tbody>
           </table>
+          
         </div>
-
-        <div className="flex justify-evenly items-center mt-6 text-sm text-gray-600">
-          <span>Showing 1-11 out of 1239</span>
-          <div className="flex items-center gap-2">
-            <button className="px-2">Previous</button>
-            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
-              1
-            </button>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
-              2
-            </button>
-            <span>...</span>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
-              100
-            </button>
-            <button className="px-2">Next</button>
-          </div>
-        </div>
+        
       </div>
     </div>
   );

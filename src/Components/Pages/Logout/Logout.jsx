@@ -1,8 +1,15 @@
 import React from 'react'
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
+  const navigate = useNavigate ();
+
+  const handleLogin = () => {
+    localStorage.setItem("isLoggedIn", "true"); // Simulated login
+    navigate("/dashboard");
+  };
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-lg bg-white !p-10  rounded-2xl shadow-lg">
@@ -100,7 +107,9 @@ const Logout = () => {
 
         {/* Sign In Button */}
         <Link to="/dashboard">
-          <button className="w-full !py-3 !mt-7 bg-black text-white font-semibold rounded-full  transition-shadow shadow-sm ">
+          <button
+          onClick={handleLogin}
+          className="w-full !py-3 !mt-7 bg-black text-white font-semibold rounded-full  transition-shadow shadow-sm ">
             Sign In
           </button>
 

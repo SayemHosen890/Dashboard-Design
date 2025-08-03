@@ -1,5 +1,9 @@
 import React from "react";
 import { FaCommentDots, FaEye } from "react-icons/fa";
+// import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from "react-icons/fa6";
+import { useNavigate } from "react-router";
+import { BsChatLeftText } from "react-icons/bs";
 
 const data = [
   {
@@ -169,11 +173,12 @@ const statusColor = {
 };
 
 const Auction = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div
         style={{
-          padding: "24px",
+          padding: "4px",
           backgroundColor: "#f9fafb",
           minHeight: "100vh",
           fontFamily: "sans-serif",
@@ -184,11 +189,12 @@ const Auction = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: "24px",
+            marginBottom: "5px",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -196,7 +202,7 @@ const Auction = () => {
                 cursor: "pointer",
               }}
             >
-              ←
+              <FaArrowLeft />
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
@@ -224,7 +230,7 @@ const Auction = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: "24px",
+            marginBottom: "5px",
           }}
         >
           <div style={{ display: "flex", gap: "16px" }}>
@@ -307,7 +313,7 @@ const Auction = () => {
 
         <div
           style={{
-            overflow: "auto",
+            overflow: "hidden",
             backgroundColor: "white",
             borderRadius: "8px",
             boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
@@ -318,16 +324,17 @@ const Auction = () => {
               <tr>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
+                    // marginRight:"100px"
                   }}
                 >
                   SL no.
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -336,7 +343,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -345,7 +352,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -354,7 +361,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -363,7 +370,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -372,7 +379,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -381,7 +388,7 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -390,16 +397,17 @@ const Auction = () => {
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
+                    // marginRight:"50px"
                   }}
                 >
                   Status
                 </th>
                 <th
                   style={{
-                    padding: "12px 16px",
+                    padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
                   }}
@@ -419,6 +427,7 @@ const Auction = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: "12px",
+                        
                       }}
                     >
                       <img
@@ -499,22 +508,22 @@ const Auction = () => {
                           backgroundColor: "#3b82f6",
                           color: "white",
                           padding: "8px",
-                          borderRadius: "50%",
+                          borderRadius: "25%",
                           cursor: "pointer",
                         }}
                       >
-                        <FaEye size={16} />
+                        <FaEye size={20} />
                       </button>
                       <button
                         style={{
-                          backgroundColor: "#f59e0b",
+                          backgroundColor: "#F2AA00",
                           color: "white",
                           padding: "8px",
-                          borderRadius: "50%",
+                          borderRadius: "25%",
                           cursor: "pointer",
                         }}
                       >
-                        <FaCommentDots size={16} />
+                        <BsChatLeftText size={20} className="" />
                       </button>
                     </div>
                   </td>
@@ -523,86 +532,15 @@ const Auction = () => {
             </tbody>
           </table>
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "24px",
-            fontSize: "14px",
-            color: "#6b7280",
-          }}
-        >
+        <div className="flex justify-evenly items-center !mt-6 text-sm text-gray-600">
           <span>Showing 1-11 out of 1239</span>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <button
-              style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Previous
-            </button>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#3b82f6",
-                color: "white",
-                borderRadius: "4px",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-            >
-              1
-            </button>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "14px",
-                cursor: "pointer",
-              }}
-            >
-              2
-            </button>
+          <div className="flex items-center gap-2">
+            <button className="px-2">Previous</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
             <span>...</span>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "14px",
-                cursor: "pointer",
-              }}
-            >
-              100
-            </button>
-            <button
-              style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Next
-            </button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="px-2">Next</button>
           </div>
         </div>
       </div>

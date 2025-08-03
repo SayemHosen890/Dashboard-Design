@@ -1,6 +1,8 @@
 import React from 'react'
 // import { FaSearch, FaUserCircle } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
+// import { FaArrowLeft } from "react-icons/fa6";
 
 const conversations = [
   { name: 'John Smith & Mike Bond', image1: 'https://randomuser.me/api/portraits/men/11.jpg', image2: 'https://randomuser.me/api/portraits/men/12.jpg' },
@@ -63,29 +65,69 @@ const conversation = [
 ];
 
 const Conversation = () => {
+  const navigate = useNavigate();
   return (
     <>
-      <div className="flex h-screen p-5 gap-5 bg-gray-100">
-        <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              padding: "16px 24px",
-              backgroundColor: "#f9fafb",
-              borderBottom: "1px solid #e5e7eb",
-              borderRadius: "8px",
-              marginBottom: "16px",
-            }}
-          >
-            {/* Back button and title */}
-
-            {/* Search input */}
+      <div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "5px",
+            backgroundColor:"white"
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <button
+              onClick={() => navigate(-1)}
+              style={{
+                fontSize: "24px",
+                fontWeight: "600",
+                color: "#374151",
+                cursor: "pointer",
+              }}
+            >
+              <FaArrowLeft />
+            </button>
+            <h1
+              style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+            >
+              Auction Management
+            </h1>
+          </div>
+          <div>
+            <input
+              type="text"
+              placeholder="Search here..."
+              style={{
+                border: "1px solid #d1d5db",
+                padding: "8px 16px",
+                borderRadius: "6px",
+                width: "256px",
+                outline: "none",
+              }}
+            />
           </div>
         </div>
+      </div>
+      <div className="flex h-screen p-5 gap-5 bg-white">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "16px 24px",
+            backgroundColor: "#f9fafb",
+            borderBottom: "1px solid #e5e7eb",
+            borderRadius: "8px",
+            marginBottom: "16px",
+          }}
+        >
+        </div>
+
         {/* Left Sidebar */}
-        <div className="w-1/3 bg-gray-200 rounded-xl shadow overflow-y-auto scrollbar-hide">
+        <div className="w-1/3 bg-white rounded-xl shadow overflow-y-auto scrollbar-hide">
           <ul className="space-y-2 ml-4">
             <span className="!ml-5 text-gray-700 !py-5 text-xl font-bold">Conversation Between</span>
             <hr className="border border-gray-400 mx-4 mb-2" />

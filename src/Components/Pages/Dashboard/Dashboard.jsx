@@ -8,10 +8,14 @@ import svg3 from "../../../assets/svg3.svg"
 import svg4 from "../../../assets/svg4.svg"
 import Charts from './Charts'
 import Tabledata from './Tabledata'
+import { useNavigate } from 'react-router'
 
 
 
 const Dashboard = () => {
+  // const navigate = useNavigate();
+
+
   return (
     <div className='shadow-md rounded-xl'>
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-[230px]">

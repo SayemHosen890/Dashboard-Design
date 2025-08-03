@@ -23,6 +23,8 @@ import {
 } from "react-icons/md";
 import { TbCodeVariablePlus } from "react-icons/tb";
 
+
+
 const Sidebar = () => {
   const [openSupport, setOpenSupport] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
@@ -54,8 +56,8 @@ const Sidebar = () => {
 
   return (
     <div>
-      <div className="bg-gray-900 h-screen">
-        <ul className="flex flex-col gap-3 p-6 bg-gray-900">
+      <div className="bg-black h-screen">
+        <ul className="flex flex-col gap-3 p-6 bg-black !mt-5">
           <li>
             <Link to="/dashboard">
               <Button className={getButtonStyles("/dashboard")}>

@@ -73,16 +73,16 @@ const Variable = () => {
           className="overflow-auto bg-white rounded-lg shadow !ml-4"
           style={{ padding: "20px" }}
         >
-          <table className="!w-full text-sm">
-            <thead className="!w-full text-gray-700 bg-gray-300">
-              <tr className="flex">
+          <table className="!w-full text-md">
+            <thead className="!w-full text-gray-700 bg-gray-100">
+              <tr className="flex !py-5 !px-5 rounded-md shadow">
                 <th className="px-4 py-3 text-left" style={{ width: "33.33%" }}>
                   SL no.
                 </th>
                 <th className="px-4 py-3 text-left" style={{ width: "33.33%" }}>
                   Variable
                 </th>
-                <th className="px-4 py-3 text-left" style={{ width: "33.33%" }}>
+                <th className="px-4 py-3 text-center" style={{ width: "33.33%" }}>
                   Input
                 </th>
               </tr>
@@ -91,7 +91,7 @@ const Variable = () => {
               {variables.map((item, i) => (
                 <tr
                   key={i}
-                  className="flex items-center border-b border-gray-200"
+                  className="flex items-center border-b border-gray-200 !px-5"
                   style={{ padding: "12px 0" }}
                 >
                   <td className="px-4 font-medium" style={{ width: "33.33%" }}>
@@ -132,7 +132,7 @@ const Variable = () => {
           </table>
         </div>
         <div className="flex justify-center items-center !mt-9">
-          <button className="bg-black text-white px-8 py-3 rounded hover:bg-gray-800 transition-colors">
+          <button className="bg-black text-white !py-2 rounded !px-12 rounded-full">
             Save
           </button>
         </div>
