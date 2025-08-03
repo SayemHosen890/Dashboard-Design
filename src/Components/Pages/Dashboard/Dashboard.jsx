@@ -8,7 +8,7 @@ import svg3 from "../../../assets/svg3.svg"
 import svg4 from "../../../assets/svg4.svg"
 import Charts from './Charts'
 import Tabledata from './Tabledata'
-import { useNavigate } from 'react-router'
+// import { useNavigate } from 'react-router'
 
 
 

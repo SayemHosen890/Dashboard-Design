@@ -29,7 +29,7 @@ import Forget from "./Components/Pages/Logout/Forget";
 import CheckEmail from "./Components/Pages/Logout/CheckEmail";
 import Verify from "./Components/Pages/Logout/Verify";
 import UpdateRegister from "./Components/Pages/Dashboard/UpdateRegister";
-import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
   return (
@@ -41,15 +41,30 @@ const App = () => {
         </div>
         <div style={{ padding: "20px" }} className="w-[85%] bg-gray-200">
           <Routes>
-            <Route path="/" element={<Logout></Logout>} />
-        <Route
-          path="/dashboard"
+            {/* <Route path="/" element={<Logout></Logout>} /> */}
+        {/* <Route
+          path="/"
           element={
             <PrivateRoute>
               <Dashboard />
             </PrivateRoute>
           }
+        /> */}
+        {/* <Route
+          path="/"
+          element={
+            
+              <Dashboard />
+          }
         />
+        <Route
+          path="/dashboard"
+          element={
+            
+              <Dashboard />
+            
+          }
+        /> */}
             <Route path="/auction" exact={true} element={<Auction></Auction>} />
             <Route
               path="/userManage"
@@ -126,6 +141,8 @@ const App = () => {
             <Route path="/forget" element={<Forget></Forget>} />
             <Route path="/checkEmail" element={<CheckEmail></CheckEmail>} />
             <Route path="/verify" element={<Verify></Verify>} />
+            <Route path="/" element={<Dashboard></Dashboard>} />
+            <Route path="/dashboard" element={<Dashboard></Dashboard>} />
 
           </Routes>
         </div>
