@@ -1,26 +1,31 @@
 import React from 'react'
+import { FaArrowLeft } from 'react-icons/fa'
+import { useNavigate } from 'react-router';
 
 const Contact = () => {
+    const navigate = useNavigate();
     return (
         <div className='bg-white h-screen rounded-lg'>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", borderColor: 'white' }}>
-                <button
-                    style={{
-                        fontSize: "24px",
-                        fontWeight: "600",
-                        padding: '10px',
-                        color: "#374151",
-                        cursor: "pointer",
-                    }}
-                >
-                    ←
-                </button>
-                <h1
-                    style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
-                >
-                    Contact Us
-                </h1>
-            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                                <FaArrowLeft
+                                  onClick={() => navigate(-1)}
+                                  style={{
+                                    fontSize: "18px",
+                                    color: "#6b7280",
+                                    cursor: "pointer",
+                                  }}
+                                />
+                                <h1
+                                  style={{
+                                    fontSize: "24px",
+                                    fontWeight: "600",
+                                    color: "#111827",
+                                    margin: 0,
+                                  }}
+                                >
+                                  Privacy Policy
+                                </h1>
+                              </div>
             <div style={{ display: "flex", alignItems: "center", gap: "22px", borderColor: 'white', justifyContent:'center',marginTop:'100px' }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px", borderColor: 'white' }}>
                     <h1>Mobile Number :</h1>

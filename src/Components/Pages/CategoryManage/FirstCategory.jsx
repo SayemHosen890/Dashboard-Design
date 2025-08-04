@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { FaEye } from "react-icons/fa";
+import { FaArrowLeft, FaEye } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useNavigate } from "react-router";
 
 const data = [
   {
@@ -48,6 +49,7 @@ const data = [
 
 const FirstCategory = () => {
 
+
   const [active, setActive] = useState('');
 
   const buttons = [
@@ -56,13 +58,18 @@ const FirstCategory = () => {
     { id: 'recyclable', label: 'Recyclable Materials' },
     { id: 'secondHand', label: 'Second-hand Items' },
   ];
-
+  const navigate = useNavigate();
   return (
+
     <div>
       <div className="p-6 bg-gray-50 min-h-screen font-sans">
         <div className="flex items-center justify-between gap-2 mb-4 !p-3">
           <div className="flex items-center gap-2 mb-4">
-            <button className="text-2xl font-semibold text-gray-700">←</button>
+            <button
+              onClick={() => navigate(-1)}
+              className="text-md font-semibold text-gray-700">
+              <FaArrowLeft />
+            </button>
             <h1 className="text-xl font-semibold text-gray-800">
               Category Management
             </h1>

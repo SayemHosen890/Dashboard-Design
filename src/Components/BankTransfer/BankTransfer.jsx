@@ -2,6 +2,7 @@ import React from "react";
 import { FaEye } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
+import { useNavigate } from "react-router";
 
 const data = [
   {
@@ -120,6 +121,7 @@ const statusColor = {
 };
 
 const BankTransfer = () => {
+  const navigate = useNavigate ();
   return (
     <div>
       <div
@@ -140,6 +142,7 @@ const BankTransfer = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
+            onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",

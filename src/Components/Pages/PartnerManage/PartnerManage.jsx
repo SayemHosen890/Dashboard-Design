@@ -1,7 +1,8 @@
 import React from "react";
 import { BsChatLeftText } from "react-icons/bs";
-import { FaCommentDots, FaEye } from "react-icons/fa";
+import { FaArrowLeft, FaCommentDots, FaEye } from "react-icons/fa";
 import { MdOutlineArticle } from "react-icons/md";
+import { Navigate, useNavigate } from "react-router";
 
 const data = [
   {
@@ -138,6 +139,7 @@ const data = [
 ];
 
 const PartnerManage = () => {
+  const navigate = useNavigate ();
   return (
     <div>
       <div
@@ -158,6 +160,7 @@ const PartnerManage = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
+            onClick={() => navigate (-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -165,7 +168,7 @@ const PartnerManage = () => {
                 cursor: "pointer",
               }}
             >
-              ←
+              <FaArrowLeft />
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}

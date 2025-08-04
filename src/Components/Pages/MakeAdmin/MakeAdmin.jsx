@@ -1,5 +1,6 @@
 import React from "react";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const data = [
   {
@@ -77,6 +78,7 @@ const data = [
 ];
 
 const MakeAdmin = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -97,6 +99,7 @@ const MakeAdmin = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -104,7 +107,7 @@ const MakeAdmin = () => {
                 cursor: "pointer",
               }}
             >
-              ←
+              <FaArrowLeft />
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}

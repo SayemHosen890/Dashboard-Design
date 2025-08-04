@@ -1,4 +1,6 @@
 import React from "react";
+import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const variables = [
   {
@@ -58,12 +60,15 @@ const variables = [
 ];
 
 const Variable = () => {
+  const navigate = useNavigate ();
   return (
     <div>
       <div className="p-6 bg-gray-50 h-screen font-sans">
         <div className="flex items-center justify-between gap-2 mb-4 !p-3">
           <div className="flex items-center gap-2 mb-4">
-            <button className="text-2xl font-semibold text-gray-700">←</button>
+            <button 
+            onClick={() => navigate(-1)}
+            className="text-md font-semibold text-gray-700"><FaArrowLeft /></button>
             <h1 className="text-xl font-semibold text-gray-800">
               Variable Management
             </h1>

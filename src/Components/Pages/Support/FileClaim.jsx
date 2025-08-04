@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEdit, FaEye, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const FileClaim = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -98,7 +99,7 @@ const FileClaim = () => {
         };
     }
   };
-
+const navigate = useNavigate ();
   return (
     <div
       style={{
@@ -127,7 +128,9 @@ const FileClaim = () => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            
             <FaArrowLeft
+            onClick={() => navigate(-1)}
               style={{
                 fontSize: "18px",
                 color: "#6b7280",

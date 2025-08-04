@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEye, FaReply, FaSearch } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const Ticket = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -96,8 +97,9 @@ const Ticket = () => {
         };
     }
   };
-
+const navigate = useNavigate ();
   return (
+    
     <div
       style={{
         padding: "24px",
@@ -126,6 +128,7 @@ const Ticket = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <FaArrowLeft
+            onClick={() => navigate(-1)}
               style={{
                 fontSize: "18px",
                 color: "#6b7280",

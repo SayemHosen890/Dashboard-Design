@@ -135,7 +135,7 @@ const AuditDashboard = () => {
         {/* Card 2 - Most Common Event Type */}
         <div
           style={{
-            backgroundColor: "red",
+            backgroundColor: "white",
             padding: "10px",
             // height: "150px",
             width:"100%",

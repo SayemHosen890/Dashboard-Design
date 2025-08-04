@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsChatLeftText } from 'react-icons/bs';
-import { FaEye, FaCommentDots } from 'react-icons/fa';
+import { FaEye, FaCommentDots, FaArrowLeft } from 'react-icons/fa';
+import { useNavigate } from 'react-router';
 
 
 
@@ -148,13 +149,19 @@ const data = [
 ]
 
 const Transaction = () => {
+
+  const navigate = useNavigate ();
   return (
 
     <div>
       <div className="p-6 bg-gray-50 min-h-screen font-sans">
         <div className="flex items-center justify-between gap-2 mb-4 !p-3">
-          <div className='flex items-center gap-2 mb-4'>
-            <button className="text-2xl font-semibold text-gray-700">←</button>
+          <div className='flex items-center gap-2 mb-4 !ml-2'>
+            <button
+            onClick={() => navigate (-1)}
+             className="text-md !mt-1 font-24px text-gray-700"> 
+             <FaArrowLeft />
+             </button>
             <h1 className="text-xl font-semibold text-gray-800">Transaction</h1>
           </div>
           <div>

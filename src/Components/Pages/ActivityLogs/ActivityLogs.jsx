@@ -6,6 +6,7 @@ import {
   FaEye,
   FaSearch,
 } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const ActivityLogs = () => {
   // Sample data for the activity log
@@ -128,6 +129,7 @@ const ActivityLogs = () => {
       };
     }
   };
+  const navigate = useNavigate ();
 
   return (
     <div
@@ -146,34 +148,24 @@ const ActivityLogs = () => {
           marginBottom: "12px",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <button
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              fontSize: "20px",
-              color: "#374151",
-              padding: "8px",
-              borderRadius: "4px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <FaArrowLeft />
-          </button>
-          <h1
-            style={{
-              fontSize: "28px",
-              fontWeight: "700",
-              color: "#111827",
-              margin: 0,
-            }}
-          >
-            Activity Log
-          </h1>
-        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                    <button
+                      onClick={() => navigate(-1)}
+                      style={{
+                        fontSize: "24px",
+                        fontWeight: "600",
+                        color: "#374151",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <FaArrowLeft />
+                    </button>
+                    <h1
+                      style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+                    >
+                      Activity Logs
+                    </h1>
+                  </div>
 
         <div style={{ position: "relative" }}>
           <input
