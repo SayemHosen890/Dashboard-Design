@@ -472,17 +472,6 @@ const UserManage = () => {
                         </Box>
                       </Popper>
                     </div>
-                    {/* <button
-                      style={{
-                        backgroundColor: "#3b82f6",
-                        color: "white",
-                        padding: "8px",
-                        borderRadius: "25%",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <FaEye size={20} />
-                    </button> */}
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button

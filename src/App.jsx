@@ -29,6 +29,7 @@ import Forget from "./Components/Pages/Logout/Forget";
 import CheckEmail from "./Components/Pages/Logout/CheckEmail";
 import Verify from "./Components/Pages/Logout/Verify";
 import UpdateRegister from "./Components/Pages/Dashboard/UpdateRegister";
+import AuctionDetails from "./Components/Pages/AuctionManagement/AuctionDetails";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -143,6 +144,7 @@ const App = () => {
             <Route path="/verify" element={<Verify></Verify>} />
             <Route path="/" element={<Dashboard></Dashboard>} />
             <Route path="/dashboard" element={<Dashboard></Dashboard>} />
+            <Route path="/auctionDetails" element={<AuctionDetails></AuctionDetails>} />
 
           </Routes>
         </div>

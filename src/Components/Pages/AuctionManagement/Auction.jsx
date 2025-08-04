@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCommentDots, FaEye } from "react-icons/fa";
 // import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router";
 import { BsChatLeftText } from "react-icons/bs";
+import Box from '@mui/material/Box';
+import Popper from '@mui/material/Popper';
+
 
 const data = [
   {
@@ -31,7 +34,21 @@ const data = [
     category: "Furniture",
     bid: "$24.00",
     action: "Action",
-    status: "Completed",
+    status: "Claimed",
+    viewChart: "View Chart",
+  },
+  {
+    id: "#1233",
+    date: "12/06/24",
+    user: "John Smith",
+    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
+    partner: "Hari Danang",
+    partnerImg: "https://randomuser.me/api/portraits/men/11.jpg",
+    itemType: "Goods",
+    category: "Furniture",
+    bid: "$24.00",
+    action: "Action",
+    status: "Assigned",
     viewChart: "View Chart",
   },
   {
@@ -73,7 +90,7 @@ const data = [
     category: "Furniture",
     bid: "$24.00",
     action: "Action",
-    status: "Completed",
+    status: "Assigned",
     viewChart: "View Chart",
   },
   {
@@ -101,7 +118,7 @@ const data = [
     category: "Furniture",
     bid: "$24.00",
     action: "Action",
-    status: "Completed",
+    status: "In-progress",
     viewChart: "View Chart",
   },
   {
@@ -129,21 +146,7 @@ const data = [
     category: "Furniture",
     bid: "$24.00",
     action: "Action",
-    status: "Completed",
-    viewChart: "View Chart",
-  },
-  {
-    id: "#1233",
-    date: "12/06/24",
-    user: "John Smith",
-    userImg: "https://randomuser.me/api/portraits/men/1.jpg",
-    partner: "Hari Danang",
-    partnerImg: "https://randomuser.me/api/portraits/men/11.jpg",
-    itemType: "Goods",
-    category: "Furniture",
-    bid: "$24.00",
-    action: "Action",
-    status: "Completed",
+    status: "Claimed",
     viewChart: "View Chart",
   },
   // Add more sample rows here...
@@ -151,9 +154,9 @@ const data = [
 
 const statusColor = {
   Completed: {
-    color: "#059669",
+    color: "#24b587ff",
     backgroundColor: "#ecfdf5",
-    borderColor: "#059669",
+    borderColor: "#2b4f44ff",
   },
   Assigned: {
     color: "#2563eb",
@@ -166,14 +169,28 @@ const statusColor = {
     borderColor: "#d97706",
   },
   Claimed: {
-    color: "#dc2626",
+    color: "#e06565ff",
     backgroundColor: "#fef2f2",
-    borderColor: "#dc2626",
+    borderColor: "#b78e8eff",
   },
 };
 
 const Auction = () => {
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined;
+
   const navigate = useNavigate();
+
+
+
   return (
     <div>
       <div
@@ -427,7 +444,7 @@ const Auction = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: "12px",
-                        
+
                       }}
                     >
                       <img
@@ -479,27 +496,115 @@ const Auction = () => {
                         fontSize: "14px",
                         fontWeight: "500",
                         cursor: "pointer",
-                      }}
+                      }} onClick={handleClick}
                     >
                       Refund
                     </button>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                      <Box sx={{ borderRadius: '2px', }}>
+                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
+                          {/* Profile Picture */}
+                          <h1 className="text-center !py-5">Are you want to refund ?</h1>
+                          <h3 className="text-center !py-5">Win Bid amount will be refund to the user/partner.</h3>
+                          <div className="flex justify-evenly items-center gap-4 !py-3">
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "white",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  backgroundColor: "black",
+                                  margin: "0px 5px"
+                                }}
+                              >
+                                Refund
+                              </button>
+                            </div>
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "black",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  margin: "0px 5px"
+                                }}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </Box>
+                    </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
-                    <span
+                    <button
                       style={{
                         border: `1px solid ${statusColor[item.status].borderColor
                           }`,
-                        padding: "8px 16px",
+                        padding: "8px 40px",
                         borderRadius: "9999px",
                         fontSize: "14px",
                         fontWeight: "500",
                         color: statusColor[item.status].color,
                         backgroundColor:
                           statusColor[item.status].backgroundColor,
-                      }}
+                      }} onClick={handleClick}
                     >
                       {item.status}
-                    </span>
+                    </button>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                      <Box sx={{ borderRadius: '2px', }}>
+                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
+                          {/* Profile Picture */}
+                          <h1 className="text-center !py-5">Are you sure want to change the status to “Completed”?</h1>
+                          <h3 className="text-center !py-5">Win Bid amount will be send to the user/partner.</h3>
+                          <div className="flex justify-evenly items-center gap-4 !py-3">
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "white",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  backgroundColor: "black",
+                                  margin: "0px 5px"
+                                }}
+                              >
+                                Confirm
+                              </button>
+                            </div>
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "black",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  margin: "0px 5px"
+                                }}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </Box>
+                    </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <div style={{ display: "flex", gap: "8px" }}>
@@ -510,7 +615,7 @@ const Auction = () => {
                           padding: "8px",
                           borderRadius: "25%",
                           cursor: "pointer",
-                        }}
+                        }} onClick={() => navigate('/auctionDetails')}
                       >
                         <FaEye size={20} />
                       </button>
@@ -521,7 +626,7 @@ const Auction = () => {
                           padding: "8px",
                           borderRadius: "25%",
                           cursor: "pointer",
-                        }}
+                        }} 
                       >
                         <BsChatLeftText size={20} className="" />
                       </button>
