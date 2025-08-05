@@ -32,6 +32,7 @@ import UpdateRegister from "./Components/Pages/Dashboard/UpdateRegister";
 import AuctionDetails from "./Components/Pages/AuctionManagement/AuctionDetails";
 import ViewAll from "./Components/Pages/SupervisionDashboard/ViewAll";
 import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
+import TransactionDetails from "./Components/Pages/Transaction/TransactionDetails";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -139,6 +140,7 @@ const App = () => {
               <Route path="contactUs" element={<Contact></Contact> }/>
             </Route>
             <Route path="/profile" element={<Profile></Profile>} />
+            <Route path="/transactionDetails" element={<TransactionDetails></TransactionDetails>} />
             
             <Route path="/logout" element={<Logout></Logout>} />
             <Route path="/forget" element={<Forget></Forget>} />

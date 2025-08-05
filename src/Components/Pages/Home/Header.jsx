@@ -11,8 +11,8 @@ const Header = () => {
         <img className="h-20 w-71.5 bg-white" src={logo} alt="Xmoveit Logo" />
       </div>
       <div className="flex items-center gap-x-4 !mr-5">
-        <div className="relative">
-          <FaRegBell className="text-xm bg-white text-gray-600 border rounded-full w-10 h-10 cursor-pointer hover:text-gray-800" />
+        <div >
+          <FaRegBell className="text-xm bg-white text-gray-600 border rounded-full w-10 h-10 cursor-pointer" />
         </div>
         <div className="flex items-center gap-x-2">
           <img

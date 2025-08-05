@@ -227,7 +227,7 @@ const Transaction = () => {
                         padding: "8px",
                         borderRadius: "25%",
                         cursor: "pointer",
-                      }}
+                      }} onClick={() => navigate('/transactionDetails')}
                     >
                       <FaEye size={20} />
                     </button>
