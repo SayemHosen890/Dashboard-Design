@@ -10,9 +10,9 @@ const Header = () => {
       <div>
         <img className="h-20 w-71.5 bg-white" src={logo} alt="Xmoveit Logo" />
       </div>
-      <div className="flex items-center gap-x-4">
+      <div className="flex items-center gap-x-4 !mr-5">
         <div className="relative">
-          <FaRegBell className="text-xl bg-white text-gray-600 border rounded-full w-10 h-10 cursor-pointer hover:text-gray-800" />
+          <FaRegBell className="text-xm bg-white text-gray-600 border rounded-full w-10 h-10 cursor-pointer hover:text-gray-800" />
         </div>
         <div className="flex items-center gap-x-2">
           <img
@@ -20,7 +20,7 @@ const Header = () => {
             src={logo1}
             alt="Profile"
           />
-          <h2 className="text-sm font-medium text-white">Robert Smith</h2>
+          <h2 className="text-sm font-medium text-white hover:underline">Robert Smith</h2>
         </div>
       </div>
     </div>
