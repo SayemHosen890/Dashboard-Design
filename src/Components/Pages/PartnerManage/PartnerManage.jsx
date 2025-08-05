@@ -139,7 +139,7 @@ const data = [
 ];
 
 const PartnerManage = () => {
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -160,7 +160,7 @@ const PartnerManage = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
-            onClick={() => navigate (-1)}
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -385,85 +385,17 @@ const PartnerManage = () => {
           </table>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "24px",
-            fontSize: "14px",
-            color: "#6b7280",
-          }}
-        >
+        {/* Pagination */}
+
+        <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
           <span>Showing 1-11 out of 1239</span>
-          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <button
-              style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Previous
-            </button>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "#3b82f6",
-                color: "white",
-                borderRadius: "4px",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-            >
-              1
-            </button>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "14px",
-                cursor: "pointer",
-              }}
-            >
-              2
-            </button>
+          <div className="flex items-center gap-2">
+            <button className="px-2">Previous</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
             <span>...</span>
-            <button
-              style={{
-                width: "32px",
-                height: "32px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                fontSize: "14px",
-                cursor: "pointer",
-              }}
-            >
-              100
-            </button>
-            <button
-              style={{
-                padding: "4px 12px",
-                border: "1px solid #d1d5db",
-                borderRadius: "4px",
-                cursor: "pointer",
-              }}
-            >
-              Next
-            </button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="px-2">Next</button>
           </div>
         </div>
       </div>

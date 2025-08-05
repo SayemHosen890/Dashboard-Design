@@ -11,7 +11,7 @@ const Condition = () => {
           onClick={() => navigate(-1)}
           style={{
             fontSize: "18px",
-            color: "#6b7280",
+            color: "black",
             cursor: "pointer",
           }}
         />

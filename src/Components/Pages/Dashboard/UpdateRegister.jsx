@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router';
 import { FaArrowLeft } from "react-icons/fa6";
+import { FaEye } from 'react-icons/fa';
 
 const partners = [
   {
@@ -125,7 +126,7 @@ const UpdateRegister = () => {
             </span>
             </div>
             <div>
-              <h3 className="text-lg font-semibold"> Partner Registration/Update Request</h3>
+              <h3 className="text-lg font-semibold"> Partner Registration / Update Request</h3>
             </div>
           </div>
           
@@ -147,7 +148,7 @@ const UpdateRegister = () => {
                 <th className="!py-7">Contact Number</th>
                 <th className="!py-7">Address</th>
                 <th className="!py-7">Action</th>
-                <th className="!py-7">Verification</th>
+                <th className="">Verification</th>
               </tr>
             </thead>
             <tbody className=''>
@@ -163,7 +164,7 @@ const UpdateRegister = () => {
                   <td className="p-2">{partner.address}</td>
                   <td className="p-10">
                     <button className="bg-blue-600 text-white px-4 py-2 rounded text-sm" style={{ height: 30, width: 30, alignItems: 'center', marginTop: 5 }}>
-                      👁
+                      <FaEye className='text-center !ml-2'/>
                     </button>
                   </td>
                   <td className="p-2 flex gap-2">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("changePassword");
@@ -23,7 +24,7 @@ const Profile = () => {
     // Handle password change logic here
     console.log("Saving password changes:", passwords);
   };
-
+const navigate = useNavigate();
   return (
     <div
       style={{
@@ -43,32 +44,26 @@ const Profile = () => {
           marginBottom: "24px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginBottom: "32px",
-          }}
-        >
-          <FaArrowLeft
-            style={{
-              fontSize: "18px",
-              color: "#6b7280",
-              cursor: "pointer",
-            }}
-          />
-          <h1
-            style={{
-              fontSize: "24px",
-              fontWeight: "600",
-              color: "#111827",
-              margin: 0,
-            }}
-          >
-            Profile
-          </h1>
-        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                <FaArrowLeft
+                  onClick={() => navigate(-1)}
+                  style={{
+                    fontSize: "18px",
+                    color: "black",
+                    cursor: "pointer",
+                  }}
+                />
+                <h1
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "600",
+                    color: "#111827",
+                    margin: 0,
+                  }}
+                >
+                  Profile
+                </h1>
+              </div>
 
         {/* Profile Section */}
         <div

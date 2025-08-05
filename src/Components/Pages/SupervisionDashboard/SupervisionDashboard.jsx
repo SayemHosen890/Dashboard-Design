@@ -1,4 +1,6 @@
 import React from "react";
+// import { Links } from "react-router";
+import { Link } from "react-router";
 
 const SupervisionDashboard = () => {
   // Sample data for the dashboard
@@ -16,7 +18,7 @@ const SupervisionDashboard = () => {
       admin: {
         name: "Leslie Alexander",
         image:
-          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
       },
       status: "Resolved",
     },
@@ -59,7 +61,7 @@ const SupervisionDashboard = () => {
       admin: {
         name: "Darlene Robertson",
         image:
-          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
       },
       email: "csilvers@rizon.com",
       phone: "(308) 555-0121",
@@ -70,7 +72,7 @@ const SupervisionDashboard = () => {
       admin: {
         name: "Brooklyn Simmons",
         image:
-          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       },
       email: "csilvers@rizon.com",
       phone: "(209) 555-0104",
@@ -81,7 +83,7 @@ const SupervisionDashboard = () => {
       admin: {
         name: "Leslie Alexander",
         image:
-          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
       },
       email: "csilvers@rizon.com",
       phone: "(207) 555-0119",
@@ -104,6 +106,7 @@ const SupervisionDashboard = () => {
           gridTemplateColumns: "repeat(4, 1fr)",
           gap: "24px",
           marginBottom: "32px",
+          textAlign:"center"
         }}
       >
         {summaryStats.map((stat, index) => (
@@ -119,8 +122,8 @@ const SupervisionDashboard = () => {
           >
             <div
               style={{
-                fontSize: "14px",
-                color: "#6b7280",
+                fontSize: "22px",
+                color: "#111827",
                 marginBottom: "8px",
               }}
             >
@@ -172,8 +175,9 @@ const SupervisionDashboard = () => {
             >
               Task Completed
             </h3>
-            <a
-              href="#"
+            <Link to="taskComplete">
+              <button
+              
               style={{
                 fontSize: "14px",
                 color: "#3b82f6",
@@ -182,7 +186,8 @@ const SupervisionDashboard = () => {
               }}
             >
               View all
-            </a>
+            </button>
+            </Link>
           </div>
 
           <div style={{ overflowX: "auto" }}>
@@ -467,8 +472,9 @@ const SupervisionDashboard = () => {
           >
             Active Admins
           </h3>
-          <a
-            href="#"
+          <Link to="viewAll">
+              <button
+            
             style={{
               fontSize: "14px",
               color: "#3b82f6",
@@ -477,7 +483,8 @@ const SupervisionDashboard = () => {
             }}
           >
             View all
-          </a>
+          </button>
+          </Link>
         </div>
 
         <div style={{ overflowX: "auto" }}>

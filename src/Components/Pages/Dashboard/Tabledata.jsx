@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router';
+import { FaEye } from "react-icons/fa";
 
 
 const Tabledata = () => {
@@ -77,7 +78,7 @@ const Tabledata = () => {
                                     <td className="p-2">{partner.address}</td>
                                     <td className="p-10">
                                         <button className="bg-blue-600 text-white !ml-2 px-4 py-2 rounded text-sm" style={{height:30,width:30,alignItems:'center',marginTop:4}}>
-                                            👁
+                                            <FaEye className='text-center !ml-2'/>
                                         </button>
                                     </td>
                                     <td className=" flex gap-2">

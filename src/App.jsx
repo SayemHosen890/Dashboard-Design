@@ -30,6 +30,8 @@ import CheckEmail from "./Components/Pages/Logout/CheckEmail";
 import Verify from "./Components/Pages/Logout/Verify";
 import UpdateRegister from "./Components/Pages/Dashboard/UpdateRegister";
 import AuctionDetails from "./Components/Pages/AuctionManagement/AuctionDetails";
+import ViewAll from "./Components/Pages/SupervisionDashboard/ViewAll";
+import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -145,6 +147,8 @@ const App = () => {
             <Route path="/" element={<Dashboard></Dashboard>} />
             <Route path="/dashboard" element={<Dashboard></Dashboard>} />
             <Route path="/auctionDetails" element={<AuctionDetails></AuctionDetails>} />
+            <Route path="/supervisionDashboard/viewAll" element={<ViewAll></ViewAll>} />
+            <Route path="/supervisionDashboard/taskComplete" element={<TaskComplete></TaskComplete>} />
 
           </Routes>
         </div>

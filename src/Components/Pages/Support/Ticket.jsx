@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEye, FaReply, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { HiReply } from "react-icons/hi";
+
 
 const Ticket = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -34,7 +36,7 @@ const Ticket = () => {
       date: "05/06/24",
       userName: "Floyd Miles",
       userImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
       description: "No-show at scheduled pic...",
       email: "qamaho@gmail.com",
       contactNumber: "(555) 345-6789",
@@ -56,11 +58,55 @@ const Ticket = () => {
       date: "03/06/24",
       userName: "Foysal Rahman",
       userImage:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=40&h=40&fit=crop&crop=face",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face",
       description: "No-show at scheduled pic...",
       email: "foysal@example.com",
       contactNumber: "(555) 567-8901",
       status: "Pending",
+    },
+    {
+      ticketId: "#12333",
+      date: "02/06/24",
+      userName: "Eleanor Pena",
+      userImage:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+      description: "No-show at scheduled pic...",
+      email: "eleanor@example.com",
+      contactNumber: "(555) 678-9012",
+      status: "Replied",
+    },
+    {
+      ticketId: "#12333",
+      date: "02/06/24",
+      userName: "Eleanor Pena",
+      userImage:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+      description: "No-show at scheduled pic...",
+      email: "eleanor@example.com",
+      contactNumber: "(555) 678-9012",
+      status: "Replied",
+    },
+    {
+      ticketId: "#12333",
+      date: "02/06/24",
+      userName: "Eleanor Pena",
+      userImage:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+      description: "No-show at scheduled pic...",
+      email: "eleanor@example.com",
+      contactNumber: "(555) 678-9012",
+      status: "Replied",
+    },
+    {
+      ticketId: "#12333",
+      date: "02/06/24",
+      userName: "Eleanor Pena",
+      userImage:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face",
+      description: "No-show at scheduled pic...",
+      email: "eleanor@example.com",
+      contactNumber: "(555) 678-9012",
+      status: "Replied",
     },
     {
       ticketId: "#12333",
@@ -97,9 +143,9 @@ const Ticket = () => {
         };
     }
   };
-const navigate = useNavigate ();
+  const navigate = useNavigate();
   return (
-    
+
     <div
       style={{
         padding: "24px",
@@ -110,11 +156,11 @@ const navigate = useNavigate ();
       {/* Header Section */}
       <div
         style={{
-          backgroundColor: "white",
+          // backgroundColor: "white",
           padding: "24px",
-          borderRadius: "8px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          border: "1px solid #e5e7eb",
+          // borderRadius: "8px",
+          // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+          // border: "1px solid #e5e7eb",
           marginBottom: "24px",
         }}
       >
@@ -128,10 +174,10 @@ const navigate = useNavigate ();
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <FaArrowLeft
-            onClick={() => navigate(-1)}
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "18px",
-                color: "#6b7280",
+                color: "black",
                 cursor: "pointer",
               }}
             />
@@ -176,9 +222,9 @@ const navigate = useNavigate ();
 
         {/* Tickets Table */}
         <div style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <table style={{ width: "100%",}}>
             <thead>
-              <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+              <tr style={{  }}>
                 <th
                   style={{
                     textAlign: "left",
@@ -303,16 +349,16 @@ const navigate = useNavigate ();
                 <tr
                   key={index}
                   style={{
-                    borderBottom: "1px solid #f3f4f6",
+                    // borderBottom: "1px solid #f3f4f6",
                     transition: "background-color 0.2s",
                   }}
-                  onMouseOver={(e) =>
-                    (e.target.parentElement.style.backgroundColor = "#f9fafb")
-                  }
-                  onMouseOut={(e) =>
-                    (e.target.parentElement.style.backgroundColor =
-                      "transparent")
-                  }
+                  // onMouseOver={(e) =>
+                  //   (e.target.parentElement.style.backgroundColor = "#f9fafb")
+                  // }
+                  // onMouseOut={(e) =>
+                  // (e.target.parentElement.style.backgroundColor =
+                  //   "transparent")
+                  // }
                 >
                   <td
                     style={{
@@ -400,51 +446,35 @@ const navigate = useNavigate ();
                   <td style={{ padding: "16px 0" }}>
                     <button
                       style={{
-                        width: "32px",
-                        height: "32px",
-                        borderRadius: "50%",
                         backgroundColor: "#3b82f6",
-                        border: "none",
                         color: "white",
+                        padding: "8px",
+                        borderRadius: "15%",
                         cursor: "pointer",
+                        border: "none",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        transition: "background-color 0.2s",
                       }}
-                      onMouseOver={(e) =>
-                        (e.target.style.backgroundColor = "#2563eb")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.backgroundColor = "#3b82f6")
-                      }
                     >
-                      <FaEye style={{ fontSize: "12px" }} />
+                      <FaEye size={20} />
                     </button>
                   </td>
                   <td style={{ padding: "16px 0" }}>
                     <button
                       style={{
-                        width: "32px",
-                        height: "32px",
-                        borderRadius: "4px",
-                        backgroundColor: "#ef4444",
-                        border: "none",
+                        backgroundColor: "#FF5454",
                         color: "white",
+                        padding: "8px",
+                        borderRadius: "15%",
                         cursor: "pointer",
+                        border: "none",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        transition: "background-color 0.2s",
                       }}
-                      onMouseOver={(e) =>
-                        (e.target.style.backgroundColor = "#dc2626")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.backgroundColor = "#ef4444")
-                      }
                     >
-                      <FaReply style={{ fontSize: "12px" }} />
+                      <HiReply size={20} />
                     </button>
                   </td>
                 </tr>
@@ -454,149 +484,15 @@ const navigate = useNavigate ();
         </div>
 
         {/* Pagination */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "24px",
-          }}
-        >
-          <div
-            style={{
-              color: "#6b7280",
-              fontSize: "14px",
-            }}
-          >
-            Showing 1-11 out of 1239
-          </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-            }}
-          >
-            <button
-              style={{
-                padding: "8px 16px",
-                border: "1px solid #d1d5db",
-                backgroundColor: "white",
-                color: "#374151",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "14px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              <FaArrowLeft style={{ fontSize: "12px" }} />
-              Previous
-            </button>
-            <div style={{ display: "flex", gap: "8px" }}>
-              <button
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  border: "1px solid #3b82f6",
-                  backgroundColor: "#3b82f6",
-                  color: "white",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                1
-              </button>
-              <button
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  border: "1px solid #d1d5db",
-                  backgroundColor: "white",
-                  color: "#374151",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                2
-              </button>
-              <button
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  border: "1px solid #d1d5db",
-                  backgroundColor: "white",
-                  color: "#374151",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                3
-              </button>
-              <span
-                style={{
-                  color: "#6b7280",
-                  fontSize: "14px",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                ...
-              </span>
-              <button
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  border: "1px solid #d1d5db",
-                  backgroundColor: "white",
-                  color: "#374151",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                100
-              </button>
-            </div>
-            <button
-              style={{
-                padding: "8px 16px",
-                border: "1px solid #d1d5db",
-                backgroundColor: "white",
-                color: "#374151",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "14px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-            >
-              Next
-              <FaArrowLeft
-                style={{
-                  fontSize: "12px",
-                  transform: "rotate(180deg)",
-                }}
-              />
-            </button>
+        <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
+          <span>Showing 1-11 out of 1239</span>
+          <div className="flex items-center gap-2">
+            <button className="px-2">Previous</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
+            <span>...</span>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="px-2">Next</button>
           </div>
         </div>
       </div>

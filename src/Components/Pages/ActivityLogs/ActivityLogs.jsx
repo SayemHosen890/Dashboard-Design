@@ -532,9 +532,9 @@ const ActivityLogs = () => {
                   <td style={{ padding: "20px 16px", textAlign: "center" }}>
                     <button
                       style={{
-                        width: "40px",
-                        height: "40px",
-                        borderRadius: "25%",
+                        width: "37px",
+                        height: "37px",
+                        borderRadius: "15%",
                         backgroundColor: "#3b82f6",
                         color: "white",
                         border: "none",

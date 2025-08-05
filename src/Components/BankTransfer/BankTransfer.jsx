@@ -262,7 +262,7 @@ const BankTransfer = () => {
             </thead>
             <tbody>
               {data.map((item, i) => (
-                <tr key={i} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                <tr key={i} style={{}}>
                   <td style={{ padding: "16px" }}>
                     <div
                       style={{

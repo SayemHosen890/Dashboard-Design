@@ -6,12 +6,12 @@ const Contact = () => {
     const navigate = useNavigate();
     return (
         <div className='bg-white h-screen rounded-lg'>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px",marginLeft:"18px",paddingTop:"10px" }}>
                                 <FaArrowLeft
                                   onClick={() => navigate(-1)}
                                   style={{
                                     fontSize: "18px",
-                                    color: "#6b7280",
+                                    color: "black",
                                     cursor: "pointer",
                                   }}
                                 />
@@ -23,7 +23,7 @@ const Contact = () => {
                                     margin: 0,
                                   }}
                                 >
-                                  Privacy Policy
+                                  Contact Us
                                 </h1>
                               </div>
             <div style={{ display: "flex", alignItems: "center", gap: "22px", borderColor: 'white', justifyContent:'center',marginTop:'100px' }}>

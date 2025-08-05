@@ -96,7 +96,7 @@ const Variable = () => {
               {variables.map((item, i) => (
                 <tr
                   key={i}
-                  className="flex items-center border-b border-gray-200 !px-5"
+                  className="flex items-center  !px-5"
                   style={{ padding: "12px 0" }}
                 >
                   <td className="px-4 font-medium" style={{ width: "33.33%" }}>

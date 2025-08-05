@@ -1,5 +1,8 @@
 import React from "react";
 import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
+import { FiSearch } from "react-icons/fi";
+import { MdOutlineModeEditOutline } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router";
 
 const data = [
@@ -136,7 +139,7 @@ const MakeAdmin = () => {
                 color: "#6b7280",
               }}
             >
-              🔍
+              <FiSearch className="text-lg"/>
             </div>
           </div>
         </div>
@@ -272,7 +275,8 @@ const MakeAdmin = () => {
                           height: "32px",
                         }}
                       >
-                        <FaEdit size={14} />
+                        <MdOutlineModeEditOutline size={20} />
+                        
                       </button>
                       <button
                         style={{
@@ -289,7 +293,7 @@ const MakeAdmin = () => {
                           height: "32px",
                         }}
                       >
-                        <FaTrash size={14} />
+                        <RiDeleteBin6Line size={20} />
                       </button>
                     </div>
                   </td>
@@ -302,7 +306,7 @@ const MakeAdmin = () => {
         <div
           style={{
             display: "flex",
-            justifyContent: "center",
+            justifyContent: "space-evenly",
             alignItems: "center",
             marginTop: "24px",
             fontSize: "14px",

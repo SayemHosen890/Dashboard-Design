@@ -74,7 +74,9 @@ const Conversation = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            marginBottom: "5px",
+            paddingLeft: "65px",
+            paddingRight: "15px",
+            padding:"5px",
             backgroundColor:"white"
           }}
         >
@@ -93,7 +95,7 @@ const Conversation = () => {
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
             >
-              Auction Management
+              Review Conversation
             </h1>
           </div>
           <div>
@@ -161,7 +163,7 @@ const Conversation = () => {
             {/* <h2 className="text-xl font-semibold text-gray-700 mb-5">Conversation Overview</h2> */}
             <span className="!ml-5 text-gray-700 !py-5 text-xl font-bold">Conversation Overview</span>
             <hr className="border border-gray-400 mx-4 mb-2" />
-            <div className="space-y-6">
+            <div className="space-y-6 !pt-5 !pl-2 !pr-2">
               {/* Message 1 - Alice */}
               <div className="flex items-start gap-4">
                 <img
@@ -171,7 +173,7 @@ const Conversation = () => {
                 <div>
                   <p className="bg-gray-200 px-4 py-2 rounded-lg max-w-md text-gray-800">
                     Hey Bob, have you finished reviewing the presentation slides? The meeting is just
-                    around the corner, and I want to make sure we’re aligned.
+                    around the corner.
                   </p>
                   <span className="text-xs text-gray-500">9:00 AM</span>
                 </div>
