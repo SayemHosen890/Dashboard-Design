@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const CheckEmail = () => {
     return (

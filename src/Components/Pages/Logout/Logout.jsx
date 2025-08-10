@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {

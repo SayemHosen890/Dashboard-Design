@@ -2,7 +2,7 @@ import React from "react";
 import { FaEye } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {

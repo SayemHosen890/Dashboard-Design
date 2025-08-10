@@ -2,8 +2,7 @@ import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { RiAuctionLine } from "react-icons/ri";
-import { Link, useLocation } from "react-router";
-// import { IoIo    sArrowDown } from "react-icons/io";
+import { Link, useLocation } from "react-router-dom";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import CategoryRoundedIcon from "@mui/icons-material/CategoryRounded";
@@ -23,36 +22,35 @@ import {
 } from "react-icons/md";
 import { TbCodeVariablePlus } from "react-icons/tb";
 
-
-
 const Sidebar = () => {
   const [openSupport, setOpenSupport] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
   const location = useLocation();
 
-  // Helper function to check if a path is active
+  // Updated helper: works for main + nested routes
   const isActive = (path) => {
-    return location.pathname === path;
+    if (path === "/" && location.pathname === "/") return true;
+    return (
+      location.pathname === path || location.pathname.startsWith(path + "/")
+    );
   };
 
-  // Helper function to get button styles based on active state
   const getButtonStyles = (path) => {
     const baseStyles =
       "flex !justify-start gap-x-3 text-white w-full px-4 py-4 rounded-none transition";
     return isActive(path)
-      ? `${baseStyles} bg-gray-700 hover:bg-gray-600`
-      : `${baseStyles} hover:bg-gray-800`;
+      ? `${baseStyles} bg-blue-700 border-l-4 border-blue-400 font-bold`
+      : `${baseStyles} hover:bg-blue-900`;
   };
 
-  // Debug: Log current location
-  console.log("Current location:", location.pathname);
+  // New helper: submenu highlight
+  const getSubmenuItemStyles = (path) => {
+    return location.pathname === path
+      ? "text-white font-bold pl-12 pr-4 py-2 bg-blue-700"
+      : "text-gray-300 hover:text-white pl-12 pr-4 py-2";
+  };
 
-  // const navitems = [{
-  //     id: 1,
-  //     icon: <LuLayoutDashboard />,
-  //     name: 'dashboard',
-  //     path: '/dashboard',
-  // }]
+  console.log("Current location:", location.pathname);
 
   return (
     <div>
@@ -64,7 +62,7 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <LuLayoutDashboard />
                 </span>
-                <span className="text-white">Dashboard</span>
+                <span className="text-white normal-case text-lg">Dashboard</span>
               </Button>
             </Link>
           </li>
@@ -74,7 +72,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <RiAuctionLine />
                 </span>
-                <span className="text-white">Auction Management</span>
+                <span className="text-white normal-case text-lg">
+                  Auction Management
+                </span>
               </Button>
             </Link>
           </li>
@@ -84,7 +84,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <FaRegUserCircle />
                 </span>
-                <span className="text-white">User Management</span>
+                <span className="text-white normal-case text-lg">
+                  User Management
+                </span>
               </Button>
             </Link>
           </li>
@@ -94,7 +96,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <FaUserShield />
                 </span>
-                <span className="text-white">Partner Management</span>
+                <span className="text-white normal-case text-lg">
+                  Partner Management
+                </span>
               </Button>
             </Link>
           </li>
@@ -104,7 +108,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <TrendingUpRoundedIcon />
                 </span>
-                <span className="text-white">Transaction</span>
+                <span className="text-white normal-case text-lg">
+                  Transaction
+                </span>
               </Button>
             </Link>
           </li>
@@ -114,7 +120,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <CategoryRoundedIcon />
                 </span>
-                <span className="text-white">Category Management</span>
+                <span className="text-white normal-case text-lg">
+                  Category Management
+                </span>
               </Button>
             </Link>
           </li>
@@ -124,7 +132,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <TbCodeVariablePlus />
                 </span>
-                <span className="text-white">Variable Management</span>
+                <span className="text-white normal-case text-lg">
+                  Variable Management
+                </span>
               </Button>
             </Link>
           </li>
@@ -134,7 +144,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <MdOutlineMessage />
                 </span>
-                <span className="text-white">Review Conversation</span>
+                <span className="text-white normal-case text-lg">
+                  Review Conversation
+                </span>
               </Button>
             </Link>
           </li>
@@ -144,7 +156,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <AccountBalanceIcon />
                 </span>
-                <span className="text-white">Bank Transfer</span>
+                <span className="text-white normal-case text-lg">
+                  Bank Transfer
+                </span>
               </Button>
             </Link>
           </li>
@@ -154,7 +168,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <PersonAddAltIcon />
                 </span>
-                <span className="text-white">Make Admin</span>
+                <span className="text-white normal-case text-lg">
+                  Make Admin
+                </span>
               </Button>
             </Link>
           </li>
@@ -164,7 +180,9 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <ListAltIcon />
                 </span>
-                <span className="text-white">Supervision Dashboard</span>
+                <span className="text-white normal-case text-lg">
+                  Supervision Dashboard
+                </span>
               </Button>
             </Link>
           </li>
@@ -174,38 +192,44 @@ const Sidebar = () => {
                 <span className="text-lg text-white">
                   <HistoryToggleOffIcon />
                 </span>
-                <span className="text-white">Activity Log</span>
+                <span className="text-white normal-case text-lg">
+                  Activity Log
+                </span>
               </Button>
             </Link>
           </li>
           <li>
             <Link to="/auditDashboard">
-              <Button className="flex !justify-start gap-x-3 text-white hover:bg-gray-800 w-full px-4 py-4 rounded-none transition">
+              <Button className={getButtonStyles("/auditDashboard")}>
                 <span className="text-lg text-white">
                   <BarChartIcon />
                 </span>
-                <span className="text-white">Audit Dashboard</span>
+                <span className="text-white normal-case text-lg">
+                  Audit Dashboard
+                </span>
               </Button>
             </Link>
           </li>
+          {/* Support */}
           <li>
             <div className="flex !justify-start justify-between w-full">
               <Button
-                className="flex !justify-start gap-x-3 text-white hover:bg-gray-800 w-full px-4 py-4 rounded-none transition"
+                className={getButtonStyles("/support")}
                 onClick={() => setOpenSupport(!openSupport)}
               >
                 <span className="text-lg text-white">
                   <MdSupport />
                 </span>
-                <span className="text-white">Support</span>
+                <span className="text-white normal-case text-lg">Support</span>
               </Button>
               <span
                 className="cursor-pointer px-2 text-white text-lg flex items-center"
                 onClick={() => setOpenSupport(!openSupport)}
               >
                 <MdOutlineArrowForwardIos
-                  className={`transition-transform duration-200 ${openSupport ? "rotate-90" : ""
-                    }`}
+                  className={`transition-transform duration-200 ${
+                    openSupport ? "rotate-90" : ""
+                  }`}
                 />
               </span>
             </div>
@@ -214,14 +238,14 @@ const Sidebar = () => {
                 <ul className="flex flex-col gap-1 text-center">
                   <li>
                     <Link to="/support/file-claim">
-                      <div className="text-gray-300 hover:text-white cursor-pointer text-md pl-12 pr-4 py-2">
+                      <div className={getSubmenuItemStyles("/support/file-claim")}>
                         File Claim
                       </div>
                     </Link>
                   </li>
                   <li>
                     <Link to="/support/ticket">
-                      <div className="text-gray-300 hover:text-white cursor-pointer text-md pl-12 pr-4 py-2">
+                      <div className={getSubmenuItemStyles("/support/ticket")}>
                         Ticket
                       </div>
                     </Link>
@@ -230,47 +254,44 @@ const Sidebar = () => {
               </div>
             )}
           </li>
+          {/* Settings */}
           <li>
             <div className="flex !justify-start justify-between w-full">
               <Button
-                className="flex !justify-start gap-x-3 text-white hover:bg-gray-800 w-full px-4 py-4 rounded-none transition"
+                className={getButtonStyles("/setting")}
                 onClick={() => setOpenSettings(!openSettings)}
               >
                 <span className="text-lg text-white">
                   <SettingsIcon />
                 </span>
-                <span className="text-white">Settings</span>
+                <span className="text-white normal-case text-lg">Settings</span>
               </Button>
               <span
                 className="cursor-pointer px-2 text-white text-lg flex items-center"
                 onClick={() => setOpenSettings(!openSettings)}
               >
                 <MdOutlineArrowForwardIos
-                  className={`transition-transform duration-200 relative ${openSettings ? "rotate-90" : ""
-                    }`}
-                />
-                {/* <MdOutlineArrowForwardIos
-                  className={`transition-transform duration-200 flex text-center ${
+                  className={`transition-transform duration-200 relative ${
                     openSettings ? "rotate-90" : ""
                   }`}
-                /> */}
+                />
               </span>
             </div>
             {openSettings && (
               <div className="ml-0 mt-1">
                 <ul className="flex flex-col gap-1 text-center">
                   <Link to="/setting/condition">
-                    <li className="text-gray-300 hover:text-white cursor-pointer text-md pl-12 pr-4 py-2">
+                    <li className={getSubmenuItemStyles("/setting/condition")}>
                       Terms & Conditions
                     </li>
                   </Link>
                   <Link to="/setting/privacy">
-                    <li className="text-gray-300 hover:text-white cursor-pointer text-md pl-12 pr-4 py-2">
+                    <li className={getSubmenuItemStyles("/setting/privacy")}>
                       Privacy Policy
                     </li>
                   </Link>
                   <Link to="/setting/contactUs">
-                    <li className="text-gray-300 hover:text-white cursor-pointer text-md pl-12 pr-4 py-2">
+                    <li className={getSubmenuItemStyles("/setting/contactUs")}>
                       Contact Us
                     </li>
                   </Link>
@@ -280,24 +301,23 @@ const Sidebar = () => {
           </li>
           <li>
             <Link to="/profile">
-              <Button className="flex !justify-start gap-x-3 text-white hover:bg-gray-800 w-full px-4 py-4 rounded-none transition">
+              <Button className={getButtonStyles("/profile")}>
                 <span className="text-lg text-white">
                   <CgProfile />
                 </span>
-                <span className="text-white">Profile</span>
+                <span className="text-white normal-case text-lg">Profile</span>
               </Button>
             </Link>
           </li>
           <div className="!mt-15">
-            
             <li>
               <Link to="/logout">
-              <Button className="flex !justify-start gap-x-3 text-white hover:bg-gray-800 w-full px-4 py-4 rounded-none transition">
-                <span className="text-lg text-white">
-                  <LogoutIcon />
-                </span>
-                <span className="text-white">Log out</span>
-              </Button>
+                <Button className={getButtonStyles("/logout")}>
+                  <span className="text-lg text-white">
+                    <LogoutIcon />
+                  </span>
+                  <span className="text-white normal-case text-lg">Log out</span>
+                </Button>
               </Link>
             </li>
           </div>
@@ -308,6 +328,7 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+
 
 {/* Card 3 - Events Creation Rate Chart */ }
 // <div

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("changePassword");
@@ -24,7 +24,7 @@ const Profile = () => {
     // Handle password change logic here
     console.log("Saving password changes:", passwords);
   };
-const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -45,25 +45,25 @@ const navigate = useNavigate();
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                <FaArrowLeft
-                  onClick={() => navigate(-1)}
-                  style={{
-                    fontSize: "18px",
-                    color: "black",
-                    cursor: "pointer",
-                  }}
-                />
-                <h1
-                  style={{
-                    fontSize: "24px",
-                    fontWeight: "600",
-                    color: "#111827",
-                    margin: 0,
-                  }}
-                >
-                  Profile
-                </h1>
-              </div>
+          <FaArrowLeft
+            onClick={() => navigate(-1)}
+            style={{
+              fontSize: "18px",
+              color: "black",
+              cursor: "pointer",
+            }}
+          />
+          <h1
+            style={{
+              fontSize: "24px",
+              fontWeight: "600",
+              color: "#111827",
+              margin: 0,
+            }}
+          >
+            Profile
+          </h1>
+        </div>
 
         {/* Profile Section */}
         <div
@@ -103,7 +103,7 @@ const navigate = useNavigate();
                 border: "2px solid white",
               }}
             >
-              <FaCamera style={{ fontSize: "14px", color: "white" }} />
+              {/* <FaCamera style={{ fontSize: "14px", color: "white" }} /> */}
             </div>
           </div>
 
@@ -356,15 +356,17 @@ const navigate = useNavigate();
                   color: "white",
                   border: "none",
                   borderRadius: "6px",
-                  alignItems: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
                   fontSize: "16px",
                   fontWeight: "500",
                   cursor: "pointer",
                   transition: "background-color 0.2s",
                 }}
-                onMouseOver={(e) => (e.target.style.backgroundColor = "#1f2937")}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#1f2937")
+                }
                 onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
               >
                 Save Change
@@ -509,16 +511,18 @@ const navigate = useNavigate();
                   backgroundColor: "#111827",
                   color: "white",
                   border: "none",
-                  alignItems: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
                   borderRadius: "6px",
                   fontSize: "16px",
                   fontWeight: "500",
                   cursor: "pointer",
                   transition: "background-color 0.2s",
                 }}
-                onMouseOver={(e) => (e.target.style.backgroundColor = "#1f2937")}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#1f2937")
+                }
                 onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
               >
                 Save Profile
@@ -526,7 +530,6 @@ const navigate = useNavigate();
             </div>
           </div>
         )}
-
       </div>
     </div>
   );

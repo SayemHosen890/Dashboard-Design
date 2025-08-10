@@ -1,12 +1,17 @@
 import React from "react";
 import { FaCommentDots, FaEye } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router";
-import Switch from '@mui/material/Switch';
+import { useNavigate } from "react-router-dom";
+import Switch from "@mui/material/Switch";
 import { MdOutlineArticle } from "react-icons/md";
 import { BsChatLeftText } from "react-icons/bs";
-import Box from '@mui/material/Box';
-import Popper from '@mui/material/Popper';
+import Box from "@mui/material/Box";
+import Popper from "@mui/material/Popper";
+import { Button, ConfigProvider, Flex, Popconfirm } from "antd";
+
+const text = "Are you sure to delete this task?";
+const description = "Delete the task";
+const buttonWidth = 80;
 
 const data = [
   {
@@ -133,9 +138,6 @@ const data = [
 ];
 
 const UserManage = () => {
-
-
-
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -143,9 +145,9 @@ const UserManage = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popper' : undefined;
+  const id = open ? "simple-popper" : undefined;
 
-  const label = { inputProps: { 'aria-label': 'Switch demo' } };
+  const label = { inputProps: { "aria-label": "Switch demo" } };
   const navigate = useNavigate();
   return (
     <div>
@@ -337,17 +339,22 @@ const UserManage = () => {
                   </td>
                   <td style={{ padding: "16px" }}>
                     <div>
-                      <button aria-describedby={id} type="button" style={{
-                        backgroundColor: "#3b82f6",
-                        color: "white",
-                        padding: "8px",
-                        borderRadius: "25%",
-                        cursor: "pointer",
-                      }} onClick={handleClick}>
+                      <button
+                        aria-describedby={id}
+                        type="button"
+                        style={{
+                          backgroundColor: "#3b82f6",
+                          color: "white",
+                          padding: "8px",
+                          borderRadius: "25%",
+                          cursor: "pointer",
+                        }}
+                        onClick={handleClick}
+                      >
                         <FaEye size={20} />
                       </button>
                       <Popper id={id} open={open} anchorEl={anchorEl}>
-                        <Box sx={{ borderRadius: '2px', }}>
+                        <Box sx={{ borderRadius: "2px" }}>
                           <div className=" mx-auto !p-8 bg-white shadow rounded-md !mr-140">
                             {/* Profile Picture */}
                             <div className="flex justify-center mb-4">
@@ -356,7 +363,6 @@ const UserManage = () => {
                                 alt="Profile"
                                 className="w-15 h-15 rounded-full object-cover"
                               />
-
                             </div>
                             <div className="text-center !my-4">
                               <div>Robert Smith</div>
@@ -367,9 +373,7 @@ const UserManage = () => {
                                 <div>
                                   <h3>Phone Number:</h3>
                                 </div>
-                                <div>
-                                  +3489 9999 9778
-                                </div>
+                                <div>+3489 9999 9778</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
@@ -383,9 +387,7 @@ const UserManage = () => {
                                 <div>
                                   <h3>Wallet Balance:</h3>
                                 </div>
-                                <div>
-                                  $354
-                                </div>
+                                <div>$354</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
@@ -399,73 +401,55 @@ const UserManage = () => {
                                 <div>
                                   <h3>Account Holder Name:</h3>
                                 </div>
-                                <div>
-                                  Dianne Russell
-                                </div>
+                                <div>Dianne Russell</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Account Holder Type:</h3>
                                 </div>
-                                <div>
-                                  Personal
-                                </div>
+                                <div>Personal</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Account Number:</h3>
                                 </div>
-                                <div>
-                                  6575675678676
-                                </div>
+                                <div>6575675678676</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Routing Number:</h3>
                                 </div>
-                                <div>
-                                  5474574575467
-                                </div>
+                                <div>5474574575467</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Phone Number:</h3>
                                 </div>
-                                <div>
-                                  (201) 555-0124
-                                </div>
+                                <div>(201) 555-0124</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Date of Birth:</h3>
                                 </div>
-                                <div>
-                                  23/06/99
-                                </div>
+                                <div>23/06/99</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Business Name:</h3>
                                 </div>
-                                <div>
-                                  Governance structures,
-                                </div>
+                                <div>Governance structures,</div>
                               </div>
                               <div className="flex justify-between gap-90 !py-2">
                                 <div>
                                   <h3>Website:</h3>
                                 </div>
-                                <div>
-                                  https://www.vip.com/
-                                </div>
+                                <div>https://www.vip.com/</div>
                               </div>
                               <div className="flex justify-between gap-90">
                                 <div>
                                   <h3>City:</h3>
                                 </div>
-                                <div>
-                                  San Juan
-                                </div>
+                                <div>San Juan</div>
                               </div>
                             </div>
                           </div>
@@ -474,7 +458,7 @@ const UserManage = () => {
                     </div>
                   </td>
                   <td style={{ padding: "16px" }}>
-                    <button
+                    {/* <button
                       style={{
                         backgroundColor: "#e96755ff",
                         color: "white",
@@ -484,7 +468,34 @@ const UserManage = () => {
                       }}
                     >
                       <MdOutlineArticle size={20} className="" />
-                    </button>
+                    </button> */}
+                    <ConfigProvider
+                      button
+                      style={{
+                        backgroundColor: "#e96755ff",
+                        color: "white",
+                        padding: "8px",
+                        borderRadius: "25%",
+                        cursor: "pointer",
+                      }}
+                    >
+                      <Flex
+                        vertical
+                        justify="center"
+                        align="center"
+                        className="demo"
+                      >
+                        <Flex
+                          justify="center"
+                          align="center"
+                          style={{ whiteSpace: "nowrap" }}
+                        >
+                          <Popconfirm>
+                            <MdOutlineArticle size={20} className="" />
+                          </Popconfirm>
+                        </Flex>
+                      </Flex>
+                    </ConfigProvider>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button

@@ -1,7 +1,7 @@
 import React from 'react'
 // import { FaSearch, FaUserCircle } from 'react-icons/fa';
 import { FaArrowLeft } from 'react-icons/fa';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 // import { FaArrowLeft } from "react-icons/fa6";
 
 const conversations = [

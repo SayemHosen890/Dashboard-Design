@@ -6,7 +6,7 @@ import {
   FaEye,
   FaSearch,
 } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const ActivityLogs = () => {
   // Sample data for the activity log

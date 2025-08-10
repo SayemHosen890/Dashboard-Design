@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import BankTransfer from "./Components/BankTransfer/BankTransfer";
 import ActivityLogs from "./Components/Pages/ActivityLogs/ActivityLogs";
@@ -33,6 +33,7 @@ import AuctionDetails from "./Components/Pages/AuctionManagement/AuctionDetails"
 import ViewAll from "./Components/Pages/SupervisionDashboard/ViewAll";
 import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
 import TransactionDetails from "./Components/Pages/Transaction/TransactionDetails";
+import Notification from "./Components/Pages/Home/Notification";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -45,31 +46,8 @@ const App = () => {
         </div>
         <div style={{ padding: "20px" }} className="w-[85%] bg-gray-200">
           <Routes>
-            {/* <Route path="/" element={<Logout></Logout>} /> */}
-        {/* <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        /> */}
-        {/* <Route
-          path="/"
-          element={
-            
-              <Dashboard />
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            
-              <Dashboard />
-            
-          }
-        /> */}
             <Route path="/auction" exact={true} element={<Auction></Auction>} />
+            <Route path="/notification" exact={true} element={<Notification></Notification>} />
             <Route
               path="/userManage"
               exact={true}

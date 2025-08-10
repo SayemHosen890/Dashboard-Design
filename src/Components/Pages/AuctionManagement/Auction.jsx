@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { FaCommentDots, FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 // import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { BsChatLeftText } from "react-icons/bs";
-import Box from '@mui/material/Box';
-import Popper from '@mui/material/Popper';
-
+import Box from "@mui/material/Box";
+import Popper from "@mui/material/Popper";
+import { Modal, Button } from "antd";
+// import React from "react";
+// import { useState } from "react";
 
 const data = [
   {
@@ -176,8 +178,7 @@ const statusColor = {
 };
 
 const Auction = () => {
-
-
+  // const [anchorEl, setAnchorEl] = React.useState (null);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -185,11 +186,11 @@ const Auction = () => {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popper' : undefined;
+  const id = open ? "simple-popper" : undefined;
 
   const navigate = useNavigate();
 
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div>
@@ -213,7 +214,7 @@ const Auction = () => {
             <button
               onClick={() => navigate(-1)}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 color: "#374151",
                 cursor: "pointer",
@@ -222,7 +223,7 @@ const Auction = () => {
               <FaArrowLeft />
             </button>
             <h1
-              style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+              style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
             >
               Auction Management
             </h1>
@@ -444,7 +445,6 @@ const Auction = () => {
                         display: "flex",
                         alignItems: "center",
                         gap: "12px",
-
                       }}
                     >
                       <img
@@ -496,16 +496,21 @@ const Auction = () => {
                         fontSize: "14px",
                         fontWeight: "500",
                         cursor: "pointer",
-                      }} onClick={handleClick}
+                      }}
+                      onClick={handleClick}
                     >
                       Refund
                     </button>
                     <Popper id={id} open={open} anchorEl={anchorEl}>
-                      <Box sx={{ borderRadius: '2px', }}>
+                      <Box sx={{ borderRadius: "2px" }}>
                         <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
                           {/* Profile Picture */}
-                          <h1 className="text-center !py-5">Are you want to refund ?</h1>
-                          <h3 className="text-center !py-5">Win Bid amount will be refund to the user/partner.</h3>
+                          <h1 className="text-center !py-5">
+                            Are you want to refund ?
+                          </h1>
+                          <h3 className="text-center !py-5">
+                            Win Bid amount will be refund to the user/partner.
+                          </h3>
                           <div className="flex justify-evenly items-center gap-4 !py-3">
                             <div>
                               <button
@@ -518,7 +523,7 @@ const Auction = () => {
                                   fontWeight: "500",
                                   cursor: "pointer",
                                   backgroundColor: "black",
-                                  margin: "0px 5px"
+                                  margin: "0px 5px",
                                 }}
                               >
                                 Refund
@@ -534,7 +539,7 @@ const Auction = () => {
                                   fontSize: "14px",
                                   fontWeight: "500",
                                   cursor: "pointer",
-                                  margin: "0px 5px"
+                                  margin: "0px 5px",
                                 }}
                               >
                                 Cancel
@@ -548,8 +553,9 @@ const Auction = () => {
                   <td style={{ padding: "16px" }}>
                     <button
                       style={{
-                        border: `1px solid ${statusColor[item.status].borderColor
-                          }`,
+                        border: `1px solid ${
+                          statusColor[item.status].borderColor
+                        }`,
                         padding: "8px 40px",
                         borderRadius: "9999px",
                         fontSize: "14px",
@@ -557,16 +563,22 @@ const Auction = () => {
                         color: statusColor[item.status].color,
                         backgroundColor:
                           statusColor[item.status].backgroundColor,
-                      }} onClick={handleClick}
+                      }}
+                      onClick={handleClick}
                     >
                       {item.status}
                     </button>
                     <Popper id={id} open={open} anchorEl={anchorEl}>
-                      <Box sx={{ borderRadius: '2px', }}>
+                      <Box sx={{ borderRadius: "2px" }}>
                         <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
                           {/* Profile Picture */}
-                          <h1 className="text-center !py-5">Are you sure want to change the status to “Completed”?</h1>
-                          <h3 className="text-center !py-5">Win Bid amount will be send to the user/partner.</h3>
+                          <h1 className="text-center !py-5">
+                            Are you sure want to change the status to
+                            “Completed”?
+                          </h1>
+                          <h3 className="text-center !py-5">
+                            Win Bid amount will be send to the user/partner.
+                          </h3>
                           <div className="flex justify-evenly items-center gap-4 !py-3">
                             <div>
                               <button
@@ -579,7 +591,7 @@ const Auction = () => {
                                   fontWeight: "500",
                                   cursor: "pointer",
                                   backgroundColor: "black",
-                                  margin: "0px 5px"
+                                  margin: "0px 5px",
                                 }}
                               >
                                 Confirm
@@ -595,7 +607,7 @@ const Auction = () => {
                                   fontSize: "14px",
                                   fontWeight: "500",
                                   cursor: "pointer",
-                                  margin: "0px 5px"
+                                  margin: "0px 5px",
                                 }}
                               >
                                 Cancel
@@ -607,30 +619,61 @@ const Auction = () => {
                     </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
-                    <div style={{ display: "flex", gap: "8px" }}>
-                      <button
-                        style={{
-                          backgroundColor: "#3b82f6",
-                          color: "white",
-                          padding: "8px",
-                          borderRadius: "25%",
-                          cursor: "pointer",
-                        }} onClick={() => navigate('/auctionDetails')}
-                      >
-                        <FaEye size={20} />
-                      </button>
-                      <button
-                        style={{
-                          backgroundColor: "#F2AA00",
-                          color: "white",
-                          padding: "8px",
-                          borderRadius: "25%",
-                          cursor: "pointer",
-                        }} 
-                      >
-                        <BsChatLeftText size={20} className="" />
-                      </button>
-                    </div>
+                    <>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td style={{ padding: 16, verticalAlign: "top" }}>
+                              <div style={{ display: "flex", gap: 8 }}>
+                                <button
+                                  style={{
+                                    backgroundColor: "#3b82f6",
+                                    color: "white",
+                                    padding: 8,
+                                    borderRadius: "25%",
+                                    cursor: "pointer",
+                                    border: "none",
+                                  }}
+                                  onClick={() => navigate("/auctionDetails")}
+                                >
+                                  <FaEye size={20} />
+                                </button>
+                                <button
+                                  style={{
+                                    backgroundColor: "#F2AA00",
+                                    color: "white",
+                                    padding: 8,
+                                    borderRadius: "25%",
+                                    cursor: "pointer",
+                                    border: "none",
+                                  }}
+                                  onClick={() => setIsModalOpen(true)}
+                                >
+                                  <BsChatLeftText size={20} />
+                                </button>
+                                <Modal
+                                  title="Chat Popup"
+                                  centered
+                                  open={isModalOpen}
+                                  onCancel={() => setIsModalOpen(false)}
+                                  footer={[
+                                    <Button
+                                      key="close"
+                                      onClick={() => setIsModalOpen(false)}
+                                    >
+                                      Close
+                                    </Button>,
+                                  ]}
+                                >
+                                  <p>This is your chat popup content.</p>
+                                  {/* You can put your chat form or component here */}
+                                </Modal>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </>
                   </td>
                 </tr>
               ))}
@@ -641,10 +684,16 @@ const Auction = () => {
           <span>Showing 1-11 out of 1239</span>
           <div className="flex items-center gap-2">
             <button className="px-2">Previous</button>
-            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
+              1
+            </button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+              2
+            </button>
             <span>...</span>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+              100
+            </button>
             <button className="px-2">Next</button>
           </div>
         </div>

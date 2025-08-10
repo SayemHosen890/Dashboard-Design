@@ -1,6 +1,6 @@
 import React from "react";
 // import { Links } from "react-router";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const SupervisionDashboard = () => {
   // Sample data for the dashboard

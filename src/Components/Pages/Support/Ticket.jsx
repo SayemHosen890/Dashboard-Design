@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEye, FaReply, FaSearch } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { HiReply } from "react-icons/hi";
 
 

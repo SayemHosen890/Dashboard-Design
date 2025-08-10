@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import phn1 from '../../../assets/phn1.png';
 import phn2 from '../../../assets/phn2.png';
 import phn3 from '../../../assets/phn3.png';
@@ -73,7 +73,7 @@ const AuctionDetails = () => {
                         <button
                             onClick={() => navigate(-1)}
                             style={{
-                                fontSize: "24px",
+                                fontSize: "18px",
                                 fontWeight: "600",
                                 color: "#374151",
                                 cursor: "pointer",
@@ -82,7 +82,7 @@ const AuctionDetails = () => {
                             <FaArrowLeft />
                         </button>
                         <h1
-                            style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+                            style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
                         >
                             Auction Details
                         </h1>

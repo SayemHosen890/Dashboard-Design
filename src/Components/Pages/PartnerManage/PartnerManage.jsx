@@ -2,7 +2,7 @@ import React from "react";
 import { BsChatLeftText } from "react-icons/bs";
 import { FaArrowLeft, FaCommentDots, FaEye } from "react-icons/fa";
 import { MdOutlineArticle } from "react-icons/md";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {

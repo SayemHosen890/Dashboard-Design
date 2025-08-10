@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa';
 import { FiSearch } from 'react-icons/fi'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 // import { Link } from 'react-router'
 
 const TaskComplete = () => {

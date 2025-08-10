@@ -1,6 +1,5 @@
 import React from 'react'
 // import Card from '@mui/material/Card';
-import './Dashboard.css'
 // import { LuCircleDollarSign } from "react-icons/lu";
 import svg1 from "../../../assets/svg1.svg"
 import svg2 from "../../../assets/svg2.svg"

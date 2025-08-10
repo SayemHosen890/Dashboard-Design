@@ -3,7 +3,7 @@ import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -104,7 +104,7 @@ const MakeAdmin = () => {
             <button
               onClick={() => navigate(-1)}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 color: "#374151",
                 cursor: "pointer",
@@ -113,7 +113,7 @@ const MakeAdmin = () => {
               <FaArrowLeft />
             </button>
             <h1
-              style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+              style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
             >
               Make Admin
             </h1>

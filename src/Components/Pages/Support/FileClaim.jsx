@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaArrowLeft, FaEdit, FaEye, FaSearch } from "react-icons/fa";
 import { MdOutlineModeEdit } from "react-icons/md";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const FileClaim = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -376,13 +376,7 @@ const navigate = useNavigate ();
                     borderBottom: "1px solid #f3f4f6",
                     transition: "background-color 0.2s",
                   }}
-                  onMouseOver={(e) =>
-                    (e.target.parentElement.style.backgroundColor = "#f9fafb")
-                  }
-                  onMouseOut={(e) =>
-                    (e.target.parentElement.style.backgroundColor =
-                      "transparent")
-                  }
+                  
                 >
                   <td
                     style={{
@@ -497,12 +491,7 @@ const navigate = useNavigate ();
                         justifyContent: "center",
                         transition: "background-color 0.2s",
                       }}
-                      onMouseOver={(e) =>
-                        (e.target.style.backgroundColor = "#2563eb")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.backgroundColor = "#3b82f6")
-                      }
+                      
                     >
                       <FaEye style={{ fontSize: "20px" }} />
                     </button>
@@ -522,12 +511,6 @@ const navigate = useNavigate ();
                         justifyContent: "center",
                         transition: "background-color 0.2s",
                       }}
-                      onMouseOver={(e) =>
-                        (e.target.style.backgroundColor = "#dc2626")
-                      }
-                      onMouseOut={(e) =>
-                        (e.target.style.backgroundColor = "#ef4444")
-                      }
                     >
                       <MdOutlineModeEdit style={{ fontSize: "20px" }} />
                     </button>

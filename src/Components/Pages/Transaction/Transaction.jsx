@@ -1,7 +1,7 @@
 import React from 'react'
 import { BsChatLeftText } from 'react-icons/bs';
 import { FaEye, FaCommentDots, FaArrowLeft } from 'react-icons/fa';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaArrowLeft, FaEye } from "react-icons/fa";
 import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {

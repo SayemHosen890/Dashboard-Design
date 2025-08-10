@@ -1,55 +1,15 @@
 import React from 'react'
 import { FaArrowLeft } from "react-icons/fa";
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import phn1 from '../../../assets/phn1.png';
 import phn2 from '../../../assets/phn2.png';
 import phn3 from '../../../assets/phn3.png';
 import phn4 from '../../../assets/phn4.png';
-import w4 from '../../../assets/w4.png';
-import w2 from '../../../assets/w2.png';
-import w3 from '../../../assets/w3.png';
-import w1 from '../../../assets/w1.png';
-import map1 from '../../../assets/map1.png'
-import { FaStar } from "react-icons/fa";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+
 
 const TransactionDetails = () => {
     const navigate = useNavigate();
-
-    const cards = [
-        {
-            id: 1,
-            image: w4,
-            title: 'Robert Smith',
-            subtitleLeft: 'Rating:',
-            subtitleRight: '4.5/5.0',
-            description: '$25.00',
-        },
-        {
-            id: 2,
-            image: w3,
-            title: 'Jerome Bell',
-            subtitleLeft: 'Rating:',
-            subtitleRight: '4.9/5.0',
-            description: '$28.00',
-        },
-        {
-            id: 3,
-            image: w2,
-            title: 'Jacob Jones',
-            subtitleLeft: 'Rating:',
-            subtitleRight: '4.6/5.0',
-            description: '$30.00',
-        },
-        {
-            id: 4,
-            image: w1,
-            title: 'Devon Lane',
-            subtitleLeft: 'Rating:',
-            subtitleRight: '4.7/5.0',
-            description: '$35.00',
-        },
-    ];
 
     return (
         <div>
@@ -73,7 +33,7 @@ const TransactionDetails = () => {
                         <button
                             onClick={() => navigate(-1)}
                             style={{
-                                fontSize: "24px",
+                                fontSize: "18px",
                                 fontWeight: "600",
                                 color: "#374151",
                                 cursor: "pointer",
@@ -82,7 +42,7 @@ const TransactionDetails = () => {
                             <FaArrowLeft />
                         </button>
                         <h1
-                            style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+                            style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
                         >
                             Details
                         </h1>
