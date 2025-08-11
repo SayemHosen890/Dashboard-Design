@@ -8,6 +8,7 @@ import { BsChatLeftText } from "react-icons/bs";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import { Button, ConfigProvider, Flex, Popconfirm } from "antd";
+import { GoSearch } from "react-icons/go";
 
 const text = "Are you sure to delete this task?";
 const description = "Delete the task";
@@ -185,19 +186,30 @@ const UserManage = () => {
               User Management
             </h1>
           </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Search here..."
-              style={{
-                border: "1px solid #d1d5db",
-                padding: "8px 16px",
-                borderRadius: "6px",
-                width: "256px",
-                outline: "none",
-              }}
-            />
-          </div>
+          <div style={{ position: "relative" }}>
+                        <input
+                          type="text"
+                          placeholder="Search here..."
+                          style={{
+                            border: "1px solid #d1d5db",
+                            padding: "8px 16px 8px 40px",
+                            borderRadius: "6px",
+                            width: "256px",
+                            outline: "none",
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: "absolute",
+                            left: "12px",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            color: "#6b7280",
+                          }}
+                        >
+                          <GoSearch className="text-xl" />
+                        </div>
+                      </div>
         </div>
 
         <div

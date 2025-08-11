@@ -1,6 +1,7 @@
 import React from "react";
 import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
+import { IoMdAdd } from "react-icons/io";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
@@ -139,7 +140,7 @@ const MakeAdmin = () => {
                 color: "#6b7280",
               }}
             >
-              <FiSearch className="text-lg"/>
+              <FiSearch className="text-lg" />
             </div>
           </div>
         </div>
@@ -150,14 +151,19 @@ const MakeAdmin = () => {
               backgroundColor: "#000000",
               color: "white",
               padding: "12px 24px",
-              borderRadius: "8px",
+              borderRadius: "25px",
               border: "none",
               cursor: "pointer",
               fontSize: "14px",
               fontWeight: "500",
             }}
           >
-            + Make Admin
+            <div className="flex justify-center items-center gap-2">
+              <div>
+                <IoMdAdd size={20} />
+              </div>
+              <div>Add New</div>
+            </div>
           </button>
         </div>
 
@@ -276,7 +282,6 @@ const MakeAdmin = () => {
                         }}
                       >
                         <MdOutlineModeEditOutline size={20} />
-                        
                       </button>
                       <button
                         style={{

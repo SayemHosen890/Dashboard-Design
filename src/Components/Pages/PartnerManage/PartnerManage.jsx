@@ -1,6 +1,7 @@
 import React from "react";
 import { BsChatLeftText } from "react-icons/bs";
 import { FaArrowLeft, FaCommentDots, FaEye } from "react-icons/fa";
+import { GoSearch } from "react-icons/go";
 import { MdOutlineArticle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
@@ -176,19 +177,30 @@ const PartnerManage = () => {
               Partner Management
             </h1>
           </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Search here..."
-              style={{
-                border: "1px solid #d1d5db",
-                padding: "8px 16px",
-                borderRadius: "6px",
-                width: "256px",
-                outline: "none",
-              }}
-            />
-          </div>
+          <div style={{ position: "relative" }}>
+                        <input
+                          type="text"
+                          placeholder="Search here..."
+                          style={{
+                            border: "1px solid #d1d5db",
+                            padding: "8px 16px 8px 40px",
+                            borderRadius: "6px",
+                            width: "256px",
+                            outline: "none",
+                          }}
+                        />
+                        <div
+                          style={{
+                            position: "absolute",
+                            left: "12px",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            color: "#6b7280",
+                          }}
+                        >
+                          <GoSearch className="text-xl" />
+                        </div>
+                      </div>
         </div>
 
         <div

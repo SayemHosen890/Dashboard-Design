@@ -6,8 +6,7 @@ import logo1 from "../../../assets/logo1.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <div className="flex justify-between items-center bg-black header px-4 py-2">
@@ -15,8 +14,11 @@ const navigate = useNavigate();
         <img className="h-20 w-71.5 bg-white" src={logo} alt="Xmoveit Logo" />
       </div>
       <div className="flex items-center gap-x-4 !mr-5">
-        <div>
-          <FaRegBell className="text-xm bg-white text-gray-600 border rounded-full w-10 h-10 cursor-pointer" onClick={() => navigate('/notification')}/>
+        <div
+          className="flex items-center justify-center !p-2 bg-white border rounded-full cursor-pointer"
+          onClick={() => navigate("/notification")}
+        >
+          <FaRegBell className="text-base text-gray-600 h-6 w-6" />
         </div>
         <Link to="profile">
           <div className="flex items-center gap-x-2">

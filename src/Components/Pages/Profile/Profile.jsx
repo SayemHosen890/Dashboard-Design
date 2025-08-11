@@ -74,7 +74,7 @@ const Profile = () => {
             marginBottom: "32px",
           }}
         >
-          {/* Profile Picture */}
+          {/* Profile Picture - Only show camera icon in Edit Profile tab */}
           <div style={{ position: "relative", marginBottom: "16px" }}>
             <img
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
@@ -87,24 +87,26 @@ const Profile = () => {
                 border: "4px solid #e5e7eb",
               }}
             />
-            <div
-              style={{
-                position: "absolute",
-                bottom: "8px",
-                right: "8px",
-                width: "32px",
-                height: "32px",
-                backgroundColor: "#3b82f6",
-                borderRadius: "50%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                border: "2px solid white",
-              }}
-            >
-              {/* <FaCamera style={{ fontSize: "14px", color: "white" }} /> */}
-            </div>
+            {activeTab === "editProfile" && (
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "8px",
+                  right: "8px",
+                  width: "32px",
+                  height: "32px",
+                  backgroundColor: "#3b82f6",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  border: "2px solid white",
+                }}
+              >
+                <FaCamera style={{ fontSize: "14px", color: "white" }} />
+              </div>
+            )}
           </div>
 
           {/* User Name */}
