@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { BsX } from "react-icons/bs";
 import { FaEye } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
@@ -120,8 +121,75 @@ const statusColor = {
   },
 };
 
+const conversations = [
+  {
+    name: "John Smith & Mike Bond",
+    image1: "https://randomuser.me/api/portraits/men/11.jpg",
+    image2: "https://randomuser.me/api/portraits/men/12.jpg",
+    messages: [
+      {
+        from: "John Smith",
+        text: "Hi Mike, have you finished the quarterly report?",
+        time: "10:30 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+    ],
+  },
+];
+
 const BankTransfer = () => {
-  const navigate = useNavigate ();
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [chatContent, setChatContent] = useState("This is editable content");
+
+  const openChatModal = () => setIsChatModalOpen(true);
+  const closeChatModal = () => setIsChatModalOpen(false);
+
+  const [activeConversation, setActiveConversation] = useState(0);
+  const navigate = useNavigate();
   return (
     <div>
       <div
@@ -142,7 +210,7 @@ const BankTransfer = () => {
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
-            onClick={() => navigate(-1)}
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "24px",
                 fontWeight: "600",
@@ -150,7 +218,7 @@ const BankTransfer = () => {
                 cursor: "pointer",
               }}
             >
-               <FaArrowLeft/>
+              <FaArrowLeft />
             </button>
             <h1
               style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
@@ -179,7 +247,7 @@ const BankTransfer = () => {
                 color: "#6b7280",
               }}
             >
-              <IoSearch className="text-xl"/>
+              <IoSearch className="text-xl" />
             </div>
           </div>
         </div>
@@ -311,6 +379,7 @@ const BankTransfer = () => {
                         minWidth: "80px",
                         textAlign: "center",
                       }}
+                      onClick={openChatModal}
                     >
                       {item.status}
                     </span>
@@ -328,6 +397,7 @@ const BankTransfer = () => {
                         alignItems: "center",
                         justifyContent: "center",
                       }}
+                      onClick={openChatModal}
                     >
                       <FaEye size={20} />
                     </button>
@@ -337,19 +407,174 @@ const BankTransfer = () => {
             </tbody>
           </table>
           <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
-          <span>Showing 1-11 out of 1239</span>
-          <div className="flex items-center gap-2">
-            <button className="px-2">Previous</button>
-            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
-            <span>...</span>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
-            <button className="px-2">Next</button>
+            <span>Showing 1-11 out of 1239</span>
+            <div className="flex items-center gap-2">
+              <button className="px-2">Previous</button>
+              <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
+                1
+              </button>
+              <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+                2
+              </button>
+              <span>...</span>
+              <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+                100
+              </button>
+              <button className="px-2">Next</button>
+            </div>
           </div>
         </div>
-        </div>
+        {isChatModalOpen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "white",
+                borderRadius: "8px",
+                width: "70%",
+                maxWidth: "750px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                overflow: "hidden",
+              }}
+            >
+              {/* Modal Header */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  color: "black",
+                }}
+              >
+                <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                  {/* Conversation Overview */}
+                </h3>
+                <button
+                  onClick={closeChatModal}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "black",
+                    cursor: "pointer",
+                    padding: "5px",
+                  }}
+                >
+                  <BsX size={24} className="!ml-40" />
+                </button>
+              </div>
 
-        
+              <div className=" mx-auto !p-5 w-full  bg-white shadow rounded-md h-200 ">
+                {/* Profile Picture */}
+                <div className="flex justify-center mb-4">
+                  <img
+                    src="https://randomuser.me/api/portraits/men/1.jpg"
+                    alt="Profile"
+                    className="w-15 h-15 rounded-full object-cover"
+                  />
+                </div>
+                <div className="text-center !my-4">
+                  <div>Robert Smith</div>
+                  <div>robertsmith34@gmail.com</div>
+                </div>
+                <div className="!px-5 !mt-5">
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Phone Number:</h3>
+                    </div>
+                    <div>+3489 9999 9778</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Location:</h3>
+                    </div>
+                    <div>1901 Thornridge Cir. Shiloh, Hawaii 81063</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Wallet Balance:</h3>
+                    </div>
+                    <div>$354</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Bank Info</h3>
+                    </div>
+                    {/* <div>
+                                  +3489 9999 9778
+                                </div> */}
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Account Holder Name:</h3>
+                    </div>
+                    <div>Dianne Russell</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Account Holder Type:</h3>
+                    </div>
+                    <div>Personal</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Account Number:</h3>
+                    </div>
+                    <div>6575675678676</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Routing Number:</h3>
+                    </div>
+                    <div>5474574575467</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Phone Number:</h3>
+                    </div>
+                    <div>(201) 555-0124</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Date of Birth:</h3>
+                    </div>
+                    <div>23/06/99</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Business Name:</h3>
+                    </div>
+                    <div>Governance structures,</div>
+                  </div>
+                  <div className="flex justify-between gap-90 !py-2">
+                    <div>
+                      <h3>Website:</h3>
+                    </div>
+                    <div>https://www.vip.com/</div>
+                  </div>
+                  <div className="flex justify-between gap-90">
+                    <div>
+                      <h3>City:</h3>
+                    </div>
+                    <div>San Juan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -128,6 +128,7 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard></Dashboard>} />
             <Route path="/auctionDetails" element={<AuctionDetails></AuctionDetails>} />
             <Route path="/supervisionDashboard/viewAll" element={<ViewAll></ViewAll>} />
+            <Route path="/auditDashboard/viewAll" element={<ViewAll></ViewAll>} />
             <Route path="/supervisionDashboard/taskComplete" element={<TaskComplete></TaskComplete>} />
 
           </Routes>

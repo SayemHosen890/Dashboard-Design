@@ -245,6 +245,7 @@ const TransactionDetails = () => {
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }

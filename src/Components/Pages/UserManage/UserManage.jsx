@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCommentDots, FaEye } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import Switch from "@mui/material/Switch";
-import { MdOutlineArticle } from "react-icons/md";
-import { BsChatLeftText } from "react-icons/bs";
+import { MdClose, MdOutlineArticle } from "react-icons/md";
+import { BsChatLeftText, BsX } from "react-icons/bs";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
 import { Button, ConfigProvider, Flex, Popconfirm } from "antd";
@@ -138,8 +138,475 @@ const data = [
   // Add more sample rows here...
 ];
 
+const conversations = [
+  {
+    name: "John Smith & Mike Bond",
+    image1: "https://randomuser.me/api/portraits/men/11.jpg",
+    image2: "https://randomuser.me/api/portraits/men/12.jpg",
+    messages: [
+      {
+        from: "John Smith",
+        text: "Hi Mike, have you finished the quarterly report?",
+        time: "10:30 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+    ],
+  },
+  {
+    name: "Guy Hawkins & Cooper",
+    image1: "https://randomuser.me/api/portraits/men/21.jpg",
+    image2: "https://randomuser.me/api/portraits/men/22.jpg",
+    messages: [
+      {
+        from: "Guy Hawkins",
+        text: "Did you see the client feedback?",
+        time: "09:15 AM",
+      },
+      {
+        from: "Cooper",
+        text: "Yes, they loved the new design direction!",
+        time: "09:20 AM",
+      },
+      {
+        from: "Guy Hawkins",
+        text: "Perfect! Let's schedule a follow-up meeting.",
+        time: "09:22 AM",
+      },
+      {
+        from: "Cooper",
+        text: "Yes, they loved the new design direction!",
+        time: "09:20 AM",
+      },
+      {
+        from: "Guy Hawkins",
+        text: "Perfect! Let's schedule a follow-up meeting.",
+        time: "09:22 AM",
+      },
+      {
+        from: "Cooper",
+        text: "Yes, they loved the new design direction!",
+        time: "09:20 AM",
+      },
+      {
+        from: "Guy Hawkins",
+        text: "Perfect! Let's schedule a follow-up meeting.",
+        time: "09:22 AM",
+      },
+      {
+        from: "Cooper",
+        text: "Yes, they loved the new design direction!",
+        time: "09:20 AM",
+      },
+      {
+        from: "Guy Hawkins",
+        text: "Perfect! Let's schedule a follow-up meeting.",
+        time: "09:22 AM",
+      },
+      {
+        from: "Cooper",
+        text: "Yes, they loved the new design direction!",
+        time: "09:20 AM",
+      },
+    ],
+  },
+  {
+    name: "Esther Howard & Jenny",
+    image1: "https://randomuser.me/api/portraits/women/31.jpg",
+    image2: "https://randomuser.me/api/portraits/women/32.jpg",
+    messages: [
+      {
+        from: "Esther Howard",
+        text: "Jenny, are we still on for lunch?",
+        time: "11:45 AM",
+      },
+      {
+        from: "Jenny",
+        text: "Absolutely! Meet you at the usual spot at 12:30?",
+        time: "11:47 AM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Perfect, see you then!",
+        time: "11:50 AM",
+      },
+      {
+        from: "Jenny",
+        text: "Absolutely! Meet you at the usual spot at 12:30?",
+        time: "11:47 AM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Perfect, see you then!",
+        time: "11:50 AM",
+      },
+      {
+        from: "Jenny",
+        text: "Absolutely! Meet you at the usual spot at 12:30?",
+        time: "11:47 AM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Perfect, see you then!",
+        time: "11:50 AM",
+      },
+      {
+        from: "Jenny",
+        text: "Absolutely! Meet you at the usual spot at 12:30?",
+        time: "11:47 AM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Perfect, see you then!",
+        time: "11:50 AM",
+      },
+      {
+        from: "Jenny",
+        text: "Absolutely! Meet you at the usual spot at 12:30?",
+        time: "11:47 AM",
+      },
+    ],
+  },
+  {
+    name: "Smith & Mike Bond",
+    image1: "https://randomuser.me/api/portraits/men/41.jpg",
+    image2: "https://randomuser.me/api/portraits/men/42.jpg",
+    messages: [
+      {
+        from: "Smith",
+        text: "The project deadline has been moved up to next Friday",
+        time: "03:15 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Understood. I'll adjust the schedule accordingly",
+        time: "03:18 PM",
+      },
+      {
+        from: "Smith",
+        text: "Thanks. Let me know if you need additional resources",
+        time: "03:20 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Understood. I'll adjust the schedule accordingly",
+        time: "03:18 PM",
+      },
+      {
+        from: "Smith",
+        text: "Thanks. Let me know if you need additional resources",
+        time: "03:20 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Understood. I'll adjust the schedule accordingly",
+        time: "03:18 PM",
+      },
+      {
+        from: "Smith",
+        text: "Thanks. Let me know if you need additional resources",
+        time: "03:20 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Understood. I'll adjust the schedule accordingly",
+        time: "03:18 PM",
+      },
+      {
+        from: "Smith",
+        text: "Thanks. Let me know if you need additional resources",
+        time: "03:20 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Understood. I'll adjust the schedule accordingly",
+        time: "03:18 PM",
+      },
+    ],
+  },
+  {
+    name: "John & Esther Howard",
+    image1: "https://randomuser.me/api/portraits/women/51.jpg",
+    image2: "https://randomuser.me/api/portraits/men/52.jpg",
+    messages: [
+      {
+        from: "John",
+        text: "Esther, did you review the contract terms?",
+        time: "02:10 PM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Yes, I have some suggestions. Can we meet tomorrow?",
+        time: "02:15 PM",
+      },
+      {
+        from: "John",
+        text: "10 AM works for me. Conference room B?",
+        time: "02:17 PM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Yes, I have some suggestions. Can we meet tomorrow?",
+        time: "02:15 PM",
+      },
+      {
+        from: "John",
+        text: "10 AM works for me. Conference room B?",
+        time: "02:17 PM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Yes, I have some suggestions. Can we meet tomorrow?",
+        time: "02:15 PM",
+      },
+      {
+        from: "John",
+        text: "10 AM works for me. Conference room B?",
+        time: "02:17 PM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Yes, I have some suggestions. Can we meet tomorrow?",
+        time: "02:15 PM",
+      },
+      {
+        from: "John",
+        text: "10 AM works for me. Conference room B?",
+        time: "02:17 PM",
+      },
+      {
+        from: "Esther Howard",
+        text: "Yes, I have some suggestions. Can we meet tomorrow?",
+        time: "02:15 PM",
+      },
+      {
+        from: "John",
+        text: "10 AM works for me. Conference room B?",
+        time: "02:17 PM",
+      },
+    ],
+  },
+  
+  {
+    name: "Mike Bond & Marvin",
+    image1: "https://randomuser.me/api/portraits/men/71.jpg",
+    image2: "https://randomuser.me/api/portraits/men/72.jpg",
+    messages: [
+      {
+        from: "Mike Bond",
+        text: "Marvin, can you handle the client meeting tomorrow?",
+        time: "01:15 PM",
+      },
+      {
+        from: "Marvin",
+        text: "Sure! I'll prepare the presentation tonight",
+        time: "01:17 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Appreciate it. They're important stakeholders",
+        time: "01:20 PM",
+      },
+      {
+        from: "Marvin",
+        text: "Sure! I'll prepare the presentation tonight",
+        time: "01:17 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Appreciate it. They're important stakeholders",
+        time: "01:20 PM",
+      },
+      {
+        from: "Marvin",
+        text: "Sure! I'll prepare the presentation tonight",
+        time: "01:17 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Appreciate it. They're important stakeholders",
+        time: "01:20 PM",
+      },
+      {
+        from: "Marvin",
+        text: "Sure! I'll prepare the presentation tonight",
+        time: "01:17 PM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Appreciate it. They're important stakeholders",
+        time: "01:20 PM",
+      },
+      {
+        from: "Marvin",
+        text: "Sure! I'll prepare the presentation tonight",
+        time: "01:17 PM",
+      },
+    ],
+  },
+  {
+    name: "Eleanor Pena & Theresa",
+    image1: "https://randomuser.me/api/portraits/women/81.jpg",
+    image2: "https://randomuser.me/api/portraits/women/82.jpg",
+    messages: [
+      {
+        from: "Eleanor Pena",
+        text: "Theresa, the marketing campaign is live!",
+        time: "09:30 AM",
+      },
+      {
+        from: "Theresa",
+        text: "Fantastic! Let's monitor the analytics closely",
+        time: "09:32 AM",
+      },
+      {
+        from: "Eleanor Pena",
+        text: "Already set up tracking. Initial numbers look promising",
+        time: "09:35 AM",
+      },
+      {
+        from: "Theresa",
+        text: "Fantastic! Let's monitor the analytics closely",
+        time: "09:32 AM",
+      },
+      {
+        from: "Eleanor Pena",
+        text: "Already set up tracking. Initial numbers look promising",
+        time: "09:35 AM",
+      },
+      {
+        from: "Theresa",
+        text: "Fantastic! Let's monitor the analytics closely",
+        time: "09:32 AM",
+      },
+      {
+        from: "Eleanor Pena",
+        text: "Already set up tracking. Initial numbers look promising",
+        time: "09:35 AM",
+      },
+      {
+        from: "Theresa",
+        text: "Fantastic! Let's monitor the analytics closely",
+        time: "09:32 AM",
+      },
+      {
+        from: "Eleanor Pena",
+        text: "Already set up tracking. Initial numbers look promising",
+        time: "09:35 AM",
+      },
+      {
+        from: "Theresa",
+        text: "Fantastic! Let's monitor the analytics closely",
+        time: "09:32 AM",
+      },
+    ],
+  },
+  {
+    name: "John Smith & Henry",
+    image1: "https://randomuser.me/api/portraits/men/91.jpg",
+    image2: "https://randomuser.me/api/portraits/men/92.jpg",
+    messages: [
+      {
+        from: "John Smith",
+        text: "Henry, need your input on the budget proposal",
+        time: "11:10 AM",
+      },
+      {
+        from: "Henry",
+        text: "I'll review it after lunch and send my notes",
+        time: "11:12 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Thanks! The board meeting is at 3 PM",
+        time: "11:15 AM",
+      },
+      {
+        from: "Henry",
+        text: "I'll review it after lunch and send my notes",
+        time: "11:12 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Thanks! The board meeting is at 3 PM",
+        time: "11:15 AM",
+      },
+      {
+        from: "Henry",
+        text: "I'll review it after lunch and send my notes",
+        time: "11:12 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Thanks! The board meeting is at 3 PM",
+        time: "11:15 AM",
+      },
+      {
+        from: "Henry",
+        text: "I'll review it after lunch and send my notes",
+        time: "11:12 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Thanks! The board meeting is at 3 PM",
+        time: "11:15 AM",
+      },
+      {
+        from: "Henry",
+        text: "I'll review it after lunch and send my notes",
+        time: "11:12 AM",
+      },
+    ],
+  },
+];
+
 const UserManage = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [chatContent, setChatContent] = useState("This is editable content");
 
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -150,6 +617,14 @@ const UserManage = () => {
 
   const label = { inputProps: { "aria-label": "Switch demo" } };
   const navigate = useNavigate();
+
+  const openChatModal = () => setIsChatModalOpen(true);
+  const closeChatModal = () => setIsChatModalOpen(false);
+
+  const [activeConversation, setActiveConversation] = useState(0);
+
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
       <div
@@ -187,29 +662,29 @@ const UserManage = () => {
             </h1>
           </div>
           <div style={{ position: "relative" }}>
-                        <input
-                          type="text"
-                          placeholder="Search here..."
-                          style={{
-                            border: "1px solid #d1d5db",
-                            padding: "8px 16px 8px 40px",
-                            borderRadius: "6px",
-                            width: "256px",
-                            outline: "none",
-                          }}
-                        />
-                        <div
-                          style={{
-                            position: "absolute",
-                            left: "12px",
-                            top: "50%",
-                            transform: "translateY(-50%)",
-                            color: "#6b7280",
-                          }}
-                        >
-                          <GoSearch className="text-xl" />
-                        </div>
-                      </div>
+            <input
+              type="text"
+              placeholder="Search here..."
+              style={{
+                border: "1px solid #d1d5db",
+                padding: "8px 16px 8px 40px",
+                borderRadius: "6px",
+                width: "256px",
+                outline: "none",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                left: "12px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                color: "#6b7280",
+              }}
+            >
+              <GoSearch className="text-xl" />
+            </div>
+          </div>
         </div>
 
         <div
@@ -469,46 +944,24 @@ const UserManage = () => {
                       </Popper>
                     </div>
                   </td>
-                  <td style={{ padding: "16px" }}>
-                    {/* <button
-                      style={{
-                        backgroundColor: "#e96755ff",
-                        color: "white",
-                        padding: "8px",
-                        borderRadius: "25%",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <MdOutlineArticle size={20} className="" />
-                    </button> */}
-                    <ConfigProvider
-                      button
-                      style={{
-                        backgroundColor: "#e96755ff",
-                        color: "white",
-                        padding: "8px",
-                        borderRadius: "25%",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <Flex
-                        vertical
-                        justify="center"
-                        align="center"
-                        className="demo"
+                  <>
+                    {/* Button to open modal */}
+                    <td style={{ padding: "16px" }}>
+                      <button
+                        style={{
+                          backgroundColor: "#e96755ff",
+                          color: "white",
+                          padding: "8px",
+                          borderRadius: "25%",
+                          cursor: "pointer",
+                        }}
                       >
-                        <Flex
-                          justify="center"
-                          align="center"
-                          style={{ whiteSpace: "nowrap" }}
-                        >
-                          <Popconfirm>
-                            <MdOutlineArticle size={20} className="" />
-                          </Popconfirm>
-                        </Flex>
-                      </Flex>
-                    </ConfigProvider>
-                  </td>
+                        <MdOutlineArticle size={20} />
+                      </button>
+                    </td>
+
+                    {/* Modal Overlay */}
+                  </>
                   <td style={{ padding: "16px" }}>
                     <button
                       style={{
@@ -518,6 +971,7 @@ const UserManage = () => {
                         borderRadius: "25%",
                         cursor: "pointer",
                       }}
+                      onClick={openChatModal}
                     >
                       <BsChatLeftText size={20} className="" />
                     </button>
@@ -527,7 +981,6 @@ const UserManage = () => {
             </tbody>
           </table>
         </div>
-
         <div
           style={{
             display: "flex",
@@ -609,6 +1062,126 @@ const UserManage = () => {
             </button>
           </div>
         </div>
+        {isChatModalOpen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "white",
+                borderRadius: "8px",
+                width: "90%",
+                maxWidth: "800px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                overflow: "hidden",
+              }}
+            >
+              {/* Modal Header */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  color: "black",
+                }}
+              >
+                <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                  {/* Conversation Overview */}
+                </h3>
+                <button
+                  onClick={closeChatModal}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "black",
+                    cursor: "pointer",
+                    padding: "5px",
+                  }}
+                >
+                  <BsX size={24} className="!ml-40" />
+                </button>
+              </div>
+
+              <div className="w-full bg-white shadow flex flex-col overflow-hidden">
+                <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2 items-center flex justify-center">
+                  Conversation Overview
+                </h2>
+
+                <hr className="text-gray-300" />
+
+                <div className="flex-1 overflow-y-auto p-5 !px-4 bg-gray-50">
+                  <div className="space-y-4">
+                    {conversations[activeConversation].messages.map(
+                      (msg, index) => {
+                        const isFirstParticipant = msg.from.includes(
+                          conversations[activeConversation].name.split(" & ")[0]
+                        );
+
+                        return (
+                          <div
+                            key={index}
+                            className={`flex !py-3 !ml-2 items-start gap-3 ${
+                              isFirstParticipant ? "" : "justify-end"
+                            }`}
+                          >
+                            {isFirstParticipant && (
+                              <img
+                                src={conversations[activeConversation].image1}
+                                className="w-8 h-8 rounded-full mt-1"
+                                alt={msg.from}
+                              />
+                            )}
+
+                            <div>
+                              <div
+                                className={`px-4 py-2 !p-2 rounded-2xl max-w-lg ${
+                                  isFirstParticipant
+                                    ? "bg-white text-gray-800 rounded-tl-none border border-gray-200"
+                                    : "bg-blue-500 text-white rounded-br-none"
+                                }`}
+                              >
+                                {msg.text}
+                              </div>
+                              <div
+                                className={`text-xs text-gray-500 mt-1 ${
+                                  isFirstParticipant
+                                    ? "text-left ml-2"
+                                    : "text-right mr-2"
+                                }`}
+                              >
+                                {msg.time}
+                              </div>
+                            </div>
+
+                            {!isFirstParticipant && (
+                              <img
+                                src={conversations[activeConversation].image2}
+                                className="w-8 h-8 rounded-full mt-1"
+                                alt={msg.from}
+                              />
+                            )}
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

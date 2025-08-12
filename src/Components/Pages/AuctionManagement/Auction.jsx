@@ -675,7 +675,6 @@ const data = [
   // Add more sample rows here...
 ];
 
-
 const statusColor = {
   Completed: {
     color: "#24b587ff",
@@ -703,7 +702,7 @@ const Auction = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const [chatContent, setChatContent] = useState("This is editable content");
-  
+
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
@@ -1095,7 +1094,8 @@ const Auction = () => {
                         fontWeight: "500",
                         color: statusColor[item.status]?.color || "#333",
                         backgroundColor:
-                          statusColor[item.status]?.backgroundColor || "#f3f4f6",
+                          statusColor[item.status]?.backgroundColor ||
+                          "#f3f4f6",
                       }}
                       onClick={handleClick}
                     >
@@ -1219,119 +1219,120 @@ const Auction = () => {
 
       {/* Chat Modal Overlay */}
       {isChatModalOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.5)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 1000
-        }}>
-          <div style={{
-            backgroundColor: 'white',
-            borderRadius: '8px',
-            width: '90%',
-            maxWidth: '800px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-            overflow: 'hidden'
-          }}>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "90%",
+              maxWidth: "800px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
             {/* Modal Header */}
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              backgroundColor: '#F2AA00',
-              color: 'white'
-            }}>
-              <h3 style={{ margin: 0, fontSize: '18px', fontWeight: '600' }}>
-                Conversation Overview
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                {/* Conversation Overview */}
               </h3>
-              <button 
+              <button
                 onClick={closeChatModal}
                 style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'white',
-                  cursor: 'pointer',
-                  padding: '5px'
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
                 }}
               >
-                <BsX size={24} className="!ml-40"/>
+                <BsX size={24} className="!ml-40" />
               </button>
             </div>
 
+            <div className="w-full bg-white shadow flex flex-col overflow-hidden">
+              <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2 items-center flex justify-center">
+                Conversation Overview
+              </h2>
+              <hr className="text-gray-300" />
+              <div className="flex-1 overflow-y-auto p-5 !px-4 bg-gray-50">
+                <div className="space-y-4">
+                  {conversations[activeConversation].messages.map(
+                    (msg, index) => {
+                      const isFirstParticipant = msg.from.includes(
+                        conversations[activeConversation].name.split(" & ")[0]
+                      );
 
+                      return (
+                        <div
+                          key={index}
+                          className={`flex !py-3 !ml-2 items-start gap-3 ${
+                            isFirstParticipant ? "" : "justify-end"
+                          }`}
+                        >
+                          {isFirstParticipant && (
+                            <img
+                              src={conversations[activeConversation].image1}
+                              className="w-8 h-8 rounded-full mt-1"
+                              alt={msg.from}
+                            />
+                          )}
 
-            <div className="w-3/4 bg-white shadow flex flex-col overflow-hidden">
-          <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2">
-            Conversation Overview
-          </h2>
+                          <div>
+                            <div
+                              className={`px-4 py-2 !p-2 rounded-2xl max-w-lg ${
+                                isFirstParticipant
+                                  ? "bg-white text-gray-800 rounded-tl-none border border-gray-200"
+                                  : "bg-blue-500 text-white rounded-br-none"
+                              }`}
+                            >
+                              {msg.text}
+                            </div>
+                            <div
+                              className={`text-xs text-gray-500 mt-1 ${
+                                isFirstParticipant
+                                  ? "text-left ml-2"
+                                  : "text-right mr-2"
+                              }`}
+                            >
+                              {msg.time}
+                            </div>
+                          </div>
 
-          <div className="flex-1 overflow-y-auto p-5 !px-4 bg-gray-50">
-            <div className="space-y-4">
-              {conversations[activeConversation].messages.map((msg, index) => {
-                const isFirstParticipant = msg.from.includes(
-                  conversations[activeConversation].name.split(" & ")[0]
-                );
-
-                return (
-                  <div
-                    key={index}
-                    className={`flex !py-3 !ml-2 items-start gap-3 ${
-                      isFirstParticipant ? "" : "justify-end"
-                    }`}
-                  >
-                    {isFirstParticipant && (
-                      <img
-                        src={conversations[activeConversation].image1}
-                        className="w-8 h-8 rounded-full mt-1"
-                        alt={msg.from}
-                      />
-                    )}
-
-                    <div>
-                      <div
-                        className={`px-4 py-2 !p-2 rounded-2xl max-w-lg ${
-                          isFirstParticipant
-                            ? "bg-white text-gray-800 rounded-tl-none border border-gray-200"
-                            : "bg-blue-500 text-white rounded-br-none"
-                        }`}
-                      >
-                        {msg.text}
-                      </div>
-                      <div
-                        className={`text-xs text-gray-500 mt-1 ${
-                          isFirstParticipant
-                            ? "text-left ml-2"
-                            : "text-right mr-2"
-                        }`}
-                      >
-                        {msg.time}
-                      </div>
-                    </div>
-
-                    {!isFirstParticipant && (
-                      <img
-                        src={conversations[activeConversation].image2}
-                        className="w-8 h-8 rounded-full mt-1"
-                        alt={msg.from}
-                      />
-                    )}
-                  </div>
-                );
-              })}
+                          {!isFirstParticipant && (
+                            <img
+                              src={conversations[activeConversation].image2}
+                              className="w-8 h-8 rounded-full mt-1"
+                              alt={msg.from}
+                            />
+                          )}
+                        </div>
+                      );
+                    }
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-            
-            {/* Modal Content */}
-            
-            
-            {/* Modal Footer */}
           </div>
         </div>
       )}

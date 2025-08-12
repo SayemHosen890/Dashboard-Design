@@ -3,7 +3,7 @@ import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const [activeTab, setActiveTab] = useState("changePassword");
+  const [activeTab, setActiveTab] = useState("editProfile");
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);

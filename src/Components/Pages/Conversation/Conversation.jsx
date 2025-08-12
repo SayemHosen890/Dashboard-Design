@@ -544,7 +544,7 @@ const Conversation = () => {
             padding: "10px 20px",
             backgroundColor: "white",
             boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          }}
+          }} className="rounded-lg shadow"
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
             <button
@@ -594,9 +594,9 @@ const Conversation = () => {
           
         </div>
       </div>
-      <div className="flex h-screen p-5 gap-5 bg-gray-250">
+      <div className="flex h-screen p-5 !pt-2 gap-5 bg-gray-250">
         {/* Left Sidebar */}
-        <div className="w-1/3 bg-white shadow overflow-y-auto  scrollbar-hide">
+        <div className="w-1/3 bg-white shadow overflow-y-auto  rounded-lg scrollbar-hide">
           <div className="sticky top-0 bg-white z-10 pt-4 px-4">
             <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2">
               Conversation Between
@@ -640,7 +640,7 @@ const Conversation = () => {
         </div>
 
         {/* Right Chat Conversation */}
-        <div className="w-3/4 bg-white shadow flex flex-col overflow-hidden">
+        <div className="w-3/4 bg-white shadow flex flex-col overflow-hidden rounded-lg">
           <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2">
             Conversation Overview
           </h2>

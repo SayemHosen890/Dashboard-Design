@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { BsX } from "react-icons/bs";
 import { FaArrowLeft, FaEdit, FaTrash } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
@@ -81,8 +82,76 @@ const data = [
   },
 ];
 
+const conversations = [
+  {
+    name: "John Smith & Mike Bond",
+    image1: "https://randomuser.me/api/portraits/men/11.jpg",
+    image2: "https://randomuser.me/api/portraits/men/12.jpg",
+    messages: [
+      {
+        from: "John Smith",
+        text: "Hi Mike, have you finished the quarterly report?",
+        time: "10:30 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+      {
+        from: "John Smith",
+        text: "Great! Send it over when you're ready for review.",
+        time: "10:35 AM",
+      },
+      {
+        from: "Mike Bond",
+        text: "Almost done! Just need to add the sales figures from last week.",
+        time: "10:32 AM",
+      },
+    ],
+  },
+];
+
 const MakeAdmin = () => {
   const navigate = useNavigate();
+
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [chatContent, setChatContent] = useState("This is editable content");
+
+  const openChatModal = () => setIsChatModalOpen(true);
+  const closeChatModal = () => setIsChatModalOpen(false);
+
+  const [activeConversation, setActiveConversation] = useState(0);
   return (
     <div>
       <div
@@ -159,10 +228,14 @@ const MakeAdmin = () => {
             }}
           >
             <div className="flex justify-center items-center gap-2">
-              <div>
-                <IoMdAdd size={20} />
-              </div>
-              <div>Add New</div>
+              <button onClick={openChatModal} className="flex justify-center items-center gap-2">
+                <div>
+                  <IoMdAdd size={20} />
+                </div>
+                <div>
+                  <h3>Make Admin</h3>
+                </div>
+              </button>
             </div>
           </button>
         </div>
@@ -420,6 +493,181 @@ const MakeAdmin = () => {
           </div>
         </div>
       </div>
+      {isChatModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "90%",
+              maxWidth: "800px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closeChatModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+
+            <div className="!mb-7 !px-10 !py-5">
+              <h3 className="text-center !mb-1">Make Admin</h3>
+              <div className="flex justify-center items-center">
+                <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+              alt="Profile"
+              style={{
+                width: "100px",
+                height: "100px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                border: "4px solid #e5e7eb",
+              }}
+            />
+              </div>
+            </div>
+            <div>
+              <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                User Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter full name"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email address"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+            {/* Email Field */}
+            <div style={{ marginBottom: "20px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Contact No
+              </label>
+              <input
+                type="email"
+                placeholder="+880 123445566"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+            <div style={{ marginBottom: "32px" }}>
+              <label
+                style={{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  color: "#374151",
+                  marginBottom: "8px",
+                }}
+              >
+                Address
+              </label>
+              <input
+                type="text"
+                placeholder="79/A Joker Vila, Gotham City"
+                style={{
+                  width: "100%",
+                  padding: "12px",
+                  border: "1px solid #d1d5db",
+                  borderRadius: "6px",
+                  fontSize: "14px",
+                  backgroundColor: "white",
+                }}
+              />
+            </div>
+            </div>
+            
+          </div>
+        </div>
+      )}
     </div>
   );
 };
