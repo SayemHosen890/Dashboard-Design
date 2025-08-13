@@ -146,12 +146,13 @@ const MakeAdmin = () => {
   const navigate = useNavigate();
 
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-  const [chatContent, setChatContent] = useState("This is editable content");
-
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  const [activeConversation, setActiveConversation] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openTheModal = () => setIsModalOpen(true);
+  const closeTheModal = () => setIsModalOpen(false);
+
   return (
     <div>
       <div
@@ -180,7 +181,7 @@ const MakeAdmin = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft className="text-[#007BFF]"/>
+              <FaArrowLeft className="text-[#007BFF]" />
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -356,7 +357,7 @@ const MakeAdmin = () => {
                           width: "32px",
                           height: "32px",
                         }}
-                        onClick={openChatModal}
+                        onClick={openTheModal}
                       >
                         <MdOutlineModeEditOutline size={20} />
                       </button>
@@ -729,7 +730,159 @@ const MakeAdmin = () => {
                 </div>
               </div>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", marginBottom:"5px"}}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "5px",
+              }}
+            >
+              <button
+                style={{
+                  width: "70%",
+                  padding: "10px 50px",
+                  // paddingInline:"30px",
+                  backgroundColor: "#111827",
+                  color: "white",
+                  border: "none",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  borderRadius: "6px",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                }}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#1f2937")
+                }
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
+              >
+                Make
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {isModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "90%",
+              maxWidth: "800px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+              // marginBottom:"20px"
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closeTheModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+
+            <div className="!mb-7 !px-10 !py-5">
+              <h3 className="text-center !mb-1">Make Admin</h3>
+              
+            </div>
+            <div className="!px-30">
+              <div style={{ marginBottom: "20px" }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  User Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "20px" }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email address"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+              {/* Email Field */}
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "5px",
+              }}
+            >
               <button
                 style={{
                   width: "70%",
