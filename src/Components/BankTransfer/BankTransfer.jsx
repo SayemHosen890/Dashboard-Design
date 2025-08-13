@@ -1,3 +1,5 @@
+import Box from "@mui/material/Box";
+import Popper from "@mui/material/Popper";
 import React, { useState } from "react";
 import { BsX } from "react-icons/bs";
 import { FaEye } from "react-icons/fa";
@@ -121,17 +123,22 @@ const statusColor = {
   },
 };
 
-
-
-
 const BankTransfer = () => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-  const [chatContent, setChatContent] = useState("This is editable content");
+  // const [chatContent, setChatContent] = useState("This is editable content");
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popper" : undefined;
 
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  const [activeConversation, setActiveConversation] = useState(0);
+  // const [activeConversation, setActiveConversation] = useState(0);
   const navigate = useNavigate();
   return (
     <div>
@@ -161,7 +168,7 @@ const BankTransfer = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft  className="text-[#007BFF]"/>
+              <FaArrowLeft className="text-[#007BFF]" />
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -322,10 +329,90 @@ const BankTransfer = () => {
                         minWidth: "80px",
                         textAlign: "center",
                       }}
-                      // onClick={openChatModal}
+                      onClick={handleClick}
                     >
                       {item.status}
                     </span>
+                    <Popper id={id} open={open} anchorEl={anchorEl}>
+                      <Box sx={{ borderRadius: "2px" }}>
+                        
+                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
+                          <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            backgroundColor: "white",
+                            color: "black",
+                          }}
+                        >
+                          <h3
+                            style={{
+                              margin: 0,
+                              fontSize: "18px",
+                              fontWeight: "600",
+                            }}
+                          >
+                            {/* Conversation Overview */}
+                          </h3>
+                          <button
+                            onClick={closeChatModal}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              color: "black",
+                              cursor: "pointer",
+                              padding: "5px",
+                            }}
+                          >
+                            <BsX size={24} className="!ml-40" />
+                          </button>
+                        </div>
+                          <h1 className="text-center !py-5">
+                            Are you sure want to change the status to
+                            “Completed”?
+                          </h1>
+                          <h3 className="text-center !py-5">
+                            Win Bid amount will be send to the user/partner.
+                          </h3>
+                          <div className="flex justify-center items-center gap-4 !py-3">
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "white",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  backgroundColor: "black",
+                                  margin: "0px 5px",
+                                }}
+                              >
+                                Confirm
+                              </button>
+                            </div>
+                            <div>
+                              <button
+                                style={{
+                                  border: "1px solid black",
+                                  color: "black",
+                                  padding: "8px 40px",
+                                  borderRadius: "9999px",
+                                  fontSize: "14px",
+                                  fontWeight: "500",
+                                  cursor: "pointer",
+                                  margin: "0px 5px",
+                                }}
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </Box>
+                    </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button

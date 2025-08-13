@@ -35,6 +35,8 @@ import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
 import TransactionDetails from "./Components/Pages/Transaction/TransactionDetails";
 import Notification from "./Components/Pages/Home/Notification";
 import PartnerDetail from "./Components/Pages/PartnerManage/PartnerDetail";
+// import AuditDashbaord from "./Components/Pages/AuditDashboard/AuditDashbaord";
+import AuditViewAll from "./Components/Pages/AuditDashboard/AuditViewAll";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -140,6 +142,7 @@ const App = () => {
             <Route path="/auctionDetails" element={<AuctionDetails></AuctionDetails>} />
             <Route path="/supervisionDashboard/viewAll" element={<ViewAll></ViewAll>} />
             <Route path="/auditDashboard/viewAll" element={<ViewAll></ViewAll>} />
+            <Route path="/auditDashboard/auditViewAll" element={<AuditViewAll></AuditViewAll>} />
             <Route path="/supervisionDashboard/taskComplete" element={<TaskComplete></TaskComplete>} />
 
           </Routes>

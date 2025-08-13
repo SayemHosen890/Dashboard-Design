@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const AuditDashbaord = () => {
@@ -98,11 +99,13 @@ const AuditDashbaord = () => {
       <div className="flex justify-left items center w-full gap-20">
         <div>
           <div className="flex justify-left items center w-60% gap-20 ">
-            <div className="grid h-35 w-100 bg-white items-center justify-center rounded-lg shadow">
+            <div className="grid h-35 w-100 bg-white items-center font-bold justify-center rounded-lg shadow">
               <h1>Total Number of Events</h1>
-              <span className="items-center justify-center flex">82</span>
+              <span className="items-center justify-center flex font-bold">
+                82
+              </span>
             </div>
-            <div className="grid h-35 w-100 bg-white items-center justify-center rounded-lg shadow">
+            <div className="grid h-35 w-100 bg-white items-center font-bold justify-center rounded-lg shadow">
               <h1>Most Common Event Type</h1>
               <span className="items-center justify-center flex">Goods</span>
             </div>
@@ -110,54 +113,65 @@ const AuditDashbaord = () => {
           <div className="flex justify-left items center w-60% gap-20 !mt-10">
             <div className="grid h-50 w-220 bg-white items-center rounded-lg shadow !pb-2">
               {/* <div> */}
-                {/* Header Flex */}
-                <div className="flex justify-between items-center mb-4 !pt-2">
-                  <h2 className="text-md font-semibold !ml-5">
-                    Most Events Created By Users
-                  </h2>
-                  <button className="text-blue-400  text-sm !mr-5">
-                    View all
-                  </button>
-                </div>
+              {/* Header Flex */}
+              <div className="flex justify-between items-center mb-4 !pt-2">
+                <h2 className="text-md font-semibold !ml-5">
+                  Most Events Created By Users
+                </h2>
+                <Link  to="auditViewAll">
+                <button className="text-blue-400  text-sm !mr-5">
+                  View all
+                </button>
+                </Link>
+              </div>
 
-                {/* Table */}
-                <div className="overflow-x-auto">
-                  <table className="  rounded-lg overflow-hidden">
-                    <thead className="">
-                      <tr className="">
-                        <th className="!px-12 !py-3 text-left text-sm font-md text-gray-600">
-                          SL no.
-                        </th>
-                        <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
-                          User Name
-                        </th>
-                        <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
-                          Email
-                        </th>
-                        <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
-                          Events Created
-                        </th>
+              {/* Table */}
+              <div className="overflow-x-auto">
+                <table className="  rounded-lg overflow-hidden">
+                  <thead className="">
+                    <tr className="">
+                      <th className="!px-12 !py-3 text-left text-sm font-md text-gray-600">
+                        SL no.
+                      </th>
+                      <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
+                        User Name
+                      </th>
+                      <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
+                        Email
+                      </th>
+                      <th className="!px-12 py-2 text-left text-sm font-semibold text-gray-600">
+                        Events Created
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {data.map((row, index) => (
+                      <tr key={index} className="">
+                        <td className="!px-13 py-2 items-center text-sm">
+                          {row.sl}
+                        </td>
+                        <td className="!px-13 py-2 flex items-center gap-2  text-sm">
+                          <img
+                            src={row.img}
+                            alt={row.name}
+                            className="w-8 h-8 rounded-full object-cover"
+                          />
+                          {row.name}
+                        </td>
+                        <td className="!px-13 py-2 items-center  text-sm">
+                          {row.email}
+                        </td>
+                        <td
+                          style={{ marginLeft: "10px" }}
+                          className="!px-13 py-2 text-sm items-center justify-center"
+                        >
+                          {row.events}
+                        </td>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {data.map((row, index) => (
-                        <tr key={index} className="">
-                          <td className="!px-13 py-2 items-center text-sm">{row.sl}</td>
-                          <td className="!px-13 py-2 flex items-center gap-2  text-sm">
-                            <img
-                              src={row.img}
-                              alt={row.name}
-                              className="w-8 h-8 rounded-full object-cover"
-                            />
-                            {row.name}
-                          </td>
-                          <td className="!px-13 py-2 items-center  text-sm">{row.email}</td>
-                          <td style={{marginLeft:"10px"}} className="!px-13 py-2 text-sm items-center justify-center">{row.events}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
               {/* </div> */}
             </div>
           </div>
@@ -172,18 +186,32 @@ const AuditDashbaord = () => {
           //   border: "1px solid #e5e7eb",
           // }}
           >
-            <h3
-              style={{
-                fontSize: "18px",
-                fontWeight: "600",
-                color: "#111827",
-                marginBottom: "16px",
-                marginLeft:"7px",
-                paddingTop:"5px"
-              }}
-            >
-              Task Completion Rate
-            </h3>
+            <div className="flex justify-between items-center">
+              <div>
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: "600",
+                    color: "#111827",
+                    marginBottom: "16px",
+                    marginLeft: "9px",
+                    paddingTop: "5px",
+                  }}
+                >
+                  Task Completion Rate
+                </h3>
+              </div>
+              <div className="flex justify-center items-center">
+                <button className="border flex items-center justify-between gap-2 !mr-6 py-4 w-25">
+                  <span>September</span>
+                  <IoIosArrowDown className="text-black"/>
+                </button>
+                <button className="border flex items-center justify-between gap-2 !mr-8 py-4 w-20">
+                  <span>2024</span>
+                  <IoIosArrowDown className="text-black"/>
+                </button>
+              </div>
+            </div>
 
             <div
               style={{
@@ -270,7 +298,6 @@ const AuditDashbaord = () => {
                 </svg>
 
                 {/* Center text */}
-                
               </div>
             </div>
 
@@ -340,179 +367,178 @@ const AuditDashbaord = () => {
       </div>
       <div className="w-full grid bg-white !mt-10 h-130 rounded-lg shadow">
         {/* Active Admins List */}
-      <div
-        style={{
-          backgroundColor: "white",
-          padding: "24px",
-          borderRadius: "8px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          border: "1px solid #e5e7eb",
-        }}
-      >
         <div
           style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "20px",
+            backgroundColor: "white",
+            padding: "24px",
+            borderRadius: "8px",
+            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+            border: "1px solid #e5e7eb",
           }}
         >
-          <h3
+          <div
             style={{
-              fontSize: "18px",
-              fontWeight: "600",
-              color: "#111827",
-              margin: 0,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
             }}
           >
-            Active Admins
-          </h3>
-          <Link to="viewAll">
+            <h3
+              style={{
+                fontSize: "18px",
+                fontWeight: "600",
+                color: "#111827",
+                margin: 0,
+              }}
+            >
+              Active Admins
+            </h3>
+            <Link to="viewAll">
               <button
-            
-            style={{
-              fontSize: "14px",
-              color: "#3b82f6",
-              textDecoration: "none",
-              fontWeight: "500",
-            }}
-          >
-            View all
-          </button>
-          </Link>
-        </div>
+                style={{
+                  fontSize: "14px",
+                  color: "#3b82f6",
+                  textDecoration: "none",
+                  fontWeight: "500",
+                }}
+              >
+                View all
+              </button>
+            </Link>
+          </div>
 
-        <div style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-            <thead>
-              <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "8px 0",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    color: "#6b7280",
-                  }}
-                >
-                  SL no.
-                </th>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "8px 0",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    color: "#6b7280",
-                  }}
-                >
-                  Admin Name
-                </th>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "8px 0",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    color: "#6b7280",
-                  }}
-                >
-                  Email
-                </th>
-                <th
-                  style={{
-                    textAlign: "left",
-                    padding: "8px 0",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    color: "#6b7280",
-                  }}
-                >
-                  Phone Number
-                </th>
-                <th
-                  style={{
-                    textAlign: "center",
-                    padding: "8px 0",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    color: "#6b7280",
-                  }}
-                >
-                  Task Completed Today
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {activeAdmins.map((admin, index) => (
-                <tr key={index} style={{ borderBottom: "1px solid #f3f4f6"}}>
-                  <td
+          <div style={{ overflowX: "auto" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+              <thead>
+                <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                  <th
                     style={{
+                      textAlign: "left",
                       padding: "8px 0",
-                      fontSize: "14px",
-                      color: "#374151",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#6b7280",
                     }}
                   >
-                    {admin.sl}
-                  </td>
-                  <td style={{ padding: "8px 0" }}>
-                    <div
+                    SL no.
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "left",
+                      padding: "8px 0",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#6b7280",
+                    }}
+                  >
+                    Admin Name
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "left",
+                      padding: "8px 0",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#6b7280",
+                    }}
+                  >
+                    Email
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "left",
+                      padding: "8px 0",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#6b7280",
+                    }}
+                  >
+                    Phone Number
+                  </th>
+                  <th
+                    style={{
+                      textAlign: "center",
+                      padding: "8px 0",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      color: "#6b7280",
+                    }}
+                  >
+                    Task Completed Today
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {activeAdmins.map((admin, index) => (
+                  <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                    <td
                       style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "12px",
+                        padding: "8px 0",
+                        fontSize: "14px",
+                        color: "#374151",
                       }}
                     >
-                      <img
-                        src={admin.admin.image}
-                        alt={admin.admin.name}
+                      {admin.sl}
+                    </td>
+                    <td style={{ padding: "8px 0" }}>
+                      <div
                         style={{
-                          width: "32px",
-                          height: "32px",
-                          borderRadius: "50%",
-                          objectFit: "cover",
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "12px",
                         }}
-                      />
-                      <span style={{ fontSize: "14px", color: "#374151" }}>
-                        {admin.admin.name}
-                      </span>
-                    </div>
-                  </td>
-                  <td
-                    style={{
-                      padding: "8px 0",
-                      fontSize: "14px",
-                      color: "#374151",
-                    }}
-                  >
-                    {admin.email}
-                  </td>
-                  <td
-                    style={{
-                      padding: "8px 0",
-                      fontSize: "14px",
-                      color: "#374151",
-                    }}
-                  >
-                    {admin.phone}
-                  </td>
-                  <td
-                    style={{
-                      padding: "8px 0",
-                      fontSize: "14px",
-                      color: "#374151",
-                      fontWeight: "500",
-                      textAlign: "center",
-                    }}
-                  >
-                    {admin.tasksCompleted}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      >
+                        <img
+                          src={admin.admin.image}
+                          alt={admin.admin.name}
+                          style={{
+                            width: "32px",
+                            height: "32px",
+                            borderRadius: "50%",
+                            objectFit: "cover",
+                          }}
+                        />
+                        <span style={{ fontSize: "14px", color: "#374151" }}>
+                          {admin.admin.name}
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      style={{
+                        padding: "8px 0",
+                        fontSize: "14px",
+                        color: "#374151",
+                      }}
+                    >
+                      {admin.email}
+                    </td>
+                    <td
+                      style={{
+                        padding: "8px 0",
+                        fontSize: "14px",
+                        color: "#374151",
+                      }}
+                    >
+                      {admin.phone}
+                    </td>
+                    <td
+                      style={{
+                        padding: "8px 0",
+                        fontSize: "14px",
+                        color: "#374151",
+                        fontWeight: "500",
+                        textAlign: "center",
+                      }}
+                    >
+                      {admin.tasksCompleted}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
       </div>
     </>
   );
