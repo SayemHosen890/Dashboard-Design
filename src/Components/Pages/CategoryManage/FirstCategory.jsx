@@ -601,6 +601,8 @@ const FirstCategory = () => {
 
   const [activeConversation, setActiveConversation] = useState(0);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div>
       <div className="p-6 bg-gray-50 min-h-screen font-sans">
@@ -610,7 +612,7 @@ const FirstCategory = () => {
               onClick={() => navigate(-1)}
               className="text-md font-semibold text-gray-700"
             >
-              <FaArrowLeft />
+              <FaArrowLeft  className="text-[#007BFF]"/>
             </button>
             <h1 className="text-xl font-semibold text-gray-800">
               Category Management
@@ -640,7 +642,7 @@ const FirstCategory = () => {
           </div>
           <div>
             <button
-              onClick={() => alert("Add New clicked")}
+              onClick={() => setIsModalOpen(true)}
               className="!px-6 bg-black text-white text-center rounded-full h-10"
             >
               <div className="flex justify-center items-center gap-2">
@@ -721,6 +723,116 @@ const FirstCategory = () => {
           </table>
         </div>
       </div>
+      {isModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "transparent", // fully visible background
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "90%",
+              maxWidth: "600px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+              // boxShadow:"5px",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+                padding: "10px",
+              }}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {/* Modal Title */}
+              </h3>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} />
+              </button>
+            </div>
+            <div className="!mb-7  !py-5">
+              <h3 className="text-center !mb-5">Add Category</h3>
+              <div>
+                <h2 className="!ml-15">Category Name</h2>
+                <div className=" flex justify-center items-center">
+                  <input
+                    type="button"
+                    // value="Furniture"
+                    className="border rounded-sm w-120 text-start !px-1 text-sm h-13"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center items-center gap-4 !py-3">
+              <div>
+                <button
+                  style={{
+                    border: "1px solid black",
+                    color: "white",
+                    padding: "8px 80px",
+                    borderRadius: "9999px",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    backgroundColor: "black",
+                    margin: "0px 5px",
+                  }}
+                >
+                  Save
+                </button>
+              </div>
+              <div>
+                <button
+                  style={{
+                    border: "1px solid black",
+                    color: "black",
+                    padding: "8px 80px",
+                    borderRadius: "9999px",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    margin: "0px 5px",
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {isChatModalOpen && (
         <div
           style={{
@@ -778,51 +890,50 @@ const FirstCategory = () => {
               <div>
                 <h2 className="!ml-5 !mb-2">Category Name</h2>
                 <div className=" flex justify-center items-center">
-                <input
-                  type="button"
-                  value="Furniture"
-                  className="border rounded-sm w-120 text-start !px-1 text-sm h-13"
-                />
+                  <input
+                    type="button"
+                    value="Furniture"
+                    className="border rounded-sm w-120 text-start !px-1 text-sm h-13"
+                  />
                 </div>
               </div>
             </div>
             <div className="flex justify-center items-center gap-4 !py-3">
-            <div>
-              <button
-                style={{
-                  border: "1px solid black",
-                  color: "white",
-                  padding: "8px 80px",
-                  borderRadius: "9999px",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  cursor: "pointer",
-                  backgroundColor: "black",
-                  margin: "0px 5px",
-                }}
-              >
-                Update
-              </button>
-            </div>
-            <div>
-              <button
-                style={{
-                  border: "1px solid black",
-                  color: "black",
-                  padding: "8px 80px",
-                  borderRadius: "9999px",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  cursor: "pointer",
-                  margin: "0px 5px",
-                }}
-              >
-                Cancel
-              </button>
+              <div>
+                <button
+                  style={{
+                    border: "1px solid black",
+                    color: "white",
+                    padding: "8px 80px",
+                    borderRadius: "9999px",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    backgroundColor: "black",
+                    margin: "0px 5px",
+                  }}
+                >
+                  Update
+                </button>
+              </div>
+              <div>
+                <button
+                  style={{
+                    border: "1px solid black",
+                    color: "black",
+                    padding: "8px 80px",
+                    borderRadius: "9999px",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    cursor: "pointer",
+                    margin: "0px 5px",
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-          </div>
-          
         </div>
       )}
     </div>

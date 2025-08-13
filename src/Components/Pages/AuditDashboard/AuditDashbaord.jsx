@@ -115,7 +115,7 @@ const AuditDashbaord = () => {
                   <h2 className="text-md font-semibold !ml-5">
                     Most Events Created By Users
                   </h2>
-                  <button className="text-blue-400  text-md !mr-5">
+                  <button className="text-blue-400  text-sm !mr-5">
                     View all
                   </button>
                 </div>

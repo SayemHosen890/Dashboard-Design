@@ -180,7 +180,7 @@ const MakeAdmin = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft />
+              <FaArrowLeft className="text-[#007BFF]"/>
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -228,7 +228,10 @@ const MakeAdmin = () => {
             }}
           >
             <div className="flex justify-center items-center gap-2">
-              <button onClick={openChatModal} className="flex justify-center items-center gap-2">
+              <button
+                onClick={openChatModal}
+                className="flex justify-center items-center gap-2"
+              >
                 <div>
                   <IoMdAdd size={20} />
                 </div>
@@ -353,6 +356,7 @@ const MakeAdmin = () => {
                           width: "32px",
                           height: "32px",
                         }}
+                        onClick={openChatModal}
                       >
                         <MdOutlineModeEditOutline size={20} />
                       </button>
@@ -516,6 +520,7 @@ const MakeAdmin = () => {
               maxWidth: "800px",
               boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
               overflow: "hidden",
+              // marginBottom:"20px"
             }}
           >
             {/* Modal Header */}
@@ -549,122 +554,207 @@ const MakeAdmin = () => {
               <h3 className="text-center !mb-1">Make Admin</h3>
               <div className="flex justify-center items-center">
                 <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
-              alt="Profile"
-              style={{
-                width: "100px",
-                height: "100px",
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "4px solid #e5e7eb",
-              }}
-            />
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face"
+                  alt="Profile"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    border: "4px solid #e5e7eb",
+                  }}
+                />
               </div>
             </div>
-            <div>
+            <div className="!px-30">
               <div style={{ marginBottom: "20px" }}>
-              <label
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  User Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter full name"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "20px" }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email address"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+              {/* Email Field */}
+              <div style={{ marginBottom: "20px" }}>
+                <label
+                  style={{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Contact No
+                </label>
+                <input
+                  type="email"
+                  placeholder="+880 123445566"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+              <div style={{ marginBottom: "32px" }}>
+                <label
+                  style={{
+                    // width:"100%",
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    color: "#374151",
+                    marginBottom: "8px",
+                  }}
+                >
+                  Password
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your password"
+                  style={{
+                    width: "100%",
+                    padding: "12px",
+                    border: "1px solid #d1d5db",
+                    borderRadius: "6px",
+                    fontSize: "14px",
+                    backgroundColor: "white",
+                  }}
+                />
+              </div>
+            </div>
+            <div className="!px-30 !mb-5">
+              <h1 className="!mb-2">Give Access To</h1>
+              <div className="flex justify-start items-center gap-2 ">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Dashboard</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Auction Management</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>User Management</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2 ">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Partner Management</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Transaction</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2 ">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Category Management</h2>
+                </div>
+              </div>
+              <div className="flex justify-start items-center gap-2 ">
+                <div>
+                  <input type="checkbox" name="" id="" />
+                </div>
+                <div>
+                  <h2>Variable Management</h2>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom:"5px"}}>
+              <button
                 style={{
-                  display: "block",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#374151",
-                  marginBottom: "8px",
-                }}
-              >
-                User Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter full name"
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  border: "1px solid #d1d5db",
+                  width: "70%",
+                  padding: "10px 50px",
+                  // paddingInline:"30px",
+                  backgroundColor: "#111827",
+                  color: "white",
+                  border: "none",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
                   borderRadius: "6px",
-                  fontSize: "14px",
-                  backgroundColor: "white",
-                }}
-              />
-            </div>
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontSize: "14px",
+                  fontSize: "16px",
                   fontWeight: "500",
-                  color: "#374151",
-                  marginBottom: "8px",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
                 }}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#1f2937")
+                }
+                onMouseOut={(e) => (e.target.style.backgroundColor = "#111827")}
               >
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Enter email address"
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  fontSize: "14px",
-                  backgroundColor: "white",
-                }}
-              />
+                Make
+              </button>
             </div>
-            {/* Email Field */}
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#374151",
-                  marginBottom: "8px",
-                }}
-              >
-                Contact No
-              </label>
-              <input
-                type="email"
-                placeholder="+880 123445566"
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  fontSize: "14px",
-                  backgroundColor: "white",
-                }}
-              />
-            </div>
-            <div style={{ marginBottom: "32px" }}>
-              <label
-                style={{
-                  display: "block",
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  color: "#374151",
-                  marginBottom: "8px",
-                }}
-              >
-                Address
-              </label>
-              <input
-                type="text"
-                placeholder="79/A Joker Vila, Gotham City"
-                style={{
-                  width: "100%",
-                  padding: "12px",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  fontSize: "14px",
-                  backgroundColor: "white",
-                }}
-              />
-            </div>
-            </div>
-            
           </div>
         </div>
       )}

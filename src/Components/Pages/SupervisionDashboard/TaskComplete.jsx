@@ -142,16 +142,16 @@ const TaskComplete = () => {
                         <button
                             onClick={() => navigate(-1)}
                             style={{
-                                fontSize: "20px",
+                                fontSize: "18px",
                                 fontWeight: "600",
                                 color: "#374151",
                                 cursor: "pointer",
                             }}
                         >
-                            <FaArrowLeft />
+                            <FaArrowLeft className="text-[#007BFF]"/>
                         </button>
                         <h1
-                            style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+                            style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
                         >
                             Task Complete
                         </h1>

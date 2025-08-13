@@ -684,11 +684,11 @@ const Transaction = () => {
           <div className="flex items-center gap-2 mb-4 !ml-2">
             <button
               onClick={() => navigate(-1)}
-              className="text-md !mt-1 font-24px text-gray-700"
+              className="text-md !mt-1 font-18px text-gray-700"
             >
-              <FaArrowLeft />
+              <FaArrowLeft  className="text-[#007BFF]"/>
             </button>
-            <h1 className="text-xl font-semibold text-gray-800">Transaction</h1>
+            <h1 className="font-bold text-xl text-gray-800">Transaction</h1>
           </div>
           <div style={{ position: "relative" }}>
             <input

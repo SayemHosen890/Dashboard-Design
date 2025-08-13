@@ -121,65 +121,8 @@ const statusColor = {
   },
 };
 
-const conversations = [
-  {
-    name: "John Smith & Mike Bond",
-    image1: "https://randomuser.me/api/portraits/men/11.jpg",
-    image2: "https://randomuser.me/api/portraits/men/12.jpg",
-    messages: [
-      {
-        from: "John Smith",
-        text: "Hi Mike, have you finished the quarterly report?",
-        time: "10:30 AM",
-      },
-      {
-        from: "Mike Bond",
-        text: "Almost done! Just need to add the sales figures from last week.",
-        time: "10:32 AM",
-      },
-      {
-        from: "John Smith",
-        text: "Great! Send it over when you're ready for review.",
-        time: "10:35 AM",
-      },
-      {
-        from: "Mike Bond",
-        text: "Almost done! Just need to add the sales figures from last week.",
-        time: "10:32 AM",
-      },
-      {
-        from: "John Smith",
-        text: "Great! Send it over when you're ready for review.",
-        time: "10:35 AM",
-      },
-      {
-        from: "Mike Bond",
-        text: "Almost done! Just need to add the sales figures from last week.",
-        time: "10:32 AM",
-      },
-      {
-        from: "John Smith",
-        text: "Great! Send it over when you're ready for review.",
-        time: "10:35 AM",
-      },
-      {
-        from: "Mike Bond",
-        text: "Almost done! Just need to add the sales figures from last week.",
-        time: "10:32 AM",
-      },
-      {
-        from: "John Smith",
-        text: "Great! Send it over when you're ready for review.",
-        time: "10:35 AM",
-      },
-      {
-        from: "Mike Bond",
-        text: "Almost done! Just need to add the sales figures from last week.",
-        time: "10:32 AM",
-      },
-    ],
-  },
-];
+
+
 
 const BankTransfer = () => {
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
@@ -212,16 +155,16 @@ const BankTransfer = () => {
             <button
               onClick={() => navigate(-1)}
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 color: "#374151",
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft />
+              <FaArrowLeft  className="text-[#007BFF]"/>
             </button>
             <h1
-              style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
+              style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
             >
               Bank Transfer
             </h1>
@@ -379,7 +322,7 @@ const BankTransfer = () => {
                         minWidth: "80px",
                         textAlign: "center",
                       }}
-                      onClick={openChatModal}
+                      // onClick={openChatModal}
                     >
                       {item.status}
                     </span>

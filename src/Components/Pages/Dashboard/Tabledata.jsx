@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { BsX } from "react-icons/bs";
-import phn1 from "../../../assets/phn1.png";
-import phn2 from "../../../assets/phn2.png";
-import phn3 from "../../../assets/phn3.png";
+import car1 from "../../../assets/car1.png";
+import car2 from "../../../assets/car2.png";
+import car3 from "../../../assets/car3.png";
+
+import id1 from "../../../assets/id1.png"
+import id2 from "../../../assets/id2.png"
+import id3 from "../../../assets/id3.png"
+import id4 from "../../../assets/id4.png"
 
 const Tabledata = () => {
   const partners = [
@@ -280,28 +285,28 @@ const Tabledata = () => {
               </div>
               <div className="flex justify-between gap-90 !px-8 !py-2">
                 <div>
-                  <h3>Phone Number:</h3>
+                  <h3>Location:</h3>
                 </div>
-                <div>+3489 9999 9778</div>
+                <div>1901 Thornridge Cir. Shiloh, Hawaii 81063</div>
               </div>
               <div className="!px-8">
-                <h3>Vehicals</h3>
+                <h3>Vehicals :</h3>
               </div>
               <div>
                 <div className="relative w-full flex items-left justify-start !px-8 !py-3">
                   <div className="flex gap-6">
                     <img
-                      src={phn1}
+                      src={car1}
                       alt="Image 1"
                       className="w-43 h-40 object-cover rounded"
                     />
                     <img
-                      src={phn2}
+                      src={car2}
                       alt="Image 2"
                       className="w-43 h-40 object-cover rounded"
                     />
                     <img
-                      src={phn3}
+                      src={car3}
                       alt="Image 3"
                       className="w-43 h-40 object-cover rounded"
                     />
@@ -314,10 +319,10 @@ const Tabledata = () => {
                     </div>
                     <div>
                       <img
-                      src={phn3}
-                      alt="Image 3"
-                      className="w-50 h-40 object-cover rounded"
-                    />
+                        src={id1}
+                        alt="Image 3"
+                        className="w-50 h-40 object-cover rounded"
+                      />
                     </div>
                   </div>
                   <div>
@@ -326,10 +331,10 @@ const Tabledata = () => {
                     </div>
                     <div>
                       <img
-                      src={phn3}
-                      alt="Image 3"
-                      className="w-50 h-40 object-cover rounded"
-                    />
+                        src={id2}
+                        alt="Image 3"
+                        className="w-50 h-40 object-cover rounded"
+                      />
                     </div>
                   </div>
                 </div>
@@ -340,10 +345,10 @@ const Tabledata = () => {
                     </div>
                     <div>
                       <img
-                      src={phn3}
-                      alt="Image 3"
-                      className="w-50 h-40 object-cover rounded"
-                    />
+                        src={id3}
+                        alt="Image 3"
+                        className="w-50 h-40 object-cover rounded"
+                      />
                     </div>
                   </div>
                   <div>
@@ -352,10 +357,10 @@ const Tabledata = () => {
                     </div>
                     <div>
                       <img
-                      src={phn3}
-                      alt="Image 3"
-                      className="w-50 h-40 object-cover rounded"
-                    />
+                        src={id4}
+                        alt="Image 3"
+                        className="w-50 h-40 object-cover rounded"
+                      />
                     </div>
                   </div>
                 </div>

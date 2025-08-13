@@ -7,17 +7,17 @@ const Condition = () => {
   return (
     <div className='shadow-lg bg-white !py-10 !px-10 rounded-lg'>
       <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-        <FaArrowLeft
+        <FaArrowLeft className="text-[#007BFF]"
           onClick={() => navigate(-1)}
           style={{
             fontSize: "18px",
-            color: "black",
+            // color: "black",
             cursor: "pointer",
           }}
         />
         <h1
           style={{
-            fontSize: "24px",
+            fontSize: "18px",
             fontWeight: "600",
             color: "#111827",
             margin: 0,

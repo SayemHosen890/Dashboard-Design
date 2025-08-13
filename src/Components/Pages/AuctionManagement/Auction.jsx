@@ -744,7 +744,7 @@ const Auction = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft />
+              <FaArrowLeft  className="text-[#007BFF]"/>
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -1111,7 +1111,7 @@ const Auction = () => {
                           <h3 className="text-center !py-5">
                             Win Bid amount will be send to the user/partner.
                           </h3>
-                          <div className="flex justify-evenly items-center gap-4 !py-3">
+                          <div className="flex justify-center items-center gap-4 !py-3">
                             <div>
                               <button
                                 style={{

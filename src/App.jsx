@@ -34,6 +34,7 @@ import ViewAll from "./Components/Pages/SupervisionDashboard/ViewAll";
 import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
 import TransactionDetails from "./Components/Pages/Transaction/TransactionDetails";
 import Notification from "./Components/Pages/Home/Notification";
+import PartnerDetail from "./Components/Pages/PartnerManage/PartnerDetail";
 // import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 const App = () => {
@@ -57,6 +58,16 @@ const App = () => {
               path="/partnerManage"
               exact={true}
               element={<PartnerManage></PartnerManage>}
+            />
+            {/* <Route
+              path="/partnerDetail"
+              exact={true}
+              element={<PartnerDetail></PartnerDetail>>}
+            /> */}
+            <Route
+              path="/partnerDetail"
+              exact={true}
+              element={<PartnerDetail></PartnerDetail>}
             />
             <Route
               path="/dashboard/updateRegister"

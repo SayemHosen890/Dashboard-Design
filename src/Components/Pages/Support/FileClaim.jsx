@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { BsX } from "react-icons/bs";
 import { FaArrowLeft, FaEdit, FaEye, FaSearch } from "react-icons/fa";
 import { MdOutlineModeEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import phn1 from "../../../assets/phn1.png";
+import phn2 from "../../../assets/phn2.png";
+import phn3 from "../../../assets/phn3.png";
 
 const FileClaim = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -146,7 +150,6 @@ const FileClaim = () => {
         return {
           backgroundColor: "#dbeafe",
           color: "#1d4ed8",
-          
         };
       case "Resolved":
         return {
@@ -165,7 +168,18 @@ const FileClaim = () => {
         };
     }
   };
-const navigate = useNavigate ();
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  // const [chatContent, setChatContent] = useState("This is editable content");
+
+  const openChatModal = () => setIsChatModalOpen(true);
+  const closeChatModal = () => setIsChatModalOpen(false);
+
+  const navigate = useNavigate();
+
+  // const [activeConversation, setActiveConversation] = useState(0);
+
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div
       style={{
@@ -194,18 +208,18 @@ const navigate = useNavigate ();
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            
-            <FaArrowLeft
-            onClick={() => navigate(-1)}
+            <FaArrowLeft className="text-[#007BFF]"
+              onClick={() => navigate(-1)}
               style={{
                 fontSize: "18px",
-                color: "black",
+                // color: "black",
                 cursor: "pointer",
               }}
+              
             />
             <h1
               style={{
-                fontSize: "24px",
+                fontSize: "18px",
                 fontWeight: "600",
                 color: "#111827",
                 // textAlign:'center'
@@ -243,10 +257,9 @@ const navigate = useNavigate ();
           </div>
         </div>
 
-
         {/* Claims Table */}
         <div style={{ overflowX: "auto" }}>
-          <table style={{ width: "100%",  }}>
+          <table style={{ width: "100%" }}>
             <thead>
               <tr style={{}}>
                 <th
@@ -376,7 +389,6 @@ const navigate = useNavigate ();
                     borderBottom: "1px solid #f3f4f6",
                     transition: "background-color 0.2s",
                   }}
-                  
                 >
                   <td
                     style={{
@@ -491,7 +503,7 @@ const navigate = useNavigate ();
                         justifyContent: "center",
                         transition: "background-color 0.2s",
                       }}
-                      
+                      onClick={openChatModal}
                     >
                       <FaEye style={{ fontSize: "20px" }} />
                     </button>
@@ -511,10 +523,128 @@ const navigate = useNavigate ();
                         justifyContent: "center",
                         transition: "background-color 0.2s",
                       }}
+                      onClick={() => setIsModalOpen(true)}
                     >
                       <MdOutlineModeEdit style={{ fontSize: "20px" }} />
                     </button>
                   </td>
+                  {isModalOpen && (
+                    <div
+                      style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        backgroundColor: "transparent", // fully visible background
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 1000,
+                      }}
+                    >
+                      <div
+                        style={{
+                          backgroundColor: "white",
+                          borderRadius: "8px",
+                          width: "90%",
+                          maxWidth: "800px",
+                          boxShadow: "0 4px 4px rgba(0,0,0,0.04)",
+                          // boxShadow:"5px",
+                          overflow: "hidden",
+                        }}
+                      >
+                        {/* Modal Header */}
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            alignItems: "center",
+                            backgroundColor: "white",
+                            color: "black",
+                            padding: "10px",
+                          }}
+                        >
+                          <h3
+                            style={{
+                              margin: 0,
+                              fontSize: "18px",
+                              fontWeight: "600",
+                            }}
+                          >
+                            {/* Modal Title */}
+                          </h3>
+                          <button
+                            onClick={() => setIsModalOpen(false)}
+                            style={{
+                              background: "none",
+                              border: "none",
+                              color: "black",
+                              cursor: "pointer",
+                              padding: "5px",
+                            }}
+                          >
+                            <BsX size={24} />
+                          </button>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="!px-20 !mb-5 text-gray-600">
+                          <h2 className="text-lg items-center flex justify-center">
+                            Penalty
+                          </h2>
+                          <div className="!py-3">
+                            <h2>User/Partner Name</h2>
+                            <input type="button" value="Type Here" className="border w-3/4 text-left h-8 rounded-sm"/>
+                          </div>
+                          <div  className="!py-3">
+                            <h2>User/Partner Name</h2>
+                            <input type="button" value="Type Here" className="border w-3/4 text-left h-8 rounded-sm" />
+                            <h4 className="!py-1">** Percentage will be deduct from the service/ product fee.</h4>
+                          </div>
+                          <h3>Reason of Penalty</h3>
+                          <div className="text-left">
+                            {/* <input type="button" value="value" className="w-30 h-30 border"/> */}
+                            <input 
+                              type="text"
+                              id="fname"
+                              name="fname"
+                              value="Type Here"
+                              className="w-full h-50 shadow border border-gray-300  rounded-sm"
+                            />
+                          </div>
+                          <button
+                            style={{
+                              width: "100%",
+                              // marginLeft:"40px",
+                              padding: "10px 50px",
+                              // paddingInline:"30px",
+                              backgroundColor: "#111827",
+                              color: "white",
+                              border: "none",
+                              alignItems: "center",
+                              display: "flex",
+                              justifyContent: "center",
+                              borderRadius: "30px",
+                              marginTop: "15px",
+                              fontSize: "16px",
+                              fontWeight: "500",
+                              cursor: "pointer",
+                              transition: "background-color 0.2s",
+                            }}
+                            onMouseOver={(e) =>
+                              (e.target.style.backgroundColor = "#1f2937")
+                            }
+                            onMouseOut={(e) =>
+                              (e.target.style.backgroundColor = "#111827")
+                            }
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </tr>
               ))}
             </tbody>
@@ -522,19 +652,159 @@ const navigate = useNavigate ();
         </div>
 
         {/* Pagination */}
-        
-      <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
+
+        <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
           <span>Showing 1-11 out of 1239</span>
           <div className="flex items-center gap-2">
             <button className="px-2">Previous</button>
-            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
+            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
+              1
+            </button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+              2
+            </button>
             <span>...</span>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
+            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+              100
+            </button>
             <button className="px-2">Next</button>
           </div>
         </div>
       </div>
+      {isChatModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "100%",
+              maxWidth: "700px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closeChatModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+
+            <div className="!mb-7 !px-10 !py-5">
+              <h3 className="text-center">Complain Details</h3>
+            </div>
+            <div className="!px-10 !mb-5">
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Complain ID:</h2>
+                </div>
+                <div>
+                  <h2>#325345636</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Date:</h2>
+                </div>
+                <div>
+                  <h2>12/08/24</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>User/Partner Name:</h2>
+                </div>
+                <div>
+                  <h2>Devon Lane</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Complain Against:</h2>
+                </div>
+                <div>
+                  <h2>Robert Smith</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Status:</h2>
+                </div>
+                <div>
+                  <h2>In-progress</h2>
+                </div>
+              </div>
+              <div className="justify-start items-center !py-1">
+                <div>
+                  <h2>Complain:</h2>
+                </div>
+                <div>
+                  <h2>
+                    I am writing to express my dissatisfaction with the service
+                    provided by XYZ Transport on October 10, 2024. I had
+                    scheduled a pickup for my household goods to be transported
+                    to my new residence. Unfortunately, the service was far
+                    below my expectations.
+                  </h2>
+                </div>
+              </div>
+              <div>
+                <h1 className="!py-2">Evidence :</h1>
+                <div className="flex justify-start gap-4">
+                  <img
+                    src={phn1}
+                    alt="Image 1"
+                    className="w-43 h-40 object-cover rounded"
+                  />
+                  <img
+                    src={phn2}
+                    alt="Image 2"
+                    className="w-43 h-40 object-cover rounded"
+                  />
+                  <img
+                    src={phn3}
+                    alt="Image 3"
+                    className="w-43 h-40 object-cover rounded"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

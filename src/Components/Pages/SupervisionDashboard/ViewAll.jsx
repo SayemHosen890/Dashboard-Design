@@ -137,7 +137,7 @@ const ViewAll = () => {
                             marginRight:"6px"
                         }}
                     >
-                        <FaArrowLeft />
+                        <FaArrowLeft className="text-[#007BFF]"/>
                     </button>
                     <h3
                         style={{

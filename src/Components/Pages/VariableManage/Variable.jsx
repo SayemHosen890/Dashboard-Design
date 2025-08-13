@@ -68,7 +68,7 @@ const Variable = () => {
           <div className="flex items-center gap-2 mb-4">
             <button 
             onClick={() => navigate(-1)}
-            className="text-md font-semibold text-gray-700"><FaArrowLeft /></button>
+            className="text-md font-semibold text-gray-700 "><FaArrowLeft  className="text-[#007BFF]"/></button>
             <h1 className="text-xl font-semibold text-gray-800">
               Variable Management
             </h1>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { BsX } from "react-icons/bs";
 import {
   FaArrowLeft,
   FaChevronDown,
@@ -129,7 +130,12 @@ const ActivityLogs = () => {
       };
     }
   };
-  const navigate = useNavigate ();
+  const navigate = useNavigate();
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  const [chatContent, setChatContent] = useState("This is editable content");
+
+  const openChatModal = () => setIsChatModalOpen(true);
+  const closeChatModal = () => setIsChatModalOpen(false);
 
   return (
     <div
@@ -149,23 +155,21 @@ const ActivityLogs = () => {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                    <button
-                      onClick={() => navigate(-1)}
-                      style={{
-                        fontSize: "24px",
-                        fontWeight: "600",
-                        color: "#374151",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <FaArrowLeft />
-                    </button>
-                    <h1
-                      style={{ fontSize: "24px", fontWeight: "600", color: "#1f2937" }}
-                    >
-                      Activity Logs
-                    </h1>
-                  </div>
+          <button
+            onClick={() => navigate(-1)}
+            style={{
+              fontSize: "18px",
+              fontWeight: "600",
+              color: "#374151",
+              cursor: "pointer",
+            }}
+          >
+            <FaArrowLeft className="text-[#007BFF]"/>
+          </button>
+          <h1 style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}>
+            Activity Logs
+          </h1>
+        </div>
 
         <div style={{ position: "relative" }}>
           <input
@@ -544,6 +548,7 @@ const ActivityLogs = () => {
                         justifyContent: "center",
                         boxShadow: "0 1px 2px rgba(0, 0, 0, 0.1)",
                       }}
+                      onClick={openChatModal}
                     >
                       <FaEye style={{ fontSize: "20px" }} />
                     </button>
@@ -553,21 +558,142 @@ const ActivityLogs = () => {
             </tbody>
           </table>
           {/* Pagination */}
-    
-        <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
-          <span>Showing 1-11 out of 1239</span>
-          <div className="flex items-center gap-2">
-            <button className="px-2">Previous</button>
-            <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">1</button>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">2</button>
-            <span>...</span>
-            <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">100</button>
-            <button className="px-2">Next</button>
+
+          <div className="flex justify-evenly items-center !mb-3 !mt-6 text-sm text-gray-600">
+            <span>Showing 1-11 out of 1239</span>
+            <div className="flex items-center gap-2">
+              <button className="px-2">Previous</button>
+              <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
+                1
+              </button>
+              <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+                2
+              </button>
+              <span>...</span>
+              <button className="w-6 h-6 flex items-center justify-center border rounded text-xs">
+                100
+              </button>
+              <button className="px-2">Next</button>
+            </div>
           </div>
         </div>
-
-        </div>
       </div>
+      {isChatModalOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "80%",
+              maxWidth: "600px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "600" }}>
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closeChatModal}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+
+            <div className="!mb-7 !px-10 !py-5">
+              <h3 className="text-center">Activity Log Details</h3>
+            </div>
+            <div className="!px-10 !mb-5">
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Timestamp:</h2>
+                </div>
+                <div>
+                  <h2>12/06/24 at 2:46 PM (GMT+6)</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>ID:</h2>
+                </div>
+                <div>
+                  <h2>4564357734</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Name:</h2>
+                </div>
+                <div>
+                  <h2>Devon Lane</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Email:</h2>
+                </div>
+                <div>
+                  <h2>devonlane@gmail.com</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Action Type:</h2>
+                </div>
+                <div>
+                  <h2>Editing</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Action Description:</h2>
+                </div>
+                <div>
+                  <h2>Partner 'FastTrack Deliveries' marked Trip ID #1243 as 'Completed'"</h2>
+                </div>
+              </div>
+              <div className="flex justify-between items-center !py-1">
+                <div>
+                  <h2>Result:</h2>
+                </div>
+                <div>
+                  <h2>Success</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
