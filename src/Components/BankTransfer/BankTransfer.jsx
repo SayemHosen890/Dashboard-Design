@@ -123,17 +123,21 @@ const statusColor = {
   },
 };
 
+
+
+
 const BankTransfer = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-  // const [chatContent, setChatContent] = useState("This is editable content");
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+    // const [chatContent, setChatContent] = useState("This is editable content");
+  
+    const handleClick = (event) => {
+      setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
+  
+    const open = Boolean(anchorEl);
+    const id = open ? "simple-popper" : undefined;
 
-  const handleClick = (event) => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popper" : undefined;
 
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
@@ -168,7 +172,7 @@ const BankTransfer = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft className="text-[#007BFF]" />
+              <FaArrowLeft  className="text-[#007BFF]"/>
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -336,52 +340,21 @@ const BankTransfer = () => {
                     <Popper id={id} open={open} anchorEl={anchorEl}>
                       <Box sx={{ borderRadius: "2px" }}>
                         
-                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
-                          <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            backgroundColor: "white",
-                            color: "black",
-                          }}
-                        >
-                          <h3
-                            style={{
-                              margin: 0,
-                              fontSize: "18px",
-                              fontWeight: "600",
-                            }}
-                          >
-                            {/* Conversation Overview */}
-                          </h3>
-                          <button
-                            onClick={closeChatModal}
-                            style={{
-                              background: "none",
-                              border: "none",
-                              color: "black",
-                              cursor: "pointer",
-                              padding: "5px",
-                            }}
-                          >
-                            <BsX size={24} className="!ml-40" />
-                          </button>
-                        </div>
-                          <h1 className="text-center !py-5">
-                            Are you sure want to change the status to
-                            “Completed”?
+                        <div className=" mx-auto !p-7 bg-white text-gray-600 shadow rounded-md !mr-140">
+                          <h1 className="text-center !mb-4">
+                            Status
                           </h1>
-                          <h3 className="text-center !py-5">
-                            Win Bid amount will be send to the user/partner.
+                          <h3 className="text-start font-md  ">
+                            Transaction ID
                           </h3>
-                          <div className="flex justify-center items-center gap-4 !py-3">
+                          <input type="text" id="username" name="username"  className="bg-red border w-full rounded-xm"/>
+                          <div className="flex justify-center items-center gap-4 !py-4">
                             <div>
                               <button
                                 style={{
                                   border: "1px solid black",
                                   color: "white",
-                                  padding: "8px 40px",
+                                  padding: "8px 60px",
                                   borderRadius: "9999px",
                                   fontSize: "14px",
                                   fontWeight: "500",
@@ -390,7 +363,7 @@ const BankTransfer = () => {
                                   margin: "0px 5px",
                                 }}
                               >
-                                Confirm
+                                Completed
                               </button>
                             </div>
                             <div>
@@ -398,7 +371,7 @@ const BankTransfer = () => {
                                 style={{
                                   border: "1px solid black",
                                   color: "black",
-                                  padding: "8px 40px",
+                                  padding: "8px 60px",
                                   borderRadius: "9999px",
                                   fontSize: "14px",
                                   fontWeight: "500",
@@ -406,7 +379,7 @@ const BankTransfer = () => {
                                   margin: "0px 5px",
                                 }}
                               >
-                                Cancel
+                                Close
                               </button>
                             </div>
                           </div>
