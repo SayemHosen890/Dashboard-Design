@@ -627,10 +627,10 @@ const Conversation = () => {
                   </div>
                   <div>
                     <span className="text-base font-medium">{conv.name}</span>
-                    <p className="text-xs text-gray-500 truncate max-w-xs">
+                    {/* <p className="text-xs text-gray-500 truncate max-w-xs">
                       {conv.messages[conv.messages.length - 1]?.text ||
                         "No messages"}
-                    </p>
+                    </p> */}
                   </div>
                 </li>
                 <hr className="border-t border-gray-200 mx-4" />

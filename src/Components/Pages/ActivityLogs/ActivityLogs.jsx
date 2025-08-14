@@ -110,23 +110,23 @@ const ActivityLogs = () => {
       return {
         padding: "6px 16px",
         borderRadius: "20px",
-        fontSize: "12px",
+        fontSize: "15px",
         fontWeight: "600",
         // width: "150px",
-        backgroundColor: "#10b981",
-        color: "white",
-        border: "none",
+        borderColor: "#10b981",
+        color: "#2AB9A4",
+        border: "1px solid",
       };
     } else {
       return {
-        padding: "6px 27px",
+        padding: "6px 28px",
         borderRadius: "20px",
         // width: "150px",
-        fontSize: "12px",
+        fontSize: "15px",
         fontWeight: "600",
-        backgroundColor: "#ef4444",
-        color: "white",
-        border: "none",
+        borderColor: "#ef4444",
+        color: "#ef4444",
+        border: "1px solid",
       };
     }
   };

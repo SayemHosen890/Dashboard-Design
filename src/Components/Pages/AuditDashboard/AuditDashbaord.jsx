@@ -100,14 +100,14 @@ const AuditDashbaord = () => {
         <div>
           <div className="flex justify-left items center w-60% gap-10">
             <div className="grid h-35 w-105 bg-white items-center font-bold justify-center rounded-lg shadow">
-              <h1>Total Number of Events</h1>
-              <span className="items-center justify-center flex font-bold">
+              <h1 className="text-xl">Total Number of Events</h1>
+              <span className="items-center justify-center flex font-bold text-xl">
                 82
               </span>
             </div>
             <div className="grid h-35 w-105 bg-white items-center font-bold justify-center rounded-lg shadow">
-              <h1>Most Common Event Type</h1>
-              <span className="items-center justify-center flex">Goods</span>
+              <h1 className="text-xl">Most Common Event Type</h1>
+              <span className="items-center justify-center flex text-xl">Goods</span>
             </div>
           </div>
           <div className="flex justify-left items center w-60% gap-10 !mt-10">
@@ -127,7 +127,7 @@ const AuditDashbaord = () => {
 
               {/* Table */}
               <div className="overflow-x-auto">
-                <table className="  rounded-lg overflow-hidden">
+                <table className="rounded-lg overflow-hidden">
                   <thead className="">
                     <tr className="">
                       <th className="!px-12 !py-3 text-left text-sm font-md text-gray-600">

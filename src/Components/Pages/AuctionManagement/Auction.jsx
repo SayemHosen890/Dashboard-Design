@@ -702,7 +702,7 @@ const Auction = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
   const [activeConversation, setActiveConversation] = useState(0);
-  const [activeButton, setActiveButton] = useState('All');
+  const [activeButton, setActiveButton] = useState("All");
   const navigate = useNavigate();
 
   const handleClick = (event) => {
@@ -721,18 +721,24 @@ const Auction = () => {
   //   return item.status === activeButton;
   // });
   // Filter data based on active button - NEW FILTERING LOGIC
-  const filteredData = data.filter(item => {
-    if (activeButton === 'All') return true;
-    if (activeButton === 'Move') {
+  const filteredData = data.filter((item) => {
+    if (activeButton === "All") return true;
+    if (activeButton === "Move") {
       // Filter for "Move" transactions - using 'Furniture' as an example
-      return item.category === 'Furniture';
+      return item.category === "Furniture";
     }
-    if (activeButton === 'Sell') {
+    if (activeButton === "Sell") {
       // Filter for "Sell" transactions - using 'Electronics' as an example
-      return item.category !== 'Completed';
+      return item.category !== "Completed";
     }
     return true;
   });
+
+  
+
+  const handleClose = () => {
+    setOpen(false); // Closes the popper
+  };
 
   return (
     <div>
@@ -742,7 +748,8 @@ const Auction = () => {
           backgroundColor: "#fff",
           minHeight: "100vh",
           fontFamily: "sans-serif",
-          borderRadius:"5px"
+          borderRadius: "5px",
+          // marginLeft:"10px"
         }}
       >
         <div
@@ -753,8 +760,16 @@ const Auction = () => {
             marginBottom: "5px",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              marginLeft: "12px",
+            }}
+          >
             <button
+              className=""
               onClick={() => navigate(-1)}
               style={{
                 fontSize: "18px",
@@ -763,7 +778,7 @@ const Auction = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft  className="text-[#007BFF]"/>
+              <FaArrowLeft className="text-[#007BFF]" />
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -792,7 +807,7 @@ const Auction = () => {
                 color: "#6b7280",
               }}
             >
-              <GoSearch className="text-xl" />
+              <GoSearch className="text-xl"/>
             </div>
           </div>
         </div>
@@ -805,25 +820,29 @@ const Auction = () => {
             marginBottom: "5px",
           }}
         >
-          <div style={{ display: "flex", gap: "16px", flexWrap: 'wrap' }}>
-            {['All', 'Move', 'Sell'].map((btn) => (
-          <button
-            key={btn}
-            onClick={() => setActiveButton(btn)}
-            style={{
-              marginLeft:"10px",
-              padding: "8px 36px",
-              backgroundColor: activeButton === btn ? "#000000" : "transparent",
-              color: activeButton === btn ? "white" : "black",
-              borderRadius: "9999px",
-              cursor: "pointer",
-              border: activeButton === btn ? "1px solid #000000" : "1px solid #d1d5db",
-              whiteSpace: 'nowrap'
-            }}
-          >
-            {btn}
-          </button>
-        ))}
+          <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            {["All", "Move", "Sell"].map((btn) => (
+              <button
+                key={btn}
+                onClick={() => setActiveButton(btn)}
+                style={{
+                  marginLeft: "10px",
+                  padding: "8px 36px",
+                  backgroundColor:
+                    activeButton === btn ? "#000000" : "transparent",
+                  color: activeButton === btn ? "white" : "black",
+                  borderRadius: "9999px",
+                  cursor: "pointer",
+                  border:
+                    activeButton === btn
+                      ? "1px solid #000000"
+                      : "1px solid #d1d5db",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {btn}
+              </button>
+            ))}
           </div>
           <div style={{ display: "flex", gap: "16px" }}>
             <select
@@ -873,7 +892,9 @@ const Auction = () => {
             boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
           }}
         >
-          <table style={{ minWidth: "100%", fontSize: "14px",marginLeft:"10px" }}>
+          <table
+            style={{ minWidth: "100%", fontSize: "14px", marginLeft: "10px" }}
+          >
             <thead style={{ backgroundColor: "#fff", color: "#374151" }}>
               <tr>
                 <th
@@ -891,7 +912,6 @@ const Auction = () => {
                     padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
-                    
                   }}
                 >
                   Date
@@ -957,7 +977,7 @@ const Auction = () => {
                     fontWeight: "500",
                   }}
                 >
-                  {activeButton === 'Sell' ? 'Action' : 'Status'}
+                  {activeButton === "Sell" ? "Action" : "Status"}
                 </th>
                 <th
                   style={{
@@ -968,7 +988,6 @@ const Auction = () => {
                 >
                   View Chart
                 </th>
-                
               </tr>
             </thead>
             <tbody>
@@ -1040,8 +1059,25 @@ const Auction = () => {
                     </button>
                     <Popper id={id} open={open} anchorEl={anchorEl}>
                       <Box sx={{ borderRadius: "2px" }}>
-                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
-                          <h1 className="text-center !py-5">
+                        <div className="mx-auto !p-7 bg-white shadow rounded-md !mr-140 relative">
+                          {/* Close Button (Cross) */}
+                          <button
+                            onClick={handleClose} // Add your close handler here
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+                            style={{
+                              background: "none",
+                              border: "none",
+                              fontSize: "1.5rem",
+                              cursor: "pointer",
+                              padding: "4px 8px",
+                            }}
+                          >
+                            <BsX size={24} className="!ml-40" />
+                          </button>
+
+                          <h1 className="text-center !pt-2 !pb-5">
+                            {" "}
+                            {/* Reduced top padding */}
                             Are you want to refund ?
                           </h1>
                           <h3 className="text-center !py-5">
@@ -1067,6 +1103,7 @@ const Auction = () => {
                             </div>
                             <div>
                               <button
+                                onClick={handleClose} // Added close handler to Cancel button
                                 style={{
                                   border: "1px solid black",
                                   color: "black",
@@ -1203,7 +1240,9 @@ const Auction = () => {
           </table>
         </div>
         <div className="flex justify-evenly items-center !mt-6 text-sm text-gray-600">
-          <span>Showing 1-{filteredData.length} out of {data.length}</span>
+          <span>
+            Showing 1-{filteredData.length} out of {data.length}
+          </span>
           <div className="flex items-center gap-2">
             <button className="px-2">Previous</button>
             <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
