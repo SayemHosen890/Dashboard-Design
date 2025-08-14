@@ -701,7 +701,9 @@ const statusColor = {
 const Auction = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-  const [chatContent, setChatContent] = useState("This is editable content");
+  const [activeConversation, setActiveConversation] = useState(0);
+  const [activeButton, setActiveButton] = useState('All');
+  const navigate = useNavigate();
 
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -709,12 +711,28 @@ const Auction = () => {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popper" : undefined;
-  const navigate = useNavigate();
 
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  const [activeConversation, setActiveConversation] = useState(0);
+  // Filter data based on active button
+  // const filteredData = data.filter(item => {
+  //   if (activeButton === 'All') return true;
+  //   return item.status === activeButton;
+  // });
+  // Filter data based on active button - NEW FILTERING LOGIC
+  const filteredData = data.filter(item => {
+    if (activeButton === 'All') return true;
+    if (activeButton === 'Move') {
+      // Filter for "Move" transactions - using 'Furniture' as an example
+      return item.category === 'Furniture';
+    }
+    if (activeButton === 'Sell') {
+      // Filter for "Sell" transactions - using 'Electronics' as an example
+      return item.category !== 'Completed';
+    }
+    return true;
+  });
 
   return (
     <div>
@@ -787,43 +805,25 @@ const Auction = () => {
             marginBottom: "5px",
           }}
         >
-          <div style={{ display: "flex", gap: "16px" }}>
-            <button
-              style={{
-                padding: "8px 24px",
-                backgroundColor: "#000000",
-                color: "white",
-                width: "80px",
-                borderRadius: "9999px",
-                cursor: "pointer",
-              }}
-            >
-              All
-            </button>
-            <button
-              style={{
-                padding: "8px 24px",
-                backgroundColor: "#000000",
-                color: "white",
-                width: "80px",
-                borderRadius: "9999px",
-                cursor: "pointer",
-              }}
-            >
-              Move
-            </button>
-            <button
-              style={{
-                padding: "8px 24px",
-                backgroundColor: "#000000",
-                color: "white",
-                width: "80px",
-                borderRadius: "9999px",
-                cursor: "pointer",
-              }}
-            >
-              Sell
-            </button>
+          <div style={{ display: "flex", gap: "16px", flexWrap: 'wrap' }}>
+            {['All', 'Move', 'Sell'].map((btn) => (
+          <button
+            key={btn}
+            onClick={() => setActiveButton(btn)}
+            style={{
+              marginLeft:"10px",
+              padding: "8px 36px",
+              backgroundColor: activeButton === btn ? "#000000" : "transparent",
+              color: activeButton === btn ? "white" : "black",
+              borderRadius: "9999px",
+              cursor: "pointer",
+              border: activeButton === btn ? "1px solid #000000" : "1px solid #d1d5db",
+              whiteSpace: 'nowrap'
+            }}
+          >
+            {btn}
+          </button>
+        ))}
           </div>
           <div style={{ display: "flex", gap: "16px" }}>
             <select
@@ -873,7 +873,7 @@ const Auction = () => {
             boxShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.1)",
           }}
         >
-          <table style={{ minWidth: "100%", fontSize: "14px" }}>
+          <table style={{ minWidth: "100%", fontSize: "14px",marginLeft:"10px" }}>
             <thead style={{ backgroundColor: "#fff", color: "#374151" }}>
               <tr>
                 <th
@@ -882,6 +882,7 @@ const Auction = () => {
                     textAlign: "left",
                     fontWeight: "500",
                   }}
+                  className="!ml-20"
                 >
                   SL no.
                 </th>
@@ -890,6 +891,7 @@ const Auction = () => {
                     padding: "10px 12px",
                     textAlign: "left",
                     fontWeight: "500",
+                    
                   }}
                 >
                   Date
@@ -955,7 +957,7 @@ const Auction = () => {
                     fontWeight: "500",
                   }}
                 >
-                  Status
+                  {activeButton === 'Sell' ? 'Action' : 'Status'}
                 </th>
                 <th
                   style={{
@@ -966,10 +968,11 @@ const Auction = () => {
                 >
                   View Chart
                 </th>
+                
               </tr>
             </thead>
             <tbody>
-              {data.map((item, i) => (
+              {filteredData.map((item, i) => (
                 <tr key={i} style={{}}>
                   <td style={{ padding: "16px" }}>{item.id}</td>
                   <td style={{ padding: "16px" }}>{item.date}</td>
@@ -1089,7 +1092,7 @@ const Auction = () => {
                         border: `1px solid ${
                           statusColor[item.status]?.borderColor || "#ccc"
                         }`,
-                        padding: "8px 40px",
+                        padding: "8px 20px",
                         borderRadius: "9999px",
                         fontSize: "14px",
                         fontWeight: "500",
@@ -1200,7 +1203,7 @@ const Auction = () => {
           </table>
         </div>
         <div className="flex justify-evenly items-center !mt-6 text-sm text-gray-600">
-          <span>Showing 1-11 out of 1239</span>
+          <span>Showing 1-{filteredData.length} out of {data.length}</span>
           <div className="flex items-center gap-2">
             <button className="px-2">Previous</button>
             <button className="w-6 h-6 flex items-center justify-center bg-blue-500 text-white rounded text-xs">
@@ -1340,5 +1343,4 @@ const Auction = () => {
     </div>
   );
 };
-
 export default Auction;
