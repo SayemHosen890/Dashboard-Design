@@ -29,7 +29,8 @@ const Sidebar = () => {
 
   // Highlight logic for main menu items (exact match)
   const isMainMenuActive = (path) => {
-    return location.pathname === path;
+    // return location.pathname === path;
+    return location.pathname === path || location.pathname.startsWith(`${path}/`);
   };
 
   // Highlight logic for submenu items (exact or starts with)
@@ -45,13 +46,6 @@ const Sidebar = () => {
       : `${baseStyles} hover:bg-blue-900`;
   };
 
-  // Get styles for submenu items
-  const getSubmenuItemStyles = (path) => {
-    return isSubmenuActive(path)
-      ? "text-white font-bold pl-12 pr-4 py-2 bg-gray-800"
-      : "text-gray-300 hover:text-white pl-12 pr-4 py-2";
-  };
-
   // Get styles for parent menu buttons (support/settings)
   const getParentButtonStyles = (path) => {
     const baseStyles = "flex !justify-start gap-x-3 text-white w-full px-4 py-4 rounded-none transition";
@@ -59,6 +53,15 @@ const Sidebar = () => {
       ? `${baseStyles} bg-blue-700 border-l-4 border-blue-400 font-bold`
       : `${baseStyles} hover:bg-blue-900`;
   };
+
+  // Get styles for submenu items
+  const getSubmenuItemStyles = (path) => {
+    return isSubmenuActive(path)
+      ? "text-white font-bold pl-12 pr-4 py-2 bg-gray-800"
+      : "text-gray-300 hover:text-white pl-12 pr-4 py-2";
+  };
+
+  
 
   // Auto-open submenus when their items are active
   useEffect(() => {
@@ -349,7 +352,7 @@ const Sidebar = () => {
           <Link to="/profile">
             <Button className={getButtonStyles("/profile")}>
               <span className="text-lg text-white">
-                <CgProfile />
+                <CgProfile className="text-lg"/>
               </span>
               <span className="text-white normal-case text-lg">Profile</span>
             </Button>

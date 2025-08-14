@@ -113,7 +113,7 @@ const ViewAll = () => {
                 style={{
                     backgroundColor: "white",
                     padding: "24px",
-                    borderRadius: "8px",
+                    // borderRadius: "8px",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                     // border: "1px solid #e5e7eb",
                 }}
@@ -124,7 +124,8 @@ const ViewAll = () => {
                         // justifyContent: "space-between",
                         alignItems: "center",
                         marginBottom: "20px",
-                        paddingLeft:'10px'
+                        paddingLeft:'10px',
+                        
                     }}
                 >
                     <button

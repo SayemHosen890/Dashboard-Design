@@ -97,6 +97,7 @@ const SupervisionDashboard = () => {
         padding: "24px",
         backgroundColor: "#fff",
         minHeight: "100vh",
+        borderRadius:"8px"
       }}
     >
       {/* Summary Statistics Cards */}
@@ -162,7 +163,7 @@ const SupervisionDashboard = () => {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              marginBottom: "20px",
+              marginBottom: "26px",
             }}
           >
             <h3
@@ -291,9 +292,9 @@ const SupervisionDashboard = () => {
                           borderRadius: "20px",
                           fontSize: "12px",
                           fontWeight: "600",
-                          backgroundColor: "#10b981",
-                          color: "white",
-                          border: "none",
+                          // backgroundColor: "#10b981",
+                          color: "#2AB9A4",
+                          border: "1px solid #2AB9A4",
                         }}
                       >
                         {task.status}

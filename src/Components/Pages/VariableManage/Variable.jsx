@@ -79,7 +79,7 @@ const Variable = () => {
           style={{ padding: "20px" }}
         >
           <table className="!w-full text-md">
-            <thead className="!w-full text-gray-700 bg-gray-100">
+            <thead className="!w-full ">
               <tr className="flex !py-5 !px-5 rounded-md shadow">
                 <th className="px-4 py-3 text-left" style={{ width: "33.33%" }}>
                   SL no.
