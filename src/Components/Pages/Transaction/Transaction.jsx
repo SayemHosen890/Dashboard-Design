@@ -718,7 +718,7 @@ const Transaction = () => {
 
         <div className="overflow-auto bg-white rounded-lg shadow !ml-4">
           <table className="min-w-full text-sm">
-            <thead className="bg-gray-100 text-gray-700">
+            <thead className=" text-gray-700">
               <tr>
                 <th className="!px-4 !py-7 text-left">Order ID</th>
                 <th className="px-4 py-3 text-left">Date</th>

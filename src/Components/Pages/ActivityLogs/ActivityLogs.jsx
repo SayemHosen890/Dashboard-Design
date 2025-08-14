@@ -141,7 +141,7 @@ const ActivityLogs = () => {
     <div
       style={{
         padding: "24px",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#fff",
         minHeight: "100vh",
       }}
     >
@@ -208,8 +208,8 @@ const ActivityLogs = () => {
           padding: "10px",
           backgroundColor: "white",
           borderRadius: "8px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          border: "1px solid #e5e7eb",
+          // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+          // border: "1px solid #e5e7eb",
         }}
       >
         <div style={{ display: "flex", gap: "20px" }}>
@@ -357,8 +357,8 @@ const ActivityLogs = () => {
         style={{
           backgroundColor: "white",
           borderRadius: "8px",
-          boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          border: "1px solid #e5e7eb",
+          // boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+          // border: "1px solid #e5e7eb",
           overflow: "hidden",
         }}
       >
@@ -367,8 +367,8 @@ const ActivityLogs = () => {
             <thead>
               <tr
                 style={{
-                  backgroundColor: "#f9fafb",
-                  borderBottom: "1px solid #e5e7eb",
+                  backgroundColor: "#fff",
+                  // borderBottom: "1px solid #e5e7eb",
                 }}
               >
                 <th
@@ -452,7 +452,7 @@ const ActivityLogs = () => {
             </thead>
             <tbody>
               {activityData.map((activity, index) => (
-                <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                <tr key={index} style={{}}>
                   <td
                     style={{
                       padding: "20px 16px",

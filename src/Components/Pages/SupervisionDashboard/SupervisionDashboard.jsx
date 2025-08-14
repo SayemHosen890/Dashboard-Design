@@ -95,7 +95,7 @@ const SupervisionDashboard = () => {
     <div
       style={{
         padding: "24px",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#fff",
         minHeight: "100vh",
       }}
     >
@@ -193,7 +193,7 @@ const SupervisionDashboard = () => {
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
-                <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                <tr style={{}}>
                   <th
                     style={{
                       textAlign: "left",
@@ -242,7 +242,7 @@ const SupervisionDashboard = () => {
               </thead>
               <tbody>
                 {completedTasks.map((task, index) => (
-                  <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                  <tr key={index} style={{}}>
                     <td
                       style={{
                         padding: "8px 0",
@@ -490,7 +490,7 @@ const SupervisionDashboard = () => {
         <div style={{ overflowX: "auto" }}>
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>
-              <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+              <tr style={{}}>
                 <th
                   style={{
                     textAlign: "left",
@@ -550,7 +550,7 @@ const SupervisionDashboard = () => {
             </thead>
             <tbody>
               {activeAdmins.map((admin, index) => (
-                <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                <tr key={index} style={{}}>
                   <td
                     style={{
                       padding: "8px 0",

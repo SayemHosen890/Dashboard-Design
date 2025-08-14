@@ -113,7 +113,7 @@ const ViewAll = () => {
                 style={{
                     backgroundColor: "white",
                     padding: "24px",
-                    // borderRadius: "8px",
+                    borderRadius: "8px",
                     boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                     // border: "1px solid #e5e7eb",
                 }}
@@ -154,7 +154,7 @@ const ViewAll = () => {
             <div style={{ overflowX: "auto", backgroundColor: "white" }}className='!pl-10 '>   
                 <table style={{ width: "100%", borderCollapse: "collapse" }} >
                     <thead>
-                        <tr style={{ borderBottom: "1px solid #e5e7eb" }} >
+                        <tr style={{}} >
                             <th
                                 style={{
                                     textAlign: "left",
@@ -214,7 +214,7 @@ const ViewAll = () => {
                     </thead>
                     <tbody>
                         {activeAdmins.map((admin, index) => (
-                            <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }} >
+                            <tr key={index} style={{}} >
                                 <td
                                     style={{
                                         padding: "33px 0px",

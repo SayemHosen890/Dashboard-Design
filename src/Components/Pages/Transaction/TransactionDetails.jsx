@@ -39,7 +39,7 @@ const TransactionDetails = () => {
                                 cursor: "pointer",
                             }}
                         >
-                            <FaArrowLeft />
+                            <FaArrowLeft className="text-[#007BFF]"/>
                         </button>
                         <h1
                             style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}

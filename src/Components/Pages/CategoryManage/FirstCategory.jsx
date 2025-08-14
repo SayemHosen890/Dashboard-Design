@@ -605,22 +605,22 @@ const FirstCategory = () => {
 
   return (
     <div>
-      <div className="p-6 bg-gray-50 min-h-screen font-sans">
-        <div className="flex items-center justify-between gap-2 mb-4 !p-3">
+      <div className="p-6 bg-gray-50 min-h-screen rounded-md font-sans">
+        <div className="flex items-center justify-between bg-white rounded-md gap-2 mb-4 !p-3">
           <div className="flex items-center gap-2 mb-4">
             <button
               onClick={() => navigate(-1)}
-              className="text-md font-semibold text-gray-700"
+              className="text-md font-semibold "
             >
-              <FaArrowLeft  className="text-[#007BFF]"/>
+              <FaArrowLeft  className="text-[#007BFF] flex items-center justify-center"/>
             </button>
-            <h1 className="text-xl font-semibold text-gray-800">
+            <h1 className="text-xl font-semibold ">
               Category Management
             </h1>
           </div>
         </div>
 
-        <div className="flex items-center justify-between mb-4 !p-3">
+        <div className="flex items-center bg-white justify-between mb-4 !p-3">
           <div className="flex gap-4">
             {buttons.map((btn) => (
               <button

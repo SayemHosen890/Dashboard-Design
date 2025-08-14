@@ -721,9 +721,10 @@ const Auction = () => {
       <div
         style={{
           padding: "4px",
-          backgroundColor: "#f9fafb",
+          backgroundColor: "#fff",
           minHeight: "100vh",
           fontFamily: "sans-serif",
+          borderRadius:"5px"
         }}
       >
         <div
@@ -873,7 +874,7 @@ const Auction = () => {
           }}
         >
           <table style={{ minWidth: "100%", fontSize: "14px" }}>
-            <thead style={{ backgroundColor: "#f3f4f6", color: "#374151" }}>
+            <thead style={{ backgroundColor: "#fff", color: "#374151" }}>
               <tr>
                 <th
                   style={{
@@ -969,7 +970,7 @@ const Auction = () => {
             </thead>
             <tbody>
               {data.map((item, i) => (
-                <tr key={i} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                <tr key={i} style={{}}>
                   <td style={{ padding: "16px" }}>{item.id}</td>
                   <td style={{ padding: "16px" }}>{item.date}</td>
                   <td style={{ padding: "16px" }}>

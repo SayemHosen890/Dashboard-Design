@@ -184,7 +184,7 @@ const FileClaim = () => {
     <div
       style={{
         padding: "24px",
-        backgroundColor: "#f9fafb",
+        backgroundColor: "#fff",
         minHeight: "100vh",
       }}
     >
@@ -251,7 +251,7 @@ const FileClaim = () => {
                 borderRadius: "6px",
                 fontSize: "14px",
                 width: "250px",
-                backgroundColor: "#f9fafb",
+                backgroundColor: "#fff",
               }}
             />
           </div>
@@ -386,7 +386,7 @@ const FileClaim = () => {
                 <tr
                   key={index}
                   style={{
-                    borderBottom: "1px solid #f3f4f6",
+                    // borderBottom: "1px solid #f3f4f6",
                     transition: "background-color 0.2s",
                   }}
                 >

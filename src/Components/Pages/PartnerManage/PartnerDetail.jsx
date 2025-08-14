@@ -287,7 +287,7 @@ const PartnerDetail = () => {
             }}
           >
             {/* Save Change Button */}
-            <div className="w-full bg-white shadow flex flex-col overflow-hidden">
+            <div className="w-full bg-white flex flex-col overflow-hidden">
               <h2 className="text-gray-700 py-3 text-xl font-bold !ml-5 !mb-2 items-center flex justify-center">
                 {/* Conversation Overview */}
               </h2>

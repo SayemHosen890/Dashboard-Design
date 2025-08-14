@@ -115,7 +115,7 @@ const navigate = useNavigate();
 
       {/* Table Wrapper */}
       <div className="overflow-x-auto  !p-10">
-        <table className="w-full border-collapse ">
+        <table className="w-full  ">
           <thead>
             <tr className="!p-10">
               <th className="!px-10 !py-4 text-left text-sm font-semibold text-gray-600">

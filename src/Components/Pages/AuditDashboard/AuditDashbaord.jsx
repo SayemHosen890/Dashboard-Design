@@ -96,22 +96,22 @@ const AuditDashbaord = () => {
   ];
   return (
     <>
-      <div className="flex justify-left items center w-full gap-20">
+      <div className="flex justify-left items center w-full gap-10">
         <div>
-          <div className="flex justify-left items center w-60% gap-20 ">
-            <div className="grid h-35 w-100 bg-white items-center font-bold justify-center rounded-lg shadow">
+          <div className="flex justify-left items center w-60% gap-10">
+            <div className="grid h-35 w-105 bg-white items-center font-bold justify-center rounded-lg shadow">
               <h1>Total Number of Events</h1>
               <span className="items-center justify-center flex font-bold">
                 82
               </span>
             </div>
-            <div className="grid h-35 w-100 bg-white items-center font-bold justify-center rounded-lg shadow">
+            <div className="grid h-35 w-105 bg-white items-center font-bold justify-center rounded-lg shadow">
               <h1>Most Common Event Type</h1>
               <span className="items-center justify-center flex">Goods</span>
             </div>
           </div>
-          <div className="flex justify-left items center w-60% gap-20 !mt-10">
-            <div className="grid h-50 w-220 bg-white items-center rounded-lg shadow !pb-2">
+          <div className="flex justify-left items center w-60% gap-10 !mt-10">
+            <div className="grid h-60 w-220 bg-white items-center rounded-lg shadow !pb-2">
               {/* <div> */}
               {/* Header Flex */}
               <div className="flex justify-between items-center mb-4 !pt-2">
@@ -176,7 +176,7 @@ const AuditDashbaord = () => {
             </div>
           </div>
         </div>
-        <div className="grid h-95 w-220 bg-white shadow rounded-lg">
+        <div className="grid h-105 w-290 bg-white shadow rounded-lg">
           <div
           // style={{
           //   backgroundColor: "white",
@@ -194,7 +194,7 @@ const AuditDashbaord = () => {
                     fontWeight: "600",
                     color: "#111827",
                     marginBottom: "16px",
-                    marginLeft: "9px",
+                    marginLeft: "11px",
                     paddingTop: "5px",
                   }}
                 >
@@ -202,11 +202,11 @@ const AuditDashbaord = () => {
                 </h3>
               </div>
               <div className="flex justify-center items-center">
-                <button className="border flex items-center justify-between gap-2 !mr-6 py-4 w-25">
+                <button className="border text-sm flex items-center justify-center gap-4 !mr-3 py-4 w-25">
                   <span>September</span>
                   <IoIosArrowDown className="text-black"/>
                 </button>
-                <button className="border flex items-center justify-between gap-2 !mr-8 py-4 w-20">
+                <button className="border text-sm flex items-center justify-center gap-4 !mr-4 py-4 w-20">
                   <span>2024</span>
                   <IoIosArrowDown className="text-black"/>
                 </button>
@@ -250,7 +250,7 @@ const AuditDashbaord = () => {
                     strokeDasharray={`${2 * Math.PI * 80 * 0.56} ${
                       2 * Math.PI * 80
                     }`}
-                    strokeDashoffset={-2 * Math.PI * 80 * 0.25}
+                    strokeDashoffset={-2 * Math.PI * 80 * 0.15}
                     transform="rotate(-90 100 100)"
                   />
                   {/* Ongoing tasks (orange) - approximately 24% */}
@@ -278,7 +278,7 @@ const AuditDashbaord = () => {
                     strokeDasharray={`${2 * Math.PI * 80 * 0.12} ${
                       2 * Math.PI * 80
                     }`}
-                    strokeDashoffset={-2 * Math.PI * 80 * 0.01}
+                    strokeDashoffset={-2 * Math.PI * 80 * 0.08}
                     transform="rotate(-90 100 100)"
                   />
                   {/* Ongoing tasks (orange) - approximately 24% */}
@@ -292,7 +292,7 @@ const AuditDashbaord = () => {
                     strokeDasharray={`${2 * Math.PI * 80 * 0.2} ${
                       2 * Math.PI * 80
                     }`}
-                    strokeDashoffset={-2 * Math.PI * 80 * 0.01}
+                    strokeDashoffset={-2 * Math.PI * 80 * 0.1}
                     transform="rotate(-90 100 100)"
                   />
                 </svg>
@@ -346,7 +346,7 @@ const AuditDashbaord = () => {
                     borderRadius: "2px",
                   }}
                 ></div>
-                <span style={{ fontSize: "13px", color: "#374151" }}>On</span>
+                <span style={{ fontSize: "13px", color: "#374151" }}>Process</span>
               </div>
               <div
                 style={{ display: "flex", alignItems: "center", gap: "6px" }}
@@ -355,7 +355,7 @@ const AuditDashbaord = () => {
                   style={{
                     width: "10px",
                     height: "10px",
-                    backgroundColor: "#3b82f6",
+                    backgroundColor: "#0ebe0eff",
                     borderRadius: "2px",
                   }}
                 ></div>
@@ -411,7 +411,7 @@ const AuditDashbaord = () => {
           <div style={{ overflowX: "auto" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
-                <tr style={{ borderBottom: "1px solid #e5e7eb" }}>
+                <tr style={{}}>
                   <th
                     style={{
                       textAlign: "left",
@@ -471,7 +471,7 @@ const AuditDashbaord = () => {
               </thead>
               <tbody>
                 {activeAdmins.map((admin, index) => (
-                  <tr key={index} style={{ borderBottom: "1px solid #f3f4f6" }}>
+                  <tr key={index} style={{ }}>
                     <td
                       style={{
                         padding: "8px 0",
