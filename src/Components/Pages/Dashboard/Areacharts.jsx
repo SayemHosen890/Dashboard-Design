@@ -71,17 +71,6 @@ const Areacharts = () => {
             <select className="border flex items-center justify-between gap-2 px-6 py-3 w-20">
               <option>2024</option>
             </select>
-            {/* <FaChevronDown
-                        // style={{
-                        //   position: "absolute",
-                        //   right: "12px",
-                        //   top: "50%",
-                        //   transform: "translateY(-50%)",
-                        //   color: "#6b7280",
-                        //   fontSize: "12px",
-                        //   pointerEvents: "none",
-                        // }}
-                      /> */}
           </div>
         </div>
       </div>

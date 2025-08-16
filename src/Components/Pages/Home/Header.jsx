@@ -20,7 +20,7 @@ const Header = () => {
         >
           <FaRegBell className="text-base text-gray-600 h-6 w-6" />
         </div>
-        <Link to="profile">
+        <Link to="/profile">
           <div className="flex items-center gap-x-2">
             <img
               className="h-10 w-10 rounded-full object-cover"

@@ -9,7 +9,7 @@ import w4 from "../../../assets/w4.png";
 import w2 from "../../../assets/w2.png";
 import w3 from "../../../assets/w3.png";
 import w1 from "../../../assets/w1.png";
-import map1 from "../../../assets/map1.png";
+// import map1 from "../../../assets/map1.png";
 import { FaStar } from "react-icons/fa";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import {
@@ -56,6 +56,22 @@ const AuctionDetails = () => {
       subtitleLeft: "Rating:",
       subtitleRight: "4.7/5.0",
       description: "$35.00",
+    },
+    {
+      id: 5,
+      image: w1,
+      title: "Devon Lane",
+      subtitleLeft: "Rating:",
+      subtitleRight: "4.1/5.0",
+      description: "$55.00",
+    },
+    {
+      id: 6,
+      image: w2,
+      title: "Devon Lane",
+      subtitleLeft: "Rating:",
+      subtitleRight: "4.3/5.0",
+      description: "$15.00",
     },
   ];
 
