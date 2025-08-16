@@ -936,7 +936,7 @@ const PartnerManage = () => {
                             backgroundColor: "white",
                             borderRadius: "8px",
                             width: "90%",
-                            maxWidth: "800px",
+                            maxWidth: "700px",
                             boxShadow: "0 4px 4px rgba(0,0,0,0.04)",
                             // boxShadow:"5px",
                             overflow: "hidden",
@@ -1021,12 +1021,12 @@ const PartnerManage = () => {
                                 cursor: "pointer",
                                 transition: "background-color 0.2s",
                               }}
-                              onMouseOver={(e) =>
-                                (e.target.style.backgroundColor = "#1f2937")
-                              }
-                              onMouseOut={(e) =>
-                                (e.target.style.backgroundColor = "#111827")
-                              }
+                              // onMouseOver={(e) =>
+                              //   (e.target.style.backgroundColor = "#1f2937")
+                              // }
+                              // onMouseOut={(e) =>
+                              //   (e.target.style.backgroundColor = "#111827")
+                              // }
                             >
                               Sent
                             </button>
