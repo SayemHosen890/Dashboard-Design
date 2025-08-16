@@ -594,12 +594,12 @@ const FirstCategory = () => {
       : data.filter((item) => categoryMap[active]?.includes(item.category));
 
   const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-  const [chatContent, setChatContent] = useState("This is editable content");
+  // const [chatContent, setChatContent] = useState("This is editable content");
 
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  const [activeConversation, setActiveConversation] = useState(0);
+  // const [activeConversation, setActiveConversation] = useState(0);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -731,7 +731,8 @@ const FirstCategory = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "transparent", // fully visible background
+            // backgroundColor: "transparent", // fully visible background
+            backgroundColor: "rgba(0,0,0,0.5)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

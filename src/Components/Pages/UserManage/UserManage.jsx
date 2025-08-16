@@ -974,6 +974,7 @@ const UserManage = () => {
                           right: 0,
                           bottom: 0,
                           backgroundColor: "transparent", // fully visible background
+                          // backgroundColor: "rgba(0,0,0,0.5)",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",

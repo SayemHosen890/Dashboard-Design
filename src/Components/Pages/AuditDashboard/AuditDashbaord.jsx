@@ -107,7 +107,9 @@ const AuditDashbaord = () => {
             </div>
             <div className="grid h-35 w-105 bg-white items-center font-bold justify-center rounded-lg shadow">
               <h1 className="text-xl">Most Common Event Type</h1>
-              <span className="items-center justify-center flex text-xl">Goods</span>
+              <span className="items-center justify-center flex text-xl">
+                Goods
+              </span>
             </div>
           </div>
           <div className="flex justify-left items center w-60% gap-10 !mt-10">
@@ -118,10 +120,10 @@ const AuditDashbaord = () => {
                 <h2 className="text-md font-semibold !ml-5">
                   Most Events Created By Users
                 </h2>
-                <Link  to="auditViewAll">
-                <button className="text-blue-400  text-sm !mr-5">
-                  View all
-                </button>
+                <Link to="auditViewAll">
+                  <button className="text-blue-400  text-sm !mr-5">
+                    View all
+                  </button>
                 </Link>
               </div>
 
@@ -194,22 +196,24 @@ const AuditDashbaord = () => {
                     fontWeight: "600",
                     color: "#111827",
                     marginBottom: "16px",
-                    marginLeft: "11px",
+                    marginLeft: "50px",
                     paddingTop: "5px",
                   }}
                 >
-                  Task Completion Rate
+                  Task Completion Rate :
                 </h3>
               </div>
-              <div className="flex justify-center items-center">
-                <button className="border text-sm flex items-center justify-center gap-4 !mr-3 py-4 w-25">
-                  <span>September</span>
-                  <IoIosArrowDown className="text-black"/>
-                </button>
-                <button className="border text-sm flex items-center justify-center gap-4 !mr-4 py-4 w-20">
-                  <span>2024</span>
-                  <IoIosArrowDown className="text-black"/>
-                </button>
+              <div className="flex justify-center items-center !mr-7 gap-4">
+                <div className="flex items-center">
+                  <select className="border flex items-center justify-between gap-3 px-6 py-3 w-30">
+                    <option>September</option>
+                  </select>
+                </div>
+                <div className="flex items-center">
+                  <select className="border flex items-center justify-between gap-2 px-6 py-3 w-22">
+                    <option>2024</option>
+                  </select>
+                </div>
               </div>
             </div>
 
@@ -346,7 +350,9 @@ const AuditDashbaord = () => {
                     borderRadius: "2px",
                   }}
                 ></div>
-                <span style={{ fontSize: "13px", color: "#374151" }}>Process</span>
+                <span style={{ fontSize: "13px", color: "#374151" }}>
+                  Process
+                </span>
               </div>
               <div
                 style={{ display: "flex", alignItems: "center", gap: "6px" }}
@@ -471,7 +477,7 @@ const AuditDashbaord = () => {
               </thead>
               <tbody>
                 {activeAdmins.map((admin, index) => (
-                  <tr key={index} style={{ }}>
+                  <tr key={index} style={{}}>
                     <td
                       style={{
                         padding: "8px 0",
