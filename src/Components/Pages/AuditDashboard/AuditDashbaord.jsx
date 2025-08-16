@@ -1,5 +1,4 @@
 import React from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const AuditDashbaord = () => {
@@ -180,13 +179,7 @@ const AuditDashbaord = () => {
         </div>
         <div className="grid h-105 w-290 bg-white shadow rounded-lg">
           <div
-          // style={{
-          //   backgroundColor: "white",
-          //   padding: "24px",
-          //   borderRadius: "8px",
-          //   boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
-          //   border: "1px solid #e5e7eb",
-          // }}
+          
           >
             <div className="flex justify-between items-center">
               <div>

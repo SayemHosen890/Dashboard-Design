@@ -1,15 +1,11 @@
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
-// import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { BsChatLeftText, BsX } from "react-icons/bs";
 import Box from "@mui/material/Box";
 import Popper from "@mui/material/Popper";
-import { Modal, Button } from "antd";
 import { GoSearch } from "react-icons/go";
-// import React from "react";
-// import { useState } from "react";
 const conversations = [
   {
     name: "John Smith & Mike Bond",
@@ -705,6 +701,7 @@ const Auction = () => {
   const [activeButton, setActiveButton] = useState("All");
   const navigate = useNavigate();
 
+
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
@@ -715,12 +712,6 @@ const Auction = () => {
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  // Filter data based on active button
-  // const filteredData = data.filter(item => {
-  //   if (activeButton === 'All') return true;
-  //   return item.status === activeButton;
-  // });
-  // Filter data based on active button - NEW FILTERING LOGIC
   const filteredData = data.filter((item) => {
     if (activeButton === "All") return true;
     if (activeButton === "Move") {

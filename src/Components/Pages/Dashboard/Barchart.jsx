@@ -2,15 +2,12 @@ import React from "react";
 import {
   BarChart,
   Bar,
-  Rectangle,
   XAxis,
   YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
-import { IoIosArrowDown } from "react-icons/io";
+
 
 export const Barchart = () => {
   const data = [
@@ -64,25 +61,10 @@ export const Barchart = () => {
           <h2 className="font-bold text-xl">User & Partner Growth</h2>
         </div>
         <div className="flex items-center">
-          {/* <button className='border flex items-center justify-between gap-2 px-6 py-3 w-20'>
-                        <span> 2024</span>
-                        <IoIosArrowDown /> */}
-          {/* </button> */}
           <div className="flex items-center">
             <select className="border flex items-center justify-between gap-2 px-6 py-3 w-20">
               <option>2024</option>
             </select>
-            {/* <FaChevronDown
-                        // style={{
-                        //   position: "absolute",
-                        //   right: "12px",
-                        //   top: "50%",
-                        //   transform: "translateY(-50%)",
-                        //   color: "#6b7280",
-                        //   fontSize: "12px",
-                        //   pointerEvents: "none",
-                        // }}
-                      /> */}
           </div>
         </div>
       </div>
@@ -101,8 +83,6 @@ export const Barchart = () => {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
-          {/* <Tooltip /> */}
-          {/* <Legend /> */}
           <Bar dataKey="pv" fill="#8884d8" />
           <Bar dataKey="uv" fill="#82ca9d" />
         </BarChart>

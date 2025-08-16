@@ -515,9 +515,6 @@ const BankTransfer = () => {
                     <div>
                       <h3>Bank Info</h3>
                     </div>
-                    {/* <div>
-                                  +3489 9999 9778
-                                </div> */}
                   </div>
                   <div className="flex justify-between gap-90 !py-2">
                     <div>
