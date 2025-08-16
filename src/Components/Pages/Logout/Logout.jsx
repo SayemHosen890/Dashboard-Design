@@ -2,14 +2,23 @@ import React from 'react'
 import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../AuthContext";
 
 const Logout = () => {
-  const navigate = useNavigate ();
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogin = () => {
-    localStorage.setItem("isLoggedIn", "true"); // Simulated login
-    navigate("/dashboard");
+    login();
+    navigate("/dashboard"); // redirect after login
   };
+  // const navigate = useNavigate ();
+
+  // const handleLogin = () => {
+  //   localStorage.setItem("isLoggedIn", "true"); // Simulated login
+  //   navigate("/dashboard");
+  // };
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100 px-4">
       <div className="w-full max-w-lg bg-white !p-10  rounded-2xl shadow-lg">
@@ -106,14 +115,14 @@ const Logout = () => {
         </div>
 
         {/* Sign In Button */}
-        <Link to="/dashboard">
+        {/* <Link to="/dashboard"> */}
           <button
           onClick={handleLogin}
           className="w-full !py-3 !mt-7 bg-black text-white font-semibold rounded-full  transition-shadow shadow-sm ">
             Sign In
           </button>
 
-        </Link>
+        {/* </Link> */}
       </div>
     </div>
 

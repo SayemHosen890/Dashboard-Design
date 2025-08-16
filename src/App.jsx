@@ -1,6 +1,14 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 import "./App.css";
+import { AuthProvider } from "./AuthContext";
+import ProtectedRoute from "./ProtectedRoute";
 import BankTransfer from "./Components/BankTransfer/BankTransfer";
 import ActivityLogs from "./Components/Pages/ActivityLogs/ActivityLogs";
 import Auction from "./Components/Pages/AuctionManagement/Auction";
@@ -35,120 +43,247 @@ import TaskComplete from "./Components/Pages/SupervisionDashboard/TaskComplete";
 import TransactionDetails from "./Components/Pages/Transaction/TransactionDetails";
 import Notification from "./Components/Pages/Home/Notification";
 import PartnerDetail from "./Components/Pages/PartnerManage/PartnerDetail";
-// import AuditDashbaord from "./Components/Pages/AuditDashboard/AuditDashbaord";
 import AuditViewAll from "./Components/Pages/AuditDashboard/AuditViewAll";
-// import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+
+const Layout = ({ children }) => {
+    const location = useLocation();
+    const hideLayout = location.pathname === "/logout"; // Hide Header & Sidebar on login
+
+    return (
+      <>
+        {!hideLayout && <Header />}
+        <div className="flex">
+          {!hideLayout && (
+            <div className="sidebars w-[15%]">
+              <Sidebar />
+            </div>
+          )}
+          <div
+            style={{ padding: "20px" }}
+            className={`${hideLayout ? "w-full" : "w-[85%] bg-gray-200"}`}
+          >
+            {children}
+          </div>
+        </div>
+      </>
+    );
+  };
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Header></Header>
-      <div className="flex">
-        <div className="sidebars w-[15%]">
-          <Sidebar></Sidebar>
-        </div>
-        <div style={{ padding: "20px" }} className="w-[85%] bg-gray-200">
-          <Routes>
-            <Route path="/auction" exact={true} element={<Auction></Auction>} />
-            <Route path="/notification" exact={true} element={<Notification></Notification>} />
-            <Route
-              path="/userManage"
-              exact={true}
-              element={<UserManage></UserManage>}
-            />
-            <Route
-              path="/partnerManage"
-              exact={true}
-              element={<PartnerManage></PartnerManage>}
-            />
-            {/* <Route
-              path="/partnerDetail"
-              exact={true}
-              element={<PartnerDetail></PartnerDetail>>}
-            /> */}
-            <Route
-              path="/partnerDetail"
-              exact={true}
-              element={<PartnerDetail></PartnerDetail>}
-            />
-            <Route
-              path="/dashboard/updateRegister"
-              exact={true}
-              element={<UpdateRegister></UpdateRegister>}
-            />
-            <Route
-              path="/transaction"
-              exact={true}
-              element={<Transaction></Transaction>}
-            />
-            <Route
-              path="/firstCategory"
-              exact={true}
-              element={<FirstCategory></FirstCategory>}
-            />
-            <Route
-              path="/variable"
-              exact={true}
-              element={<Variable></Variable>}
-            />
-            <Route
-              path="/conversation"
-              exact={true}
-              element={<Conversation></Conversation>}
-            />
-            <Route
-              path="/bankTransfer"
-              exact={true}
-              element={<BankTransfer></BankTransfer>}
-            />
-            <Route
-              path="/makeAdmin"
-              exact={true}
-              element={<MakeAdmin></MakeAdmin>}
-            />
-            <Route
-              path="/supervisionDashboard"
-              exact={true}
-              element={<SupervisionDashboard></SupervisionDashboard>}
-            />
-            <Route
-              path="/activityLogs"
-              exact={true}
-              element={<ActivityLogs></ActivityLogs>}
-            />
-            <Route
-              path="/auditDashboard"
-              exact={true}
-              element={<AuditDashboard></AuditDashboard>}
-            />
-            <Route path="/support" element={<Support></Support>}>
-              <Route path="file-claim" element={<FileClaim></FileClaim>} />
-              <Route path="ticket" element={<Ticket></Ticket>} />
-            </Route>
-            <Route path="/setting" element={<Setting></Setting>}>
-              <Route path="condition" element={<Condition></Condition>} />
-              <Route path="privacy" element={<Privacy></Privacy> }/>
-              <Route path="contactUs" element={<Contact></Contact> }/>
-            </Route>
-            <Route path="/profile" element={<Profile></Profile>} />
-            <Route path="/transactionDetails" element={<TransactionDetails></TransactionDetails>} />
-            
-            <Route path="/logout" element={<Logout></Logout>} />
-            <Route path="/forget" element={<Forget></Forget>} />
-            <Route path="/checkEmail" element={<CheckEmail></CheckEmail>} />
-            <Route path="/verify" element={<Verify></Verify>} />
-            <Route path="/" element={<Dashboard></Dashboard>} />
-            <Route path="/dashboard" element={<Dashboard></Dashboard>} />
-            <Route path="/auctionDetails" element={<AuctionDetails></AuctionDetails>} />
-            <Route path="/supervisionDashboard/viewAll" element={<ViewAll></ViewAll>} />
-            <Route path="/auditDashboard/viewAll" element={<ViewAll></ViewAll>} />
-            <Route path="/auditDashboard/auditViewAll" element={<AuditViewAll></AuditViewAll>} />
-            <Route path="/supervisionDashboard/taskComplete" element={<TaskComplete></TaskComplete>} />
+    // <AuthProvider>
+    //   <BrowserRouter>
+    //     <Layout>
+    //       <Header></Header>
+    //       <div className="flex">
+    //         <div className="sidebars w-[15%]">
+    //           <Sidebar></Sidebar>
+    //         </div>
+    //         <div style={{ padding: "20px" }} className="w-[85%] bg-gray-200">
+    //           <Routes>
+    //             <Route
+    //               path="/auction"
+    //               exact={true}
+    //               element={<Auction></Auction>}
+    //             />
+    //             <Route
+    //               path="/notification"
+    //               exact={true}
+    //               element={<Notification></Notification>}
+    //             />
+    //             <Route
+    //               path="/userManage"
+    //               exact={true}
+    //               element={<UserManage></UserManage>}
+    //             />
+    //             <Route
+    //               path="/partnerManage"
+    //               exact={true}
+    //               element={<PartnerManage></PartnerManage>}
+    //             />
+    //             <Route
+    //               path="/partnerDetail"
+    //               exact={true}
+    //               element={<PartnerDetail></PartnerDetail>}
+    //             />
+    //             <Route
+    //               path="/dashboard/updateRegister"
+    //               exact={true}
+    //               element={<UpdateRegister></UpdateRegister>}
+    //             />
+    //             <Route
+    //               path="/transaction"
+    //               exact={true}
+    //               element={<Transaction></Transaction>}
+    //             />
+    //             <Route
+    //               path="/firstCategory"
+    //               exact={true}
+    //               element={<FirstCategory></FirstCategory>}
+    //             />
+    //             <Route
+    //               path="/variable"
+    //               exact={true}
+    //               element={<Variable></Variable>}
+    //             />
+    //             <Route
+    //               path="/conversation"
+    //               exact={true}
+    //               element={<Conversation></Conversation>}
+    //             />
+    //             <Route
+    //               path="/bankTransfer"
+    //               exact={true}
+    //               element={<BankTransfer></BankTransfer>}
+    //             />
+    //             <Route
+    //               path="/makeAdmin"
+    //               exact={true}
+    //               element={<MakeAdmin></MakeAdmin>}
+    //             />
+    //             <Route
+    //               path="/supervisionDashboard"
+    //               exact={true}
+    //               element={<SupervisionDashboard></SupervisionDashboard>}
+    //             />
+    //             <Route
+    //               path="/activityLogs"
+    //               exact={true}
+    //               element={<ActivityLogs></ActivityLogs>}
+    //             />
+    //             <Route
+    //               path="/auditDashboard"
+    //               exact={true}
+    //               element={<AuditDashboard></AuditDashboard>}
+    //             />
+    //             <Route path="/support" element={<Support></Support>}>
+    //               <Route path="file-claim" element={<FileClaim></FileClaim>} />
+    //               <Route path="ticket" element={<Ticket></Ticket>} />
+    //             </Route>
+    //             <Route path="/setting" element={<Setting></Setting>}>
+    //               <Route path="condition" element={<Condition></Condition>} />
+    //               <Route path="privacy" element={<Privacy></Privacy>} />
+    //               <Route path="contactUs" element={<Contact></Contact>} />
+    //             </Route>
+    //             <Route path="/profile" element={<Profile></Profile>} />
+    //             <Route
+    //               path="/transactionDetails"
+    //               element={<TransactionDetails></TransactionDetails>}
+    //             />
+    //             <Route path="/logout" element={<Logout></Logout>} />
+    //             <Route path="/forget" element={<Forget></Forget>} />
+    //             <Route path="/checkEmail" element={<CheckEmail></CheckEmail>} />
+    //             <Route path="/verify" element={<Verify></Verify>} />
+    //             <Route path="/" element={<Dashboard></Dashboard>} />
+    //             <Route path="/dashboard" element={<Dashboard></Dashboard>} />
+    //             <Route
+    //               path="/auctionDetails"
+    //               element={<AuctionDetails></AuctionDetails>}
+    //             />
+    //             <Route
+    //               path="/supervisionDashboard/viewAll"
+    //               element={<ViewAll></ViewAll>}
+    //             />
+    //             <Route
+    //               path="/auditDashboard/viewAll"
+    //               element={<ViewAll></ViewAll>}
+    //             />
+    //             <Route
+    //               path="/auditDashboard/auditViewAll"
+    //               element={<AuditViewAll></AuditViewAll>}
+    //             />
+    //             <Route
+    //               path="/supervisionDashboard/taskComplete"
+    //               element={<TaskComplete></TaskComplete>}
+    //             />
+    //           </Routes>
+    //         </div>
+    //       </div>
+    //     </Layout>
+    //   </BrowserRouter>
+    // </AuthProvider>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public Route */}
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/forget" element={<Forget />} />
+          <Route path="/checkEmail" element={<CheckEmail />} />
+          <Route path="/verify" element={<Verify />} />
 
-          </Routes>
-        </div>
-      </div>
-    </BrowserRouter>
+          {/* Protected Routes inside Layout */}
+          <Route
+            path="/*"
+            element={
+              <ProtectedRoute>
+                <Layout>
+                  <Routes>
+                    <Route path="/" element={<Navigate to="/dashboard" />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/auction" element={<Auction />} />
+                    <Route path="/notification" element={<Notification />} />
+                    <Route path="/userManage" element={<UserManage />} />
+                    <Route path="/partnerManage" element={<PartnerManage />} />
+                    <Route path="/partnerDetail" element={<PartnerDetail />} />
+                    <Route
+                      path="/dashboard/updateRegister"
+                      element={<UpdateRegister />}
+                    />
+                    <Route path="/transaction" element={<Transaction />} />
+                    <Route path="/firstCategory" element={<FirstCategory />} />
+                    <Route path="/variable" element={<Variable />} />
+                    <Route path="/conversation" element={<Conversation />} />
+                    <Route path="/bankTransfer" element={<BankTransfer />} />
+                    <Route path="/makeAdmin" element={<MakeAdmin />} />
+                    <Route
+                      path="/supervisionDashboard"
+                      element={<SupervisionDashboard />}
+                    />
+                    <Route path="/activityLogs" element={<ActivityLogs />} />
+                    <Route path="/auditDashboard" element={<AuditDashboard />} />
+                    <Route path="/support" element={<Support />}>
+                      <Route path="file-claim" element={<FileClaim />} />
+                      <Route path="ticket" element={<Ticket />} />
+                    </Route>
+                    <Route path="/setting" element={<Setting />}>
+                      <Route path="condition" element={<Condition />} />
+                      <Route path="privacy" element={<Privacy />} />
+                      <Route path="contactUs" element={<Contact />} />
+                    </Route>
+                    <Route path="/profile" element={<Profile />} />
+                    <Route
+                      path="/transactionDetails"
+                      element={<TransactionDetails />}
+                    />
+                    <Route path="/logout" element={<Logout />} />
+                    <Route path="/forget" element={<Forget />} />
+                    <Route path="/checkEmail" element={<CheckEmail />} />
+                    <Route path="/verify" element={<Verify />} />
+                    <Route path="/auctionDetails" element={<AuctionDetails />} />
+                    <Route
+                      path="/supervisionDashboard/viewAll"
+                      element={<ViewAll />}
+                    />
+                    <Route
+                      path="/auditDashboard/viewAll"
+                      element={<ViewAll />}
+                    />
+                    <Route
+                      path="/auditDashboard/auditViewAll"
+                      element={<AuditViewAll />}
+                    />
+                    <Route
+                      path="/supervisionDashboard/taskComplete"
+                      element={<TaskComplete />}
+                    />
+                  </Routes>
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 };
 

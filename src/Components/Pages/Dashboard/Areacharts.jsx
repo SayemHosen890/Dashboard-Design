@@ -68,12 +68,10 @@ const Areacharts = () => {
                         <IoIosArrowDown /> */}
           {/* </button> */}
           <div className="flex items-center">
-                      <select
-                        className="border flex items-center justify-between gap-2 px-6 py-3 w-20"
-                      >
-                        <option>2024</option>
-                      </select>
-                      {/* <FaChevronDown
+            <select className="border flex items-center justify-between gap-2 px-6 py-3 w-20">
+              <option>2024</option>
+            </select>
+            {/* <FaChevronDown
                         // style={{
                         //   position: "absolute",
                         //   right: "12px",
@@ -84,7 +82,7 @@ const Areacharts = () => {
                         //   pointerEvents: "none",
                         // }}
                       /> */}
-                    </div>
+          </div>
         </div>
       </div>
       <ResponsiveContainer width="100%" height="100%">
