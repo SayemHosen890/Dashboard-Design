@@ -989,9 +989,9 @@ const Auction = () => {
             <tbody>
               {filteredData.map((item, i) => (
                 <tr key={i} style={{}}>
-                  <td style={{ padding: "16px" }}>{item.id}</td>
-                  <td style={{ padding: "16px" }}>{item.date}</td>
-                  <td style={{ padding: "16px" }}>
+                  <td style={{ padding: "10px" }}>{item.id}</td>
+                  <td style={{ padding: "10px" }}>{item.date}</td>
+                  <td style={{ padding: "10px" }}>
                     <div
                       style={{
                         display: "flex",
@@ -1012,7 +1012,7 @@ const Auction = () => {
                       <span style={{ fontWeight: "500" }}>{item.user}</span>
                     </div>
                   </td>
-                  <td style={{ padding: "16px" }}>
+                  <td style={{ padding: "10px" }}>
                     <div
                       style={{
                         display: "flex",
@@ -1033,12 +1033,12 @@ const Auction = () => {
                       <span style={{ fontWeight: "500" }}>{item.partner}</span>
                     </div>
                   </td>
-                  <td style={{ padding: "16px" }}>{item.itemType}</td>
-                  <td style={{ padding: "16px" }}>{item.category}</td>
-                  <td style={{ padding: "16px", fontWeight: "500" }}>
+                  <td style={{ padding: "10px" }}>{item.itemType}</td>
+                  <td style={{ padding: "10px" }}>{item.category}</td>
+                  <td style={{ padding: "10px", fontWeight: "500" }}>
                     {item.bid}
                   </td>
-                  <td style={{ padding: "16px" }}>
+                  <td style={{ padding: "10px" }}>
                     <button
                       style={{
                         border: "1px solid #f87171",
@@ -1055,7 +1055,7 @@ const Auction = () => {
                     </button>
                   </td>
 
-                  <td style={{ padding: "16px" }}>
+                  <td style={{ padding: "10px" }}>
                     <button
                       style={{
                         border: `1px solid ${
@@ -1075,11 +1075,11 @@ const Auction = () => {
                       {item.status}
                     </button>
                   </td>
-                  <td style={{ padding: "16px" }}>
+                  <td style={{ padding: "10px" }}>
                     <table>
                       <tbody>
                         <tr>
-                          <td style={{ padding: 16, verticalAlign: "top" }}>
+                          <td style={{ padding: 10, verticalAlign: "top" }}>
                             <div style={{ display: "flex", gap: 8 }}>
                               <button
                                 style={{
