@@ -701,7 +701,6 @@ const Auction = () => {
   const [activeButton, setActiveButton] = useState("All");
   const navigate = useNavigate();
 
-
   const handleClick = (event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
@@ -725,11 +724,17 @@ const Auction = () => {
     return true;
   });
 
-  
-
   const handleClose = () => {
     setOpen(false); // Closes the popper
   };
+
+  const [newPopOpen, setIsNewPopOpen] = useState(false);
+  const openPop = () => setIsNewPopOpen(true);
+  const closePop = () => setIsNewPopOpen(false);
+
+  const [anotherPopOpen, setAnotherPopOpen] = useState(false);
+  const popOpen = () => setAnotherPopOpen(true);
+  const popClose = () => setAnotherPopOpen(false);
 
   return (
     <div>
@@ -798,7 +803,7 @@ const Auction = () => {
                 color: "#6b7280",
               }}
             >
-              <GoSearch className="text-xl"/>
+              <GoSearch className="text-xl" />
             </div>
           </div>
         </div>
@@ -1044,76 +1049,12 @@ const Auction = () => {
                         fontWeight: "500",
                         cursor: "pointer",
                       }}
-                      onClick={handleClick}
+                      onClick={openPop}
                     >
                       Refund
                     </button>
-                    <Popper id={id} open={open} anchorEl={anchorEl}>
-                      <Box sx={{ borderRadius: "2px" }}>
-                        <div className="mx-auto !p-7 bg-white shadow rounded-md !mr-140 relative">
-                          {/* Close Button (Cross) */}
-                          <button
-                            onClick={handleClose} // Add your close handler here
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
-                            style={{
-                              background: "none",
-                              border: "none",
-                              fontSize: "1.5rem",
-                              cursor: "pointer",
-                              padding: "4px 8px",
-                            }}
-                          >
-                            <BsX size={24} className="!ml-40" />
-                          </button>
-
-                          <h1 className="text-center !pt-2 !pb-5">
-                            {" "}
-                            {/* Reduced top padding */}
-                            Are you want to refund ?
-                          </h1>
-                          <h3 className="text-center !py-5">
-                            Win Bid amount will be refund to the user/partner.
-                          </h3>
-                          <div className="flex justify-evenly items-center gap-4 !py-3">
-                            <div>
-                              <button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "white",
-                                  padding: "8px 40px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  backgroundColor: "black",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Refund
-                              </button>
-                            </div>
-                            <div>
-                              <button
-                                onClick={handleClose} // Added close handler to Cancel button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "black",
-                                  padding: "8px 40px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </Box>
-                    </Popper>
                   </td>
+
                   <td style={{ padding: "16px" }}>
                     <button
                       style={{
@@ -1129,58 +1070,10 @@ const Auction = () => {
                           statusColor[item.status]?.backgroundColor ||
                           "#f3f4f6",
                       }}
-                      onClick={handleClick}
+                      onClick={popOpen}
                     >
                       {item.status}
                     </button>
-                    <Popper id={id} open={open} anchorEl={anchorEl}>
-                      <Box sx={{ borderRadius: "2px" }}>
-                        <div className=" mx-auto !p-7 bg-white shadow rounded-md !mr-140">
-                          <h1 className="text-center !py-5">
-                            Are you sure want to change the status to
-                            “Completed”?
-                          </h1>
-                          <h3 className="text-center !py-5">
-                            Win Bid amount will be send to the user/partner.
-                          </h3>
-                          <div className="flex justify-center items-center gap-4 !py-3">
-                            <div>
-                              <button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "white",
-                                  padding: "8px 40px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  backgroundColor: "black",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Confirm
-                              </button>
-                            </div>
-                            <div>
-                              <button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "black",
-                                  padding: "8px 40px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Cancel
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </Box>
-                    </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <table>
@@ -1364,6 +1257,212 @@ const Auction = () => {
                       );
                     }
                   )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {newPopOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "70%",
+              maxWidth: "600px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closePop}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+            <div className=" ">
+              <h1 className="text-center !py-5">
+                Are you sure want to change the status to “Completed”?
+              </h1>
+              <h3 className="text-center !py-5">
+                Win Bid amount will be send to the user/partner.
+              </h3>
+              <div className="flex justify-center items-center gap-4 !py-3">
+                <div>
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      color: "white",
+                      padding: "8px 40px",
+                      borderRadius: "9999px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      backgroundColor: "black",
+                      margin: "0px 5px",
+                    }}
+                  >
+                    Confirm
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      color: "black",
+                      padding: "8px 40px",
+                      borderRadius: "9999px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      margin: "0px 5px",
+                    }}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {anotherPopOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "70%",
+              maxWidth: "600px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={popClose}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+            <div className=" ">
+              <h1 className="text-center !py-5">
+                Are you sure want to change the status to “Completed”?
+              </h1>
+              <h3 className="text-center !py-5">
+                Win Bid amount will be send to the user/partner.
+              </h3>
+              <div className="flex justify-center items-center gap-4 !py-3">
+                <div>
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      color: "white",
+                      padding: "8px 40px",
+                      borderRadius: "9999px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      backgroundColor: "black",
+                      margin: "0px 5px",
+                    }}
+                  >
+                    Confirm
+                  </button>
+                </div>
+                <div>
+                  <button
+                    style={{
+                      border: "1px solid black",
+                      color: "black",
+                      padding: "8px 40px",
+                      borderRadius: "9999px",
+                      fontSize: "14px",
+                      fontWeight: "500",
+                      cursor: "pointer",
+                      margin: "0px 5px",
+                    }}
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </div>

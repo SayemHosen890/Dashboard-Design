@@ -630,6 +630,10 @@ const UserManage = () => {
   const openPop = () => setIsNewPopOpen(true);
   const closePop = () => setIsNewPopOpen(false);
 
+  const [anotherPopOpen, setAnotherPopOpen] = useState(false);
+  const popOpen = () => setAnotherPopOpen(true);
+  const popClose = () => setAnotherPopOpen(false);
+
   return (
     <div>
       <div
@@ -841,112 +845,10 @@ const UserManage = () => {
                           borderRadius: "25%",
                           cursor: "pointer",
                         }}
-                        onClick={handleClick}
+                        onClick={popOpen}
                       >
                         <FaEye size={20} />
                       </button>
-                      <Popper id={id} open={open} anchorEl={anchorEl}>
-                        <Box sx={{ borderRadius: "2px" }}>
-                          <div className=" mx-auto !p-8 bg-white shadow rounded-md !mr-140">
-                            {/* Profile Picture */}
-                            <div className="flex justify-center mb-4">
-                              <img
-                                src="https://randomuser.me/api/portraits/men/1.jpg"
-                                alt="Profile"
-                                className="w-15 h-15 rounded-full object-cover"
-                              />
-                            </div>
-                            <div className="text-center !my-4">
-                              <div>Robert Smith</div>
-                              <div>robertsmith34@gmail.com</div>
-                            </div>
-                            <div className="!px-5 !mt-5">
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Phone Number:</h3>
-                                </div>
-                                <div>+3489 9999 9778</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Location:</h3>
-                                </div>
-                                <div>
-                                  1901 Thornridge Cir. Shiloh, Hawaii 81063
-                                </div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Wallet Balance:</h3>
-                                </div>
-                                <div>$354</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Bank Info</h3>
-                                </div>
-                                {/* <div>
-                                  +3489 9999 9778
-                                </div> */}
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Holder Name:</h3>
-                                </div>
-                                <div>Dianne Russell</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Holder Type:</h3>
-                                </div>
-                                <div>Personal</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Number:</h3>
-                                </div>
-                                <div>6575675678676</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Routing Number:</h3>
-                                </div>
-                                <div>5474574575467</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Phone Number:</h3>
-                                </div>
-                                <div>(201) 555-0124</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Date of Birth:</h3>
-                                </div>
-                                <div>23/06/99</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Business Name:</h3>
-                                </div>
-                                <div>Governance structures,</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Website:</h3>
-                                </div>
-                                <div>https://www.vip.com/</div>
-                              </div>
-                              <div className="flex justify-between gap-90">
-                                <div>
-                                  <h3>City:</h3>
-                                </div>
-                                <div>San Juan</div>
-                              </div>
-                            </div>
-                          </div>
-                        </Box>
-                      </Popper>
                     </div>
                   </td>
                   <>
@@ -1298,6 +1200,162 @@ const UserManage = () => {
               >
                 Sent
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+      {anotherPopOpen && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "80%",
+              maxWidth: "800px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={popClose}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
+            <div className="">
+              {/* Profile Picture */}
+              <div className="flex justify-center mb-4">
+                <img
+                  src="https://randomuser.me/api/portraits/men/1.jpg"
+                  alt="Profile"
+                  className="w-15 h-15 rounded-full object-cover"
+                />
+              </div>
+              <div className="text-center !my-4">
+                <div>Robert Smith</div>
+                <div>robertsmith34@gmail.com</div>
+              </div>
+              <div className="!px-5 !mt-5">
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Phone Number:</h3>
+                  </div>
+                  <div>+3489 9999 9778</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Location:</h3>
+                  </div>
+                  <div>1901 Thornridge Cir. Shiloh, Hawaii 81063</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Wallet Balance:</h3>
+                  </div>
+                  <div>$354</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Bank Info</h3>
+                  </div>
+                  {/* <div>
+                                  +3489 9999 9778
+                                </div> */}
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Holder Name:</h3>
+                  </div>
+                  <div>Dianne Russell</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Holder Type:</h3>
+                  </div>
+                  <div>Personal</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Number:</h3>
+                  </div>
+                  <div>6575675678676</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Routing Number:</h3>
+                  </div>
+                  <div>5474574575467</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Phone Number:</h3>
+                  </div>
+                  <div>(201) 555-0124</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Date of Birth:</h3>
+                  </div>
+                  <div>23/06/99</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Business Name:</h3>
+                  </div>
+                  <div>Governance structures,</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Website:</h3>
+                  </div>
+                  <div>https://www.vip.com/</div>
+                </div>
+                <div className="flex justify-between gap-90">
+                  <div>
+                    <h3>City:</h3>
+                  </div>
+                  <div>San Juan</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

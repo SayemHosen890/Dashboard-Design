@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BsChatLeftText, BsX } from "react-icons/bs";
-import { FaArrowLeft, FaCommentDots, FaEye } from "react-icons/fa";
+import { FaArrowLeft, FaEye } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import { MdOutlineArticle } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -667,9 +667,9 @@ const PartnerManage = () => {
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  const [activeConversation, setActiveConversation] = useState(0);
+  // const [activeConversation, setActiveConversation] = useState(0);
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [newPopOpen, setIsNewPopOpen] = useState(false);
   const openPop = () => setIsNewPopOpen(true);
@@ -920,8 +920,6 @@ const PartnerManage = () => {
                     </td>
 
                     {/* Fullscreen Overlay Modal */}
-
-                    
                   </>
                   <td style={{ padding: "16px" }}>
                     <button
@@ -964,123 +962,123 @@ const PartnerManage = () => {
         </div>
       </div>
       {newPopOpen && (
-                      <div
-                        style={{
-                          position: "fixed",
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          backgroundColor: "rgba(0,0,0,0.5)",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          zIndex: 1000,
-                        }}
-                      >
-                        <div
-                          style={{
-                            backgroundColor: "white",
-                            borderRadius: "8px",
-                            width: "70%",
-                            maxWidth: "600px",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-                            overflow: "hidden",
-                          }}
-                        >
-                          {/* Modal Header */}
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-between",
-                              alignItems: "center",
-                              backgroundColor: "white",
-                              color: "black",
-                            }}
-                          >
-                            <h3
-                              style={{
-                                margin: 0,
-                                fontSize: "18px",
-                                fontWeight: "600",
-                              }}
-                            >
-                              {/* Conversation Overview */}
-                            </h3>
-                            <button
-                              onClick={closePop}
-                              style={{
-                                background: "none",
-                                border: "none",
-                                color: "black",
-                                cursor: "pointer",
-                                padding: "5px",
-                              }}
-                            >
-                              <BsX size={24} className="!ml-40" />
-                            </button>
-                          </div>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0,0,0,0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: "white",
+              borderRadius: "8px",
+              width: "70%",
+              maxWidth: "600px",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+              overflow: "hidden",
+            }}
+          >
+            {/* Modal Header */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                backgroundColor: "white",
+                color: "black",
+              }}
+            >
+              <h3
+                style={{
+                  margin: 0,
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              >
+                {/* Conversation Overview */}
+              </h3>
+              <button
+                onClick={closePop}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "black",
+                  cursor: "pointer",
+                  padding: "5px",
+                }}
+              >
+                <BsX size={24} className="!ml-40" />
+              </button>
+            </div>
 
-                          <div className="!px-20 !mb-5">
-                            <h2 className="text-lg items-center flex justify-center">
-                              Important Notice
-                            </h2>
-                            <div className="flex justify-between items-center !py-4">
-                              <div>
-                                <h2>Important Notice</h2>
-                              </div>
-                              <div className="flex justify-start items-center gap-2">
-                                <div>
-                                  <input type="checkbox" name="" id="" />
-                                </div>
-                                <h2>Sent to All</h2>
-                              </div>
-                            </div>
-                            <div className="relative">
-                              {/* Corner text */}
-                              <span className="absolute top-1 left-3 text-sm text-gray-500">
-                                Write here
-                              </span>
+            <div className="!px-20 !mb-5">
+              <h2 className="text-lg items-center flex justify-center">
+                Important Notice
+              </h2>
+              <div className="flex justify-between items-center !py-4">
+                <div>
+                  <h2>Important Notice</h2>
+                </div>
+                <div className="flex justify-start items-center gap-2">
+                  <div>
+                    <input type="checkbox" name="" id="" />
+                  </div>
+                  <h2>Sent to All</h2>
+                </div>
+              </div>
+              <div className="relative">
+                {/* Corner text */}
+                <span className="absolute top-1 left-3 text-sm text-gray-500">
+                  Write here
+                </span>
 
-                              {/* Input field */}
-                              <input
-                                type="text"
-                                // defaultValue="John"
-                                className="h-50 w-full border rounded-md px-3 pt-5"
-                              />
-                            </div>
-                            <button
-                              style={{
-                                width: "100%",
-                                // marginLeft:"40px",
-                                padding: "10px 50px",
-                                // paddingInline:"30px",
-                                backgroundColor: "#111827",
-                                color: "white",
-                                border: "none",
-                                alignItems: "center",
-                                display: "flex",
-                                justifyContent: "center",
-                                borderRadius: "30px",
-                                marginTop: "15px",
-                                fontSize: "16px",
-                                fontWeight: "500",
-                                cursor: "pointer",
-                                transition: "background-color 0.2s",
-                              }}
-                              // onMouseOver={(e) =>
-                              //   (e.target.style.backgroundColor = "#1f2937")
-                              // }
-                              // onMouseOut={(e) =>
-                              //   (e.target.style.backgroundColor = "#111827")
-                              // }
-                            >
-                              Sent
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                {/* Input field */}
+                <input
+                  type="text"
+                  // defaultValue="John"
+                  className="h-50 w-full border rounded-md px-3 pt-5"
+                />
+              </div>
+              <button
+                style={{
+                  width: "100%",
+                  // marginLeft:"40px",
+                  padding: "10px 50px",
+                  // paddingInline:"30px",
+                  backgroundColor: "#111827",
+                  color: "white",
+                  border: "none",
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  borderRadius: "30px",
+                  marginTop: "15px",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  cursor: "pointer",
+                  transition: "background-color 0.2s",
+                }}
+                // onMouseOver={(e) =>
+                //   (e.target.style.backgroundColor = "#1f2937")
+                // }
+                // onMouseOut={(e) =>
+                //   (e.target.style.backgroundColor = "#111827")
+                // }
+              >
+                Sent
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       {isChatModalOpen && (
         <div
           style={{
