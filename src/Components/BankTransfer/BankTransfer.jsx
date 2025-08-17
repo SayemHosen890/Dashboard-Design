@@ -123,24 +123,24 @@ const statusColor = {
   },
 };
 
-
-
-
 const BankTransfer = () => {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [isChatModalOpen, setIsChatModalOpen] = useState(false);
-    // const [chatContent, setChatContent] = useState("This is editable content");
-  
-    const handleClick = (event) => {
-      setAnchorEl(anchorEl ? null : event.currentTarget);
-    };
-  
-    const open = Boolean(anchorEl);
-    const id = open ? "simple-popper" : undefined;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [isChatModalOpen, setIsChatModalOpen] = useState(false);
+  // const [chatContent, setChatContent] = useState("This is editable content");
 
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popper" : undefined;
 
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
+
+  const [anotherPopOpen, setAnotherPopOpen] = useState(false);
+  const popOpen = () => setAnotherPopOpen(true);
+  const popClose = () => setAnotherPopOpen(false);
 
   // const [activeConversation, setActiveConversation] = useState(0);
   const navigate = useNavigate();
@@ -172,7 +172,7 @@ const BankTransfer = () => {
                 cursor: "pointer",
               }}
             >
-              <FaArrowLeft  className="text-[#007BFF]"/>
+              <FaArrowLeft className="text-[#007BFF]" />
             </button>
             <h1
               style={{ fontSize: "18px", fontWeight: "600", color: "#1f2937" }}
@@ -333,59 +333,10 @@ const BankTransfer = () => {
                         minWidth: "80px",
                         textAlign: "center",
                       }}
-                      onClick={handleClick}
+                      onClick={popOpen}
                     >
                       {item.status}
                     </span>
-                    <Popper id={id} open={open} anchorEl={anchorEl}>
-                      <Box sx={{ borderRadius: "2px" }}>
-                        
-                        <div className=" mx-auto !p-7 bg-white text-gray-600 shadow rounded-md !mr-140">
-                          <h1 className="text-center !mb-4">
-                            Status
-                          </h1>
-                          <h3 className="text-start font-md  ">
-                            Transaction ID
-                          </h3>
-                          <input type="text" id="username" name="username"  className="bg-red border w-full rounded-xm"/>
-                          <div className="flex justify-center items-center gap-4 !py-4">
-                            <div>
-                              <button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "white",
-                                  padding: "8px 60px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  backgroundColor: "black",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Completed
-                              </button>
-                            </div>
-                            <div>
-                              <button
-                                style={{
-                                  border: "1px solid black",
-                                  color: "black",
-                                  padding: "8px 60px",
-                                  borderRadius: "9999px",
-                                  fontSize: "14px",
-                                  fontWeight: "500",
-                                  cursor: "pointer",
-                                  margin: "0px 5px",
-                                }}
-                              >
-                                Close
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </Box>
-                    </Popper>
                   </td>
                   <td style={{ padding: "16px" }}>
                     <button
@@ -569,6 +520,111 @@ const BankTransfer = () => {
                       <h3>City:</h3>
                     </div>
                     <div>San Juan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {anotherPopOpen && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              zIndex: 1000,
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "white",
+                borderRadius: "8px",
+                width: "50%",
+                maxWidth: "600px",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+                overflow: "hidden",
+              }}
+            >
+              {/* Modal Header */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  backgroundColor: "white",
+                  color: "black",
+                }}
+              >
+                <h3
+                  style={{
+                    margin: 0,
+                    fontSize: "18px",
+                    fontWeight: "600",
+                  }}
+                >
+                  {/* Conversation Overview */}
+                </h3>
+                <button
+                  onClick={popClose}
+                  style={{
+                    background: "none",
+                    border: "none",
+                    color: "black",
+                    cursor: "pointer",
+                    padding: "5px",
+                  }}
+                >
+                  <BsX size={24} className="!ml-40" />
+                </button>
+              </div>
+              <div className=" mx-auto !p-7 bg-white text-gray-600 shadow rounded-md justify-center">
+                <h1 className="text-center !mb-4">Status</h1>
+                <h3 className="text-start font-md !ml-9">Transaction ID</h3>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  className="bg-red border w-120 rounded-xm !ml-9"
+                />
+                <div className="flex justify-center items-center gap-4 !py-4">
+                  <div>
+                    <button
+                      style={{
+                        border: "1px solid black",
+                        color: "white",
+                        padding: "8px 70px",
+                        borderRadius: "9999px",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        cursor: "pointer",
+                        backgroundColor: "black",
+                        margin: "0px 5px",
+                      }}
+                    >
+                      Completed
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      style={{
+                        border: "1px solid black",
+                        color: "black",
+                        padding: "8px 70px",
+                        borderRadius: "9999px",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        cursor: "pointer",
+                        margin: "0px 5px",
+                      }}
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
