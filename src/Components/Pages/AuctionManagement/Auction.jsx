@@ -1322,7 +1322,7 @@ const Auction = () => {
             </div>
             <div className=" ">
               <h1 className="text-center !py-5">
-                Are you sure want to change the status to “Completed”?
+                Are you sure want to change the status to “Refund”?
               </h1>
               <h3 className="text-center !py-5">
                 Win Bid amount will be send to the user/partner.
@@ -1342,7 +1342,7 @@ const Auction = () => {
                       margin: "0px 5px",
                     }}
                   >
-                    Confirm
+                    Refund
                   </button>
                 </div>
                 <div>
