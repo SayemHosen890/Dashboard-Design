@@ -605,7 +605,7 @@ const FirstCategory = () => {
 
   return (
     <div>
-      <div className="p-6 bg-gray-50 min-h-screen rounded-md font-sans">
+      <div className="p-6 bg-gray-50 rounded-md font-sans">
         <div className="flex items-center justify-between bg-white rounded-md gap-2 mb-4 !p-3">
           <div className="flex items-center gap-2 mb-4">
             <button

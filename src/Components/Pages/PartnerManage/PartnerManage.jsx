@@ -667,7 +667,7 @@ const PartnerManage = () => {
   const openChatModal = () => setIsChatModalOpen(true);
   const closeChatModal = () => setIsChatModalOpen(false);
 
-  // const [activeConversation, setActiveConversation] = useState(0);
+  const [activeConversation, setActiveConversation] = useState(0);
   const navigate = useNavigate();
   // const [isModalOpen, setIsModalOpen] = useState(false);
 

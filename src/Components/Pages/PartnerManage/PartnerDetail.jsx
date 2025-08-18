@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowLeft, FaCamera, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import car1 from "../../../assets/car1.png";
 import car2 from "../../../assets/car2.png";
@@ -12,9 +12,9 @@ import id4 from "../../../assets/id4.png";
 
 const PartnerDetail = () => {
   const [activeTab, setActiveTab] = useState("editProfile");
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showNewPassword, setShowNewPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  // const [showNewPassword, setShowNewPassword] = useState(false);
+  // const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwords, setPasswords] = useState({
     currentPassword: "",
     newPassword: "",
@@ -28,10 +28,10 @@ const PartnerDetail = () => {
     }));
   };
 
-  const handleSaveChange = () => {
-    // Handle password change logic here
-    console.log("Saving password changes:", passwords);
-  };
+  // const handleSaveChange = () => {
+  //   // Handle password change logic here
+  //   console.log("Saving password changes:", passwords);
+  // };
   const navigate = useNavigate();
   return (
     <div
@@ -57,10 +57,10 @@ const PartnerDetail = () => {
             onClick={() => navigate(-1)}
             style={{
               fontSize: "18px",
-            //   color: "black",
+              //   color: "black",
               cursor: "pointer",
             }}
-             className="text-[#007BFF]"
+            className="text-[#007BFF]"
           />
           <h1
             style={{
@@ -185,96 +185,92 @@ const PartnerDetail = () => {
               margin: "0 auto",
             }}
           >
-
             <div className="">
-                            {/* Profile Picture */}
-                            
-                            <div className="!px-5 !mt-5">
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Phone Number:</h3>
-                                </div>
-                                <div>+3489 9999 9778</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Location:</h3>
-                                </div>
-                                <div>
-                                  1901 Thornridge Cir. Shiloh, Hawaii 81063
-                                </div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Wallet Balance:</h3>
-                                </div>
-                                <div>$354</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Bank Info</h3>
-                                </div>
-                                {/* <div>
+              {/* Profile Picture */}
+
+              <div className="!px-5 !mt-5">
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Phone Number:</h3>
+                  </div>
+                  <div>+3489 9999 9778</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Location:</h3>
+                  </div>
+                  <div>1901 Thornridge Cir. Shiloh, Hawaii 81063</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Wallet Balance:</h3>
+                  </div>
+                  <div>$354</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Bank Info</h3>
+                  </div>
+                  {/* <div>
                                   +3489 9999 9778
                                 </div> */}
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Holder Name:</h3>
-                                </div>
-                                <div>Dianne Russell</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Holder Type:</h3>
-                                </div>
-                                <div>Personal</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Account Number:</h3>
-                                </div>
-                                <div>6575675678676</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Routing Number:</h3>
-                                </div>
-                                <div>5474574575467</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Phone Number:</h3>
-                                </div>
-                                <div>(201) 555-0124</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Date of Birth:</h3>
-                                </div>
-                                <div>23/06/99</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Business Name:</h3>
-                                </div>
-                                <div>Governance structures,</div>
-                              </div>
-                              <div className="flex justify-between gap-90 !py-2">
-                                <div>
-                                  <h3>Website:</h3>
-                                </div>
-                                <div>https://www.vip.com/</div>
-                              </div>
-                              <div className="flex justify-between gap-90">
-                                <div>
-                                  <h3>City:</h3>
-                                </div>
-                                <div>San Juan</div>
-                              </div>
-                            </div>
-                          </div>
-            
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Holder Name:</h3>
+                  </div>
+                  <div>Dianne Russell</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Holder Type:</h3>
+                  </div>
+                  <div>Personal</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Account Number:</h3>
+                  </div>
+                  <div>6575675678676</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Routing Number:</h3>
+                  </div>
+                  <div>5474574575467</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Phone Number:</h3>
+                  </div>
+                  <div>(201) 555-0124</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Date of Birth:</h3>
+                  </div>
+                  <div>23/06/99</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Business Name:</h3>
+                  </div>
+                  <div>Governance structures,</div>
+                </div>
+                <div className="flex justify-between gap-90 !py-2">
+                  <div>
+                    <h3>Website:</h3>
+                  </div>
+                  <div>https://www.vip.com/</div>
+                </div>
+                <div className="flex justify-between gap-90">
+                  <div>
+                    <h3>City:</h3>
+                  </div>
+                  <div>San Juan</div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
